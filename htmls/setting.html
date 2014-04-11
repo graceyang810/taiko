@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>太鼓达人leap测试版</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="../css/style.css" rel="stylesheet">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/leap.min.js"></script>
+	<script src="../js/knob.js"></script>	
+</head>
+<body style="background:white; !important">
+	<audio id="backmusic" loop="loop" src="../audios/bgm_game.ogg"></audio>
+	<img class="menuback" src="../images/back.png">
+	<p style="position:absolute;top:3%;left:5%;font-size:65px;color:#000;">系统设置</p>
+	<div id="show" align="center"></div>
+    <div style="position:absolute;top:30%;left:25%;">
+        <input class="dial" id="valume" data-fgColor="rgb(135, 206, 235)" data-linecap=round data-angleOffset=-125 data-angleArc=250 data-width="200" data-height="200">
+        <p style="color:rgb(135,206,235);position:absolute;left:26%;font-size:50px;">音量</p>
+	</div>
+
+    <div style="position:absolute;top:30%;right:25%;">
+        <input class="dial" id="sound" data-fgColor="f8b9cc" data-linecap=round data-angleOffset=-125 data-angleArc=250 data-width="200" data-height="200">
+        <p style="color:#f8b9cc;position:absolute;left:26%;font-size:50px;">音效</p>
+	</div>
+	<a id="goback" href=""><img style="position:absolute;bottom:4%;right:4%;z-index:2;" src="../images/btn_back.png"></a>
+
+	<script>
+		var valume = getParameterByName("valume");
+		var sound = getParameterByName("sound");
+		var userinfo = getParameterByName("userinfo");
+		$("#valume").attr("value",valume);
+		$("#sound").attr("value",sound);
+		document.getElementById('backmusic').volume = valume/100;
+		document.getElementById('backmusic').play();
+		$("#valume").knob({
+		'change' : function (v) { 
+			
+			if(v >=1 && v<= 100){
+				valume = v;
+				document.getElementById("backmusic").volume = v/100;				
+			}
+			if(v <0){
+				valume = 0;
+			}
+			if(v>100){
+				valume = 100;
+			}
+			var newhref = "./mainmenu.html?"+"userinfo="+userinfo+"&valume="+valume+"&sound="+sound;
+			$("#goback").attr("href",newhref);
+		}
+		});
+
+		$("#sound").knob({
+		'change' : function (v) { 
+			if(v >= 0 && v <= 100){
+				sound = v;
+			}
+			if(v <0){
+				sound = 0;
+			}
+			if(v>100){
+				sound = 100;
+			}
+			var newhref = "./mainmenu.html?"+"userinfo="+userinfo+"&valume="+valume+"&sound="+sound;
+			$("#goback").attr("href",newhref);
+		}
+		});
+
+		var newhref = "./mainmenu.html?"+"userinfo="+userinfo+"&valume="+valume+"&sound="+sound;
+		$("#goback").attr("href",newhref);
+
+
+
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+	</script>
+</body>
+</html>

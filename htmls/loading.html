@@ -1,0 +1,71 @@
+<html>
+	<head>
+    	<title>太鼓达人leap测试版</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<link href="../css/style.css" rel="stylesheet">
+    	<link href="../css/process.css" rel="stylesheet">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/leap.min.js"></script>
+	</head>
+	<body>
+		<div class="loading">
+			<img class="loadingPic" src="../images/loading.gif">
+			<p id="loadWrd" >载入中</p>
+			<p class="ani_dot" style="position: absolute;color:white; margin-top:-74px;margin-left:30px;">...</p> 
+			<div class="box1" style="margin-top:-356px; margin-left:-254px;"></div>
+			<div class="box1" style="margin-top:-30px; margin-left:-254px;"></div>
+			<div class="box2" style="margin-top:-316px; margin-left:-254px;"></div>
+			<div class="box2" style="margin-top:-316px; margin-left:236px;"></div>
+			<section id="demo" class="container" style="position: absolute;z-index:3;text-align:center;">
+			        <input type="radio" class="radio" name="progress" value="five" id="five" checked="">
+			        <label for="five" class="label">
+			            5%
+			        </label>
+			        <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" >
+			        <label for="twentyfive" class="label">
+			            25%
+			        </label>
+			        <input type="radio" class="radio" name="progress" value="fifty" id="fifty">
+			        <label for="fifty" class="label">
+			            50%
+			        </label>
+			        <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
+			        <label for="seventyfive" class="label">
+			            75%
+			        </label>
+			        <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
+			        <label for="onehundred" class="label">
+			            100%
+			        </label>
+		        <div class="progress">
+		            <div class="progress-bar">
+		            </div>
+		        </div>
+		    </section>
+		    <script type="text/javascript">
+		    	function processer1(){
+				$('#twentyfive').click();
+				}
+		    	function processer2(){
+				$('#fifty').click();
+				}
+		    	function processer3(){
+				$('#seventyfive').click();
+				}
+		    	function processer4(){
+				$('#onehundred').click();
+				}
+				function fadeout(){
+				$(".loading").fadeOut(500);
+				}
+				document.body.style.cursor="wait";
+				window.setTimeout(processer1,1000);
+				window.setTimeout(processer2,3000);
+				window.setTimeout(processer3,5000);
+				window.setTimeout(processer4,5800);
+				window.setTimeout(fadeout,6500);
+				setTimeout("javascript:location.href='./mainmenu.html?userinfo=No&valume=90&sound=90'", 7000);
+		    </script>
+		</div>		
+	</body>
+</html>

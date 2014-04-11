@@ -1,0 +1,113 @@
+<html>
+<html>
+<head>
+	<title>太鼓达人leap测试版</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="../css/leapstrap.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/jquery.fullPage.css" rel="stylesheet">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/leap.min.js"></script>
+	<script src="../js/leapstrap.js"></script>
+	<script src="../js/holder.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/jquery.fullPage.js"></script>
+	<style type="text/css">
+		#section0,
+		#section1,
+		#section2,
+		#section3{
+			background-size: cover;
+		}
+		#section0 {
+			background-image: url(../images/back1.png);
+		}
+		#section1 {
+			background-image: url(../images/back3.png);
+		}
+		#section2 {
+			background-image: url(../images/bg_Theme99-hd.png);
+		}
+		#section3 {
+			background-image: url(../images/back18.png);
+		}
+		#fullPage-nav li, .fullPage-slidesNav li{
+			right:-26%;
+			margin:40px;
+		}
+		#fullPage-nav span, .fullPage-slidesNav span {
+			width:10px;
+			height:10px;
+		}
+		.controlArrow.prev {
+			left: 30%;
+			top:61%;
+		}
+		.controlArrow.next{
+			right: 30%;
+			top:61%;
+		}
+
+	</style>
+</head>
+<body>	
+	<p style="position:fixed;z-index:5;top:6%;left:5%;font-size:60px;color:#000;">用户注册</p>
+	
+	<div class="section active" id="section0">		
+		<p style="position:absolute;z-index:6;top:40%;left:24%;font-size:30px;color:#000;">随机生成用户名:</p>
+		<div class="slide" id="name_slide1">
+			<p style="margin-top:27%;margin-left:43%;color:white;font-size:60px;">李狗蛋</p>
+		</div>		
+	    <div class="slide" id="name_slide2">
+			<p style="margin-top:27%;margin-left:43%;color:white;font-size:60px;">张小花</p>
+		</div>
+	    <div class="slide" id="name_slide3">
+			<p style="margin-top:27%;margin-left:43%;color:white;font-size:60px;">王大锤</p>
+		</div>
+	    <div class="slide" id="name_slide4">
+			<p style="margin-top:27%;margin-left:43%;color:white;font-size:60px;">易小星</p>
+		</div>
+	    <div class="slide" id="name_slide5">
+			<p style="margin-top:27%;margin-left:41%;color:white;font-size:60px;">欧阳狗腿</p>
+		</div>
+	</div>
+	<div class="section" id="section1">
+		<p style="position:absolute;z-index:6;top:40%;left:24%;font-size:30px;color:#000;">选择头像:</p>
+		<div class="slide" id="avator_slider1">
+			<img style="width:10%;margin-top:24%;margin-left:45%;" src="../images/avatar.png">
+		</div>		
+	    <div class="slide" id="avator_slider2">
+			<img style="width:10%;margin-top:24%;margin-left:45%;" src="../images/avatar2.png">
+		</div>
+	    <div class="slide" id="avator_slider3">
+			<img style="width:10%;margin-top:24%;margin-left:45%;" src="../images/avatar3.png">
+		</div>
+	    <div class="slide" id="avator_slider4">
+			<p style="margin-top:27%;margin-left:43%;color:white;font-size:60px;">易小星</p>
+		</div>
+	    <!-- <div class="slide" id="avator_slider5">
+			<p style="margin-top:27%;margin-left:41%;color:white;font-size:60px;">欧阳狗腿</p>
+		</div> -->
+	</div>
+	<div class="section" id="section2">
+		
+	</div>
+	<div class="section" id="section3">
+		
+	</div>	
+	
+	<img style="position:fixed;top:25%;right:10px;width:60px;" src="../images/drum0.png">
+	<img style="position:fixed;bottom:25%;right:10px;width:60px;" src="../images/drum1.png">
+	<a href="./mainmenu.html"><img style="position:absolute;top:2%;right:2%;" src="../images/btn_back.png"></a>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var pepe = $.fn.fullpage({
+				verticalCentered: false,
+				navigation: true,
+				navigationPosition: 'right'
+			});
+		});
+	</script>
+</body>
+</html>
