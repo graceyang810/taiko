@@ -12,30 +12,30 @@
 <body>
 	<body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
 	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
-	<img class="menuback" src="../images/bg_menu2.png">
+	<img class="menuback" src="../images/back14.png">
 	<img id="title" src="../images/title.png">
 	<img class="updown1" id="login_drum0" src="../images/drum0.png">
 	<img class="updown2" id="login_drum1" src="../images/drum1.png">
-	<a href="./log.html"  id="log" class="leap-click leap-interactive"><img id="pic1"src="../images/log.png"></a>
-	<a href="./register.html"  id="register" class="leap-click leap-interactive"><img id="pic2"src="../images/register.png"></a>
-	<a id="goback" href=""><img style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
+	<a href="./game.html"  id="log" class="leap-click leap-interactive"><img id="pic1"src="../images/start.png"></a>
+	<a href="./shake.html"  id="register" class="leap-click leap-interactive"><img id="pic2"src="../images/shake.png"></a>
+	<a id="goback" href="../htmls/mainmenu.html"><img style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
 
 	<script type="text/javascript">
 		$("#log").hover(
 			function(){
-    		$("#pic1").attr("src","../images/log_hover.png");
+    		$("#pic1").attr("src","../images/start_hover.png");
     		document.getElementById('buttonplayer').play(); 
 			},
 			function(){
-			$("#pic1").attr("src","../images/log.png");
+			$("#pic1").attr("src","../images/start.png");
 			})
 		$("#register").hover(
 			function(){
-    		$("#pic2").attr("src","../images/register_hover.png");
+    		$("#pic2").attr("src","../images/shake_hover.png");
     		document.getElementById('buttonplayer').play(); 
 			},
 			function(){
-			$("#pic2").attr("src","../images/register.png");
+			$("#pic2").attr("src","../images/shake.png");
 			})
 			
 	</script>

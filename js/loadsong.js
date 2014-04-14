@@ -22,14 +22,7 @@ $(document).ready(function(){
 			miss = data.rhythm.length - perfect -cool;
 	        document.location.href = "./result.html?perfect="+perfect+"&cool="+cool+"&miss="+miss+"&combo="+combo;
 	    });
-		// getParameterByName("a");
-	 	//    function getParameterByName(name) {
-		//     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-		//     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		//         results = regex.exec(location.search);
-		//     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-		// }
-
+	    
 
 		for(var i in data.rhythm){
 			strrhythm = "<img class='rhythm' style='width:71px;top:46px;z-index:4;'  id='rhythm"+ i +"' src='../images/"+ data.rhythm[i].color +".png'>";

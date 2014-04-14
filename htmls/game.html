@@ -7,6 +7,7 @@
 	<link href="../css/style.css" rel="stylesheet">
 	<link href="../css/leapstrap.css" rel="stylesheet">
 	<script src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js" ></script>
 	<script src="../js/leap.min.js"></script>
 	<script src="../js/leapstrap.js"></script>
 	<script src="../js/holder.js"></script>
@@ -20,12 +21,12 @@
 		<img style="position:absolute;top:25%;left:44%;width:10%;z-index:6;" src="../images/vs.png">
 		<div id="vssong"></div>
 
-		<img style="position:absolute;top:20%;left:20%;width:12%;z-index:6;" src="../images/avatar.png">
+		<img style="position:absolute;top:20%;left:20%;width:12%;z-index:6;" src="../images/f1.png">
 		<p id="name1" style="z-index:6;position:absolute;color:white;font-size:20px;top:45%;left:20%;">name1</p>		
 		<label id="level1" style="position:absolute;z-index:6;color:blue;font-family:aviral;font-size:8px;top:50%;left:22%;">Lv.6</label>
 		<img style="position:absolute;z-index:6;top:50%;left:20%;" src="../images/level.gif">
 		
-		<img style="position:absolute;top:20%;right:20%;width:12%;z-index:6;" src="../images/avatar.png">
+		<img style="position:absolute;top:20%;right:20%;width:12%;z-index:6;" src="../images/m1.png">
 		<p id="name2" style="z-index:6;position:absolute;color:white;font-size:20px;top:45%;right:20%;">name2</p>		
 		<label id="level2" style="position:absolute;z-index:6;color:blue;font-family:aviral;font-size:8px;top:50%;right:22%;">Lv.3</label>
 		<img style="position:absolute;z-index:6;top:50%;right:20%;" src="../images/level.gif">
@@ -193,40 +194,44 @@
 				if(data.rhythm[n].color == "huang"){
 					// left_perfect
 					if(parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth > 0.01 && parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth < 0.04){
-						console.log(n+":"+ parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth*100+"%");
-						console.log("left_perfect");
+						// console.log(n+":"+ parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth*100+"%");
+						// console.log("left_perfect");
 						$("#"+"rhythm"+n).css("visibility","hidden");
 						tempscore += 30;						
 						$("#currentscore1").html(tempscore);
 						perfect++;
-						console.log("perfect:"+perfect);
+						// console.log("perfect:"+perfect);
 						tempcombo++;
 						n++;	
 						// 动画
 						strlevel = "<img id='perfect"+n +"' style='position:absolute;top:40px;left:1.5%;z-index:4;width:10%;' src='../images/perfect.png'>";
+						$("#dislevel").empty();
 						document.getElementById("dislevel").innerHTML = document.getElementById("dislevel").innerHTML+strlevel; 
-						$( "#" +"perfect" + n).animate({top:'-=60px',opacity:'0',width:'150px'},"slow");
+						$( "#" +"perfect" + n).animate({top:'-=60px',opacity:'0',width:'150px'},"slow", function() {
+						});
 						continue;
 						}
 					// left_cool
 					if(parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth > 0.04 && parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth < 0.07){
-						console.log(n+":"+ parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth*100+"%");
-						console.log("left_cool");
+						// console.log(n+":"+ parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth*100+"%");
+						// console.log("left_cool");
 						$("#"+"rhythm"+n).css("visibility","hidden");
 						tempscore += 10;
 						$("#currentscore1").html(tempscore);						
 						cool++;
-						console.log("cool:"+cool);
+						// console.log("cool:"+cool);
 						tempcombo++;
 						n++;		
 						// 动画
 						strlevel = "<img id='cool"+n +"' style='position:absolute;top:40px;left:1.5%;z-index:4;width:10%;' src='../images/cool.png'>";
+						$("#dislevel").empty();
 						document.getElementById("dislevel").innerHTML = document.getElementById("dislevel").innerHTML+strlevel; 
-						$( "#" +"cool" + n).animate({top:'-=60px',opacity:'0',width:'150px'},"slow");
+						$( "#" +"cool" + n).animate({top:'-=60px',opacity:'0',width:'150px'},"slow",function() {
+						});
 						continue;
 						}	
 					// left_miss
-					if(parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth > 0.07 && parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth < 0.15||parseInt($("#"+"rhythm"+m).css("left"))/document.body.clientWidth < 0.01&&parseInt($("#"+"rhythm"+m).css("left"))/document.body.clientWidth > -0.01){
+					if(parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth > 0.07 && parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth < 0.15||parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth < 0.01&&parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth > -0.01){
 						console.log(n+":"+ parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth*100+"%");
 						console.log("left_miss");					
 						miss++;
@@ -242,8 +247,10 @@
 						n++;	
 						// 动画
 						strlevel = "<img id='miss"+n +"' style='position:absolute;top:40px;left:1.5%;z-index:4;width:10%;' src='../images/miss.png'>";
+						$("#dislevel").empty();
 						document.getElementById("dislevel").innerHTML = document.getElementById("dislevel").innerHTML+strlevel; 
-						$( "#" +"miss" + n).animate({top:'-=60px',opacity:'0',width:'150px'},"slow");
+						$( "#" +"miss" + n).animate({top:'-=60px',opacity:'0',width:'150px'},"slow",function() {
+						});
 						continue;
 						}
 					else{
@@ -280,8 +287,10 @@
 						m++;
 						// 动画
 						strlevel = "<img id='perfect"+m +"' style='position:absolute;top:40px;left:1.5%;z-index:4;width:10%;' src='../images/perfect.png'>";
+						$("#dislevel").empty();
 						document.getElementById("dislevel").innerHTML = document.getElementById("dislevel").innerHTML+strlevel; 
-						$( "#" +"perfect" + m).animate({top:'-=60px',opacity:'0',width:'150px'},"slow");
+						$( "#" +"perfect" + m).animate({top:'-=60px',opacity:'0',width:'150px'},"slow",function() {
+						});
 						continue;
 						}
 					// right_cool
@@ -297,8 +306,10 @@
 						m++;	
 						// 动画
 						strlevel = "<img id='cool"+m +"' style='position:absolute;top:40px;left:1.5%;z-index:4;width:10%;' src='../images/cool.png'>";
+						$("#dislevel").empty();
 						document.getElementById("dislevel").innerHTML = document.getElementById("dislevel").innerHTML+strlevel; 
-						$( "#" +"cool" + m).animate({top:'-=60px',opacity:'0',width:'150px'},"slow");
+						$( "#" +"cool" + m).animate({top:'-=60px',opacity:'0',width:'150px'},"slow",function() {
+						});
 						continue;
 						}	
 					// right_miss
@@ -318,8 +329,10 @@
 						m++;	
 						// 动画
 						strlevel = "<img id='miss"+m +"' style='position:absolute;top:40px;left:1.5%;z-index:4;width:10%;' src='../images/miss.png'>";
+						$("#dislevel").empty();
 						document.getElementById("dislevel").innerHTML = document.getElementById("dislevel").innerHTML+strlevel; 
-						$( "#" +"miss" + m).animate({top:'-=60px',opacity:'0',width:'150px'},"slow");
+						$( "#" +"miss" + m).animate({top:'-=60px',opacity:'0',width:'150px'},"slow",function() {
+						});
 						continue;
 						}					
 					else{

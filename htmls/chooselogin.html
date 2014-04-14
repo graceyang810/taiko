@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>太鼓达人leap测试版</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/leapstrap.css" rel="stylesheet">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/leap.min.js"></script>
+	<script src="../js/leapstrap.js"></script>
+	<script src="../js/holder.js"></script>
+</head>
+<body>
+	<body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
+	<img class="menuback" src="../images/back14.png">
+	<img id="title" src="../images/title.png">
+	<img class="updown1" id="login_drum0" src="../images/drum0.png">
+	<img class="updown2" id="login_drum1" src="../images/drum1.png">
+	<a href="./login.html"  id="log" class="leap-click leap-interactive"><img id="pic1"src="../images/log.png"></a>
+	<a href="./register.html"  id="register" class="leap-click leap-interactive"><img id="pic2"src="../images/register.png"></a>
+	<a id="goback" href="../htmls/mainmenu.html"><img style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
+
+	<script type="text/javascript">
+		$("#log").hover(
+			function(){
+    		$("#pic1").attr("src","../images/log_hover.png");
+    		document.getElementById('buttonplayer').play(); 
+			},
+			function(){
+			$("#pic1").attr("src","../images/log.png");
+			})
+		$("#register").hover(
+			function(){
+    		$("#pic2").attr("src","../images/register_hover.png");
+    		document.getElementById('buttonplayer').play(); 
+			},
+			function(){
+			$("#pic2").attr("src","../images/register.png");
+			})
+			
+	</script>
+	<script>
+        LeapManager.init({
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: true,
+            maxCursors: 1,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+        });
+    </script>
+</body>
+</html>
