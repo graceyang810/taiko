@@ -2,11 +2,21 @@
 <head>
 	<title>太鼓达人leap测试版</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/playerinfo.css" rel="stylesheet">
 	<script src="../js/jquery.min.js"></script>
-	<script src="../js/leap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/playerinfo.js"></script>
 </head>
 <body>
-	
+	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
+	<p class="title">用户信息</p>
+	<h1 class="info" style="top:30%;">ID:<span id="id" style="color:#1d54f3;"></span><span style="color:red;">（请牢记）</span></h4>
+	<h1 class="info" style="top:40%;">用户名:<span id="name" style="color:#1d54f3;"></span></h4>
+	<h1 class="info" style="top:50%;">性别:<span id="sex" style="color:#1d54f3;"></span></h4>
+	<h1 class="info" style="top:60%;">等级:<span id="level" style="color:#1d54f3;"></span></h4>
+	<img id="avator">
+	<a href="./mode.html"  id="playbtn"><img id="pic1" src="../images/play.png"></a>
+	<a href="./chooselogin.html"  id="exitbtn"><img id="pic2" src="../images/exitbtn.png"></a>
+	<a href="./mainmenu.html"  id="goback"><img id="pic3" src="../images/btn_back.png"></a>
 </body>
 </html>

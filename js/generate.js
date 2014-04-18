@@ -44,12 +44,17 @@ $(document).ready(function(){
 
 	$( "#submit" ).click(function(){
 		if(code == con_code){
+		$.getJSON("../json/get_newplayer.json",{'name':$(".active > p").html(),'sex':$(".sex:checked").val(),'avator':$(".active > img").attr("src"),'code':con_code},function(data){
+			console.log("OK");
+			$.cookie('player_id',data.id);
+			$("#id").html(data.id);
+			$.cookie('player_name',$(".active > p").html());
+			$.cookie('player_sex',$(".sex:checked").val());
+			$.cookie('player_avator',$(".active > img").attr("src"));
+			$.cookie('player_level',"1");	
+		});
 		$('#submit').hide();
 		$('#submitOK').show();
-
-		var id = getRandom(9999);
-		strID = id;
-		$("#id").html(strID);	
 
 		$("#name").html($(".active > p").html());
 		$("#avator").attr("src",$(".active > img").attr("src"));	

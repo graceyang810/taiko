@@ -18,7 +18,7 @@
 	<img class="updown2" id="login_drum1" src="../images/drum1.png">
 	<a href="./login.html"  id="log" class="leap-click leap-interactive"><img id="pic1"src="../images/log.png"></a>
 	<a href="./register.html"  id="register" class="leap-click leap-interactive"><img id="pic2"src="../images/register.png"></a>
-	<a id="goback" href="../htmls/mainmenu.html"><img style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
+	<a href="../htmls/mainmenu.html"  id="goback"  class="leap-click leap-interactive"><img id="pic3" style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
 
 	<script type="text/javascript">
 		$("#log").hover(
@@ -36,6 +36,14 @@
 			},
 			function(){
 			$("#pic2").attr("src","../images/register.png");
+			})
+		$("#goback").hover(
+			function(){
+    		$("#pic3").attr("src","../images/btn_back_hover.png");
+    		document.getElementById('buttonplayer').play(); 
+			},
+			function(){
+			$("#pic3").attr("src","../images/btn_back.png");
 			})
 			
 	</script>

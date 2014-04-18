@@ -3,103 +3,65 @@
 <head>
 	<title>太鼓达人leap测试版</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="../css/style.css" rel="stylesheet">
 	<link href="../css/switch.css" rel="stylesheet">
 	<link href="../css/jquery.fullPage.css" rel="stylesheet">
+	<link href="../css/login.css" rel="stylesheet">
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/holder.js"></script>
 	<script src="../js/jquery-ui.min.js"></script>
 	<script src="../js/jquery.fullPage.js"></script>
 	<script type="text/javascript" src="../js/checklogin.js"></script>
-	<style type="text/css">
-		#section0,
-		#section1,
-		#section2{
-			background-size: cover;
-		}
-		#section0 {
-			background-image: url(../images/back1.png);
-		}
-		#section1 {
-			background-image: url(../images/back3.png);
-		}
-		#section2 {
-			background-image: url(../images/bg_Theme99-hd.png);
-		}
-		#fullPage-nav ul, .fullPage-slidesNav ul{
-			margin-top:100px;
-		}
-
-		#fullPage-nav li, .fullPage-slidesNav li{
-			right:-26%;
-			margin:40px;
-		}
-		#fullPage-nav span, .fullPage-slidesNav span {
-			width:10px;
-			height:10px;
-		}
-		.controlArrow.prev {
-			left:-5%;
-			top:61%;
-		}
-		.controlArrow.next{
-			right:-5%;
-			top:61%;
-		}
-		#section0{
-			height: 100px;
-		}
-
-	</style>
+	<script type="text/javascript" src="../js/login.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 </head>
 <body>	
-	<p style="position:fixed;z-index:5;top:6%;left:5%;font-size:60px;color:#fcf71f;-webkit-text-stroke: 3px #000000;">用户登录</p>
-	
+	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
+	<p id="title">用户登录</p>	
 	<div class="section active" id="section0">
-		<p style="position:absolute;z-index:6;top:23%;left:24%;font-size:30px;color:#000000;">请输入ID:</p>
-		<div style="position:absolute;top:30%;left:35%;width:340px;height:340px;">
+		<p id="title1">请输入ID:</p>
+		<div id="box1">
 			<div id="id_switch1" class="switch demo1" style="position:absolute;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">1</p></label>
+				<label><p>1</p></label>
 			</div>
 			<div id="id_switch2" class="switch demo1 switch1" style="position:absolute;margin-left:120px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">2</p></label>
+				<label><p>2</p></label>
 			</div>
 			<div id="id_switch3" class="switch demo1 switch1"style="position:absolute;margin-left:240px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">3</p></label>
+				<label><p>3</p></label>
 			</div>
 			<div id="id_switch4" class="switch demo1 switch1"style="position:absolute;margin-top:120px;margin-left:0px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">4</p></label>
+				<label><p>4</p></label>
 			</div>
 			<div id="id_switch5" class="switch demo1 switch1"style="position:absolute;margin-top:120px;margin-left:120px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">5</p></label>
+				<label><p>5</p></label>
 			</div>
 			<div id="id_switch6" class="switch demo1 switch1"style="position:absolute;margin-top:120px;margin-left:240px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">6</p></label>
+				<label><p>6</p></label>
 			</div>
 			<div id="id_switch7" class="switch demo1 switch1"style="position:absolute;margin-top:240px;margin-left:0px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">7</p></label>
+				<label><p>7</p></label>
 			</div>
 			<div id="id_switch8" class="switch demo1 switch1"style="position:absolute;margin-top:240px;margin-left:120px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">8</p></label>
+				<label><p>8</p></label>
 			</div>
 			<div id="id_switch9" class="switch demo1 switch1"style="position:absolute;margin-top:240px;margin-left:240px;">
 				<input type="checkbox">
-				<label><p style="margin-left:47%;padding-top:20%">9</p></label>
+				<label><p>9</p></label>
 			</div>
-			<input type="button" id="id_switchrepaint" value="" style="background:url(../images/repaint.png) no-repeat;background-size:60%;position:absolute;bottom:-36%;left:26%;width:80%;height:28%;border:0;outline:none;"/>	
+			<input type="button" id="id_switchrepaint" value=""/>
 		</div>
 	</div>
 	<div class="section" id="section1">		
-		<p style="position:absolute;z-index:6;top:23%;left:24%;font-size:30px;color:#000000;">请输入手势密码:</p>
-		<div style="position:absolute;top:33%;left:35%;width:340px;height:340px;">
+		<p id="title2">请输入手势密码:</p>
+		<div id="box2">
 			<div id="conid_switch1" class="switch demo1" style="position:absolute;">
 				<input type="checkbox">
 				<label></label>
@@ -136,32 +98,22 @@
 				<input type="checkbox">
 				<label></label>
 			</div>
-			<input type="button" id="id_switchrepaint2" value="" style="background:url(../images/repaint.png) no-repeat;background-size:60%;position:absolute;bottom:-30%;left:26%;width:80%;height:28%;border:0;outline:none;"/>
+			<input type="button" id="id_switchrepaint2" value=""/>
 		</div>
 	</div>
 	<div class="section" id="section2">
 		<div id="loginsubmit">
-			<p style="position:absolute;z-index:6;top:40%;left:24%;font-size:30px;color:#000000;">确认完成登录:</p>
-			<input type="submit" name="button" id="loginsubmit" value="" style="background:url(../images/submit.png) no-repeat;position:absolute;top:50%;left:40%;width:20%;height:16%;border:0;outline:none;"/>
+			<p id="title3">确认完成登录:</p>
+			<input type="submit" name="button" id="loginsubmitbtn" value=""/>
 		</div>
 		<div id="loginsubmitOK" style="display:none;">
-			<h1 style="font-family: myfont;position:absolute;top:40%;left:30%;">玩家<span style="color:red;">某某某</span>,欢迎回来！</h1>
-			<a href="./mode.html"  id="playbtn"><img src="../images/play.png"></a>
+			<h1 id="welcome">玩家<span id="name" style="color:red;"></span>,欢迎回来！</h1>
+			<a href="./mode.html"  id="playbtn"><img id="pic1" src="../images/play.png"></a>
 		</div>
 		
 	</div>
-	<img style="position:fixed;top:32%;right:10px;width:60px;" src="../images/drum0.png">
-	<img style="position:fixed;bottom:22%;right:10px;width:60px;" src="../images/drum1.png">
-	<a href="./mainmenu.html"><img style="position:fixed;top:2%;right:2%;" src="../images/btn_back.png"></a>
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var pepe = $.fn.fullpage({
-				verticalCentered: false,
-				navigation: true,
-				navigationPosition: 'right'
-			});
-		});
-	</script>
+	<img id="showdrum0" src="../images/drum0.png">
+	<img id="showdrum1" src="../images/drum1.png">
+	<a href="./mainmenu.html" id="goback"><img id="pic3" style="position:fixed;top:2%;right:2%;" src="../images/btn_back.png"></a>
 </body>
 </html>

@@ -18,12 +18,21 @@
 	<img class="updown1" id="drum0" src="../images/drum0.png">
 	<img class="updown2" id="drum1" src="../images/drum1.png">
 	
-	<a href="./chooselogin.html"  id="play" class="leap-click leap-interactive"><img id="pic1"src="../images/play.png"></a>
+	<a id="play" class="leap-click leap-interactive"><img id="pic1"src="../images/play.png"></a>
 	<a href="./setting.html"  id="gamesetting" class="leap-click leap-interactive"><img id="pic2"src="../images/gamesetting.png"></a>
-	<a href="./playerinfo.html"  id="playerInfo" class="leap-click leap-interactive"><img id="pic3"src="../images/playerInfo.png"></a>
+	<a id="playerInfo" class="leap-click leap-interactive"><img id="pic3"src="../images/playerInfo.png"></a>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+			if($.cookie('player_id') != ""){
+				$("#play").attr("href","mode.html");
+				$("#playerInfo").attr("href","playerinfo.html");
+			}
+			if($.cookie('player_id') == ""){
+				$("#play").attr("href","chooselogin.html");
+				$("#playerInfo").attr("href","chooselogin.html");
+			}
+
 			if($.cookie('the_valume')){
 				document.getElementById('backaudio').volume = $.cookie('the_valume')/100;
 			}else{

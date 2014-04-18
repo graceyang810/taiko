@@ -2,6 +2,7 @@
       "song_name": "伤心的人别听慢歌",
       "url":"../songs/1.mp3",
       "length":141,
+      "song_level":4,
       "rhythm": [
         {
           "color": "huang",
