@@ -31,7 +31,7 @@ public class TableUserOperator {
 		}
 		return id;
 	}
-	
+		
 	public String selectUserName(int id) {
 		sql = "select UserName from UserTable where ID = " + id;
 		String username = null;
