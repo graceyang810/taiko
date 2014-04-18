@@ -28,7 +28,8 @@
 				$("#play").attr("href","mode.html");
 				$("#playerInfo").attr("href","playerinfo.html");
 			}
-			if($.cookie('player_id') == ""){
+			if($.cookie('player_id') == null || $.cookie('player_id') == ""){
+			// if($.cookie('player_id') == ""){
 				$("#play").attr("href","chooselogin.html");
 				$("#playerInfo").attr("href","chooselogin.html");
 			}

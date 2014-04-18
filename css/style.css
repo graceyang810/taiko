@@ -208,6 +208,21 @@ p ,h1 ,h2 ,h3 ,label, span,{
 	margin-top:-6%;
 	margin-left: -10%;
 }
+
+#start{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top:-6%;
+	margin-left: -10%;
+}
+#shake{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top:6%;
+	margin-left: -10%;
+}
 #register{
 	position: absolute;
 	left: 50%;

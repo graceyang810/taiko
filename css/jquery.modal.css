@@ -1,0 +1,23 @@
+@font-face{
+  font-family: myfont;
+  src: url('../fonts/sxslst.ttf'); 
+}
+
+body {
+  font-family: myfont;
+  background: black;
+}
+
+p ,h1 ,h2 ,h3 ,label, span,{
+  font-family: myfont;
+
+}
+
+.modal {
+  display: none;
+  width: 400px;
+  background: #00c2f7;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #fff;
+}

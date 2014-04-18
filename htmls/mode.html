@@ -4,10 +4,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="../css/style.css" rel="stylesheet">
 	<link href="../css/leapstrap.css" rel="stylesheet">
+	<link href="../css/jquery.modal.css" rel="stylesheet">
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/leap.min.js"></script>
 	<script src="../js/leapstrap.js"></script>
 	<script src="../js/holder.js"></script>
+	<script type="text/javascript" src="../js/jquery.modal.js"></script>
+	<script type="text/javascript" src="../js/wait.js"></script>
 </head>
 <body>
 	<body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
@@ -16,29 +19,17 @@
 	<img id="title" src="../images/title.png">
 	<img class="updown1" id="login_drum0" src="../images/drum0.png">
 	<img class="updown2" id="login_drum1" src="../images/drum1.png">
-	<a href="./game.html"  id="log" class="leap-click leap-interactive"><img id="pic1"src="../images/start.png"></a>
-	<a href="./shake.html"  id="register" class="leap-click leap-interactive"><img id="pic2"src="../images/shake.png"></a>
-	<a id="goback" href="../htmls/mainmenu.html"><img style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
+	<a href="#modal"><img id="start"src="../images/start.png"></a>
+	<a id="shake" href="../htmls/shake.html"><img id="pic2" src="../images/shake.png"></a>
+	<a id="goback" href="../htmls/mainmenu.html"><img id="pic3" style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
 
-	<script type="text/javascript">
-		$("#log").hover(
-			function(){
-    		$("#pic1").attr("src","../images/start_hover.png");
-    		document.getElementById('buttonplayer').play(); 
-			},
-			function(){
-			$("#pic1").attr("src","../images/start.png");
-			})
-		$("#register").hover(
-			function(){
-    		$("#pic2").attr("src","../images/shake_hover.png");
-    		document.getElementById('buttonplayer').play(); 
-			},
-			function(){
-			$("#pic2").attr("src","../images/shake.png");
-			})
-			
-	</script>
+	<!-- modal -->
+	<div id="modal" class="modal" style="height:100px;">
+		<br />
+	  	<p style="font-size:15pt; text-align:center;">等待其他玩家加入。。。</p>
+	</div>
+	<!-- modal End -->
+	
 	<script>
         LeapManager.init({
             enableMetaGestures: true,
