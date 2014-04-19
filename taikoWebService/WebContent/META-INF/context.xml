@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context reloadable="true" crossContext="true">
-	<!--Resource 设置数据库连接池的核心 -->
-	<!--属性 name 数据源的名字 属性 auth 表示验证方式 type 资源的类型 -->
-
-	<Resource name="jdbc/DBWater" auth="Container" Type="javax.sql.DataSource"
-		maxActive="10" maxIdle="30" maxWait="10000" username="root" password=""
-		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/taikoDB" />
-</Context>
