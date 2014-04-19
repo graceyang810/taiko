@@ -1,0 +1,225 @@
+<html>
+<html>
+<head>
+	<title>太鼓达人leap测试版</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="../css/leapstrap.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/switch.css" rel="stylesheet">
+	<link href="../css/jquery.fullPage.css" rel="stylesheet">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/leap.min.js"></script>
+	<script src="../js/leapstrap.js"></script>
+	<script src="../js/holder.js"></script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/generate.js"></script>
+	<script type="text/javascript" src="../js/code.js"></script>
+	<script src="../js/jquery.fullPage.js"></script>
+	<style type="text/css">
+		#section0,
+		#section1,
+		#section2,
+		#section3,
+		#section4,
+		#section5{
+			background-size: cover;
+		}
+		#section0 {
+			background-image: url(../images/back1.png);
+		}
+		#section1 {
+			background-image: url(../images/back3.png);
+		}
+		#section2 {
+			background-image: url(../images/bg_Theme99-hd.png);
+		}
+		#section3 {
+			background-image: url(../images/back7.png);
+		}
+		#section4 {
+			background-image: url(../images/back17.png);
+		}
+		#section5 {
+			background-image: url(../images/back18.png);
+			background-repeat: no-repeat;
+			background-size:100% 100%;
+		}
+		#fullPage-nav ul, .fullPage-slidesNav ul{
+			margin-top:100px;
+		}
+
+		#fullPage-nav li, .fullPage-slidesNav li{
+			right:-26%;
+			margin:40px;
+		}
+		#fullPage-nav span, .fullPage-slidesNav span {
+			width:10px;
+			height:10px;
+		}
+		.controlArrow.prev {
+			left:-5%;
+			top:61%;
+		}
+		.controlArrow.next{
+			right:-5%;
+			top:61%;
+		}
+		#section0{
+			height: 100px;
+		}
+
+	</style>
+</head>
+<body>	
+	<p style="position:fixed;z-index:5;top:6%;left:5%;font-size:60px;color:#fcf71f;-webkit-text-stroke: 3px #000000;">用户注册</p>
+	
+	<div class="section active" id="section0">
+		<p style="position:absolute;z-index:6;top:40%;left:24%;font-size:30px;color:#000000;">请选择性别:</p>
+		<div style="position:absolute;top:50%;left:30%;">			
+			<input id="male" class="sex" name="sex" type="radio" value="male"/>
+			<img src="../images/male.png" style="width:15%;margin-left:10px;" onclick="$('#male').prop('checked',true);$('.sex').trigger('change');" />
+			<input id="female" class="sex" name="sex" type="radio" style="margin-left:10%;" value="female" />
+			<img src="../images/female.png" style="width:15%;margin-left:10px;" onclick="$('#female').prop('checked',true);$('.sex').trigger('change');"/>
+		</div>
+	</div>
+	<div class="section" id="section1">		
+		<p style="position:absolute;z-index:6;top:40%;left:24%;font-size:30px;color:#000000;">随机生成用户名:</p>
+		<div style="position:absolute;top:46%;left:28%;width:450px;height:100px;">
+			<div class="slide" id="name_slide1"></div>		
+		    <div class="slide" id="name_slide2"></div>
+		    <div class="slide" id="name_slide3"></div>
+		    <div class="slide" id="name_slide4"></div>
+		    <div class="slide" id="name_slide5"></div>
+		</div>
+		<input type="submit" name="button" id="change" value="" style="background:url(../images/change.png) no-repeat;position:absolute;top:70%;left:40%;width:20%;height:20%;border:0; outline:none;"  onclick="changename()"/>
+	</div>
+	<div class="section" id="section2">
+		<p style="position:absolute;z-index:6;top:40%;left:24%;font-size:30px;color:#000000;">选择头像:</p>
+		<div style="position:absolute;top:46%;left:28%;width:450px;height:145px;">
+			<div class="slide" id="avator_slider1"></div>		
+		    <div class="slide" id="avator_slider2"></div>
+		    <div class="slide" id="avator_slider3"></div>
+		    <div class="slide" id="avator_slider4"></div>
+		    <div class="slide" id="avator_slider5"></div>
+		    <div class="slide" id="avator_slider6"></div>
+		    <div class="slide" id="avator_slider7"></div>
+		    <div class="slide" id="avator_slider8"></div>
+		    <div class="slide" id="avator_slider9"></div>
+		    <div class="slide" id="avator_slider10"></div>
+		</div>
+	</div>
+	<div class="section" id="section3">
+		<p style="position:absolute;z-index:6;top:20%;left:24%;font-size:30px;color:#000000;">请设置密码:</p>
+		<div style="position:absolute;top:30%;left:35%;width:340px;height:340px;">
+			<div id="switch1" class="switch demo1">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">1</p></label>
+			</div>
+			<div id="switch2" class="switch demo1 switch1" style="position:absolute;margin-top:-100px;margin-left:120px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">2</p></label>
+			</div>
+			<div id="switch3" class="switch demo1 switch1"style="position:absolute;margin-top:-100px;margin-left:240px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">3</p></label>
+			</div>
+			<div id="switch4" class="switch demo1 switch1"style="position:absolute;margin-top:20px;margin-left:0px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">4</p></label>
+			</div>
+			<div id="switch5" class="switch demo1 switch1"style="position:absolute;margin-top:20px;margin-left:120px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">5</p></label>
+			</div>
+			<div id="switch6" class="switch demo1 switch1"style="position:absolute;margin-top:20px;margin-left:240px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">6</p></label>
+			</div>
+			<div id="switch7" class="switch demo1 switch1"style="position:absolute;margin-top:140px;margin-left:0px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">7</p></label>
+			</div>
+			<div id="switch8" class="switch demo1 switch1"style="position:absolute;margin-top:140px;margin-left:120px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">8</p></label>
+			</div>
+			<div id="switch9" class="switch demo1 switch1"style="position:absolute;margin-top:140px;margin-left:240px;">
+				<input type="checkbox">
+				<label><p style="margin-left:47%;padding-top:20%">9</p></label>
+			</div>
+		</div>
+		<input type="button" id="switchrepaint" value="" style="background:url(../images/repaint.png) no-repeat;background-size:60%;position:absolute;bottom:-10%;left:45%;width:22%;height:28%;border:0;outline:none;"/>		
+	</div>	
+	<div class="section" id="section4">
+		<p style="position:absolute;z-index:6;top:20%;left:24%;font-size:30px;color:#000000;">请确认密码:</p>
+		<div style="position:absolute;top:30%;left:35%;width:340px;height:340px;">
+			<div id="con_switch1" class="switch demo1">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch2" class="switch demo1" style="position:absolute;margin-top:-100px;margin-left:120px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch3" class="switch demo1"style="position:absolute;margin-top:-100px;margin-left:240px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch4" class="switch demo1"style="position:absolute;margin-top:20px;margin-left:0px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch5" class="switch demo1"style="position:absolute;margin-top:20px;margin-left:120px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch6" class="switch demo1"style="position:absolute;margin-top:20px;margin-left:240px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch7" class="switch demo1"style="position:absolute;margin-top:140px;margin-left:0px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch8" class="switch demo1"style="position:absolute;margin-top:140px;margin-left:120px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+			<div id="con_switch9" class="switch demo1"style="position:absolute;margin-top:140px;margin-left:240px;">
+				<input type="checkbox">
+				<label></label>
+			</div>
+		</div>
+		
+		<input type="button" id="switchrepaint2" value="" style="background:url(../images/repaint.png) no-repeat;background-size:60%;position:absolute;bottom:-10%;left:45%;width:22%;height:28%;border:0;outline:none;"/>	
+	</div>	
+	<div class="section" id="section5">
+		<div id="submit">
+			<p style="position:absolute;z-index:6;top:40%;left:24%;font-size:30px;color:#000000;">确认完成注册:</p>
+			<input type="submit" name="button" id="submit" value="" style="background:url(../images/submit.png) no-repeat;position:absolute;top:50%;left:40%;width:20%;height:16%;border:0;"/>
+		</div>
+		<div id="submitOK" style="display:none;">
+			<h1 style="font-family: myfont;position:absolute;top:20%;left:30%;">恭喜你，注册成功！</h1>	
+			<h4 style="font-family: myfont;position:absolute;top:45%;left:40%;">ID:<span id="id" style="color:#1d54f3;"></span><span style="color:red;">（请牢记）</span></h4>
+			<h4 style="font-family: myfont;position:absolute;top:55%;left:40%;">用户名:<span id="name" style="color:#1d54f3;"></span></h4>
+			<img id="avator" style="width:8%;position:absolute;top:47%;left:30%;">
+			<a href="./mode.html"  id="playbtn"><img src="../images/play.png"></a>
+		</div>
+		
+	</div>	
+	
+	<img style="position:fixed;top:22%;right:10px;width:60px;" src="../images/drum0.png">
+	<img style="position:fixed;bottom:12%;right:10px;width:60px;" src="../images/drum1.png">
+	<a href="./chooselogin.html"><img style="position:fixed;top:2%;right:2%;" src="../images/btn_back.png"></a>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var pepe = $.fn.fullpage({
+				verticalCentered: false,
+				navigation: true,
+				navigationPosition: 'right'
+			});
+		});
+	</script>
+</body>
+</html>

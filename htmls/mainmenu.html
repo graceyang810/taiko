@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>太鼓达人leap测试版</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/leapstrap.css" rel="stylesheet">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/leap.min.js"></script>
+	<script src="../js/leapstrap.js"></script>
+	<script src="../js/holder.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+</head>
+<body class="leap-interactive" leap-disable-tap="true" leap-disable-hover="true">
+	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
+	<audio id="backaudio"  loop="loop" src="../audios/mainmenu.mp3"></audio>
+	<img class="menuback" src="../images/bg_menu.png">
+	<img id="title" src="../images/title.png">
+	<img class="updown1" id="drum0" src="../images/drum0.png">
+	<img class="updown2" id="drum1" src="../images/drum1.png">
+	
+	<a href="./chooselogin.html"  id="play" class="leap-click leap-interactive"><img id="pic1"src="../images/play.png"></a>
+	<a href="./setting.html"  id="gamesetting" class="leap-click leap-interactive"><img id="pic2"src="../images/gamesetting.png"></a>
+	<a href="./playerinfo.html"  id="playerInfo" class="leap-click leap-interactive"><img id="pic3"src="../images/playerInfo.png"></a>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			if($.cookie('the_valume')){
+				document.getElementById('backaudio').volume = $.cookie('the_valume')/100;
+			}else{
+				document.getElementById('backaudio').volume = 0.9
+			}
+			if($.cookie('the_sound')){
+				document.getElementById('buttonplayer').volume = $.cookie('the_sound')/100;
+			}else{
+				document.getElementById('buttonplayer').volume = 0.9
+			}	
+			
+		})
+		
+		document.getElementById('backaudio').play();
+		$("#play").hover(
+			function(){
+    		$("#pic1").attr("src","../images/play_hover.png");
+    		document.getElementById('buttonplayer').play(); 
+			},
+			function(){
+			$("#pic1").attr("src","../images/play.png");
+			})
+		$("#gamesetting").hover(
+			function(){
+    		$("#pic2").attr("src","../images/gamesetting_hover.png");
+    		document.getElementById('buttonplayer').play(); 
+			},
+			function(){
+			$("#pic2").attr("src","../images/gamesetting.png");
+			})
+		$("#playerInfo").hover(
+			function(){
+    		$("#pic3").attr("src","../images/playerInfo_hover.png");
+    		document.getElementById('buttonplayer').play(); 
+			},
+			function(){
+			$("#pic3").attr("src","../images/playerInfo.png");
+			})
+	</script>
+	<script>
+        LeapManager.init({
+            enableMetaGestures: true,
+            enableDefaultMetaGestureActions: true,
+            maxCursors: 1,
+            enableHoverTap: true,
+            enablePressDown: true,
+            enableTouchScrolling: false,
+            enableScrollbarScrolling: true,
+        });
+    </script>
+</body>
+</html>
