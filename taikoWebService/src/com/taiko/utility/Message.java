@@ -11,22 +11,6 @@ public class Message extends ArrayList<Object> {
 	private final static Gson gson = new GsonBuilder()
 			.excludeFieldsWithoutExposeAnnotation().create();
 
-//	//***********Test
-//	private String testStr;
-//	public Message(String stringTest) {
-//		//this.eventType = eventType;
-//		// collection = new ArrayList();
-//		this.testStr = stringTest;
-//		add(this.testStr);
-//	}
-//	//*************
-//	
-//	public Message() {
-//	}
-//
-//	public Message( Object o) {
-//		add(o);
-//	}
 
 	public void addInfo(Object o){
 		add(o);

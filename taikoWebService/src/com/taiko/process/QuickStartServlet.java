@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,9 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.taiko.database.DBController;
-import com.taiko.database.TableUserOperator;
-import com.taiko.model.Player;
+import com.taiko.database.TableWaitingRoomOperator;
+import com.taiko.utility.HMXHMZ;
 import com.taiko.utility.Message;
 
 /**
@@ -40,47 +40,58 @@ public class QuickStartServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		Message msg = new Message();
-
-		DBController db = new DBController();
 		
-		db.connect();
-		//查询快速开始列表
-		String sql = null;
-		sql = "select * from quickstartwaitinglist";
-		ResultSet rs = null;
-		rs = db.selectSQL(sql);
-		db.disconnect();
+		HMXHMZ hmxhmz = new HMXHMZ();
+
+		TableWaitingRoomOperator wroomOp = new TableWaitingRoomOperator();
+		wroomOp.connectDB();
+		//查询所有等待房间
+		int countRoom = wroomOp.countWaitingRoom();
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
-		
+		boolean feedback = false;
 		try {
-			if(rs.next()){
-				//若表中有人
-				int id = rs.getInt("ID");
-				if(id!=myid){
-					TableUserOperator userOp = new TableUserOperator();
-					userOp.connectDB();
-					//id,name,gender,photo,level
-					Player p = new Player(id, userOp.selectUserName(id),
-							userOp.selectGender(id), userOp.selectUserPhoto(id),
-							userOp.selectUserLevel(id));
-					userOp.disconnectDB();
-					msg.addInfo(p);
-					
-					//查询歌曲信息！！！！！！！！HERE！！！！！
-					db.connect();
+			if(countRoom!=0){
+				//若表中有人				
+				ResultSet rs = wroomOp.selectRoomByHost(myid);
+				
+				if(rs.next()){//myID已建立room
+					int guest = rs.getInt("guest");
+					if(guest == 0)//还未有房客加入
+						msg.addInfo(feedback);
+					else{
+						msg.addInfo(hmxhmz.getPlayer(guest));//返回房客信息
+						int musicID = rs.getInt("musicID");
+						msg = hmxhmz.addMusicInfo(msg,musicID);//返回歌曲信息
+						
+						//已完成配对，删除等待房间
+						wroomOp.deleteRoomByHost(myid);
+					}
 				}
-			}else{
-				db.connect();
-				sql = "insert into quickstartwaitinglist values ("+ myid +");";
-				db.insertSQL(sql);
-				db.disconnect();
-				boolean feedback = false;
+				else{//myID并没有建立过room，即不在等候中
+					//随机选择其中一个房间
+					Random random = new Random();
+					int selectedRoomOrder = random.nextInt(countRoom);
+					rs = wroomOp.selectRoomByOrder(selectedRoomOrder);
+					
+					int host = rs.getInt("host");//获取房主信息
+					wroomOp.updateGuest(host, myid);//加入成为房客
+					
+					msg.addInfo(hmxhmz.getPlayer(host));//返回房主信息
+					int musicID = rs.getInt("musicID");
+					msg = hmxhmz.addMusicInfo(msg,musicID);//返回歌曲信息
+				}
+			}else{//没有正在等待的空房间，创建新的房间
+				wroomOp.insertRoom(myid);
+				int musicID = hmxhmz.selectMusicRandomly();
+				wroomOp.updateMusic(myid, musicID);
 				msg.addInfo(feedback);
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		wroomOp.disconnectDB();
 
 		out.write(msg.toJson());
 		out.flush();
@@ -89,6 +100,7 @@ public class QuickStartServlet extends HttpServlet {
 		
 	}
 
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
