@@ -43,9 +43,7 @@ public class DBOperator {
 		musicOp.connectDB();
 		String rhythmURL = musicOp.selectMusicRhythm(musicID);
 		musicOp.disconnectDB();
-		Music music = new Music(musicID,
-				musicOp.selectMusicName(musicID),
-				musicOp.selectMusicDifficulty(musicID));
+		Music music = getMusic(musicID);
 		// 读music得json文件
 		StringBuffer rhythmBuffer = music.readFile(rhythmURL);
 		msg.addInfo(music);
