@@ -1,4 +1,4 @@
-package com.taiko.process;
+package com.taiko.score;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,22 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.taiko.database.TableShakeApplyOperator;
-import com.taiko.database.TableShakeRoomOperator;
+import com.taiko.database.TableResultOperator;
 import com.taiko.utility.DBOperator;
 import com.taiko.utility.Message;
 
 /**
- * Servlet implementation class SelectMusicServlet
+ * Servlet implementation class ScoreServlet
  */
-@WebServlet("/SelectMusicServlet")
-public class SelectMusicServlet extends HttpServlet {
+@WebServlet("/ScoreServlet")
+public class ScoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectMusicServlet() {
+    public ScoreServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,19 +36,18 @@ public class SelectMusicServlet extends HttpServlet {
 		Message msg = new Message();
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
-		int musicid = Integer.parseInt(request.getParameter("song_id"));
+		int guestid = Integer.parseInt(request.getParameter("anotherid"));
+		int myscore = Integer.parseInt(request.getParameter("score"));
 
-		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
-		DBOperator dbOp = new DBOperator();
+		TableResultOperator resultOp = new TableResultOperator();
 		
-		sRoomOp.connectDB();
+		resultOp.connectDB();		
+		resultOp.uptateValue(myid, "score", myscore);
 		
-		//更新选中的歌曲id
-		sRoomOp.updateMusic(myid, musicid);
-		//返回歌曲详细信息
-		msg = dbOp.addMusicInfo(msg, musicid);	
+		int score = resultOp.selectValue(guestid, "score");
+		msg.addInfo(score);
 			
-		sRoomOp.disconnectDB();
+		resultOp.disconnectDB();
 		
 		out.write(msg.toJson());
 		out.flush();

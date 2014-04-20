@@ -44,7 +44,7 @@ public class ShakeResponseServlet extends HttpServlet {
 		int resp = Integer.parseInt(request.getParameter("feedback"));
 		int hostid = Integer.parseInt(request.getParameter("anotherid"));		
 
-		TableShakeRoomOperator tRoomOp = new TableShakeRoomOperator();
+		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
 		DBOperator dbOp = new DBOperator();
 		boolean feedback = false;
 		
@@ -55,13 +55,13 @@ public class ShakeResponseServlet extends HttpServlet {
 			sApplyOp.deleteApply(myid);
 		sApplyOp.disconnectDB();
 		
-		tRoomOp.connectDB();
+		sRoomOp.connectDB();
 		
 		//更新同意或拒绝信息
-		tRoomOp.updateFeedback(hostid, resp);
+		sRoomOp.updateFeedback(hostid, resp);
 		
 		//检查是否获得选歌结果
-		int musicid = tRoomOp.selectMusic(hostid);
+		int musicid = sRoomOp.selectMusic(hostid);
 		if(musicid != 0){//已经有选定的歌曲
 			feedback = true;
 			msg.addInfo(feedback);
@@ -69,7 +69,7 @@ public class ShakeResponseServlet extends HttpServlet {
 		}else
 			msg.addInfo(feedback);
 			
-		tRoomOp.disconnectDB();
+		sRoomOp.disconnectDB();
 		
 		out.write(msg.toJson());
 		out.flush();

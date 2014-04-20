@@ -81,18 +81,18 @@ public class ShakeServlet extends HttpServlet {
 		msg.addInfo(pList);
 		
 		//检查时候被别的玩家邀请
-		TableShakeRoomOperator tRoomOp = new TableShakeRoomOperator();
-		tRoomOp.connectDB();
+		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
+		sRoomOp.connectDB();
 		
-		if(tRoomOp.checkGuest(myid)){
-			int hostid = tRoomOp.selectHost(myid);
+		if(sRoomOp.checkGuest(myid)){
+			int hostid = sRoomOp.selectHost(myid);
 			Player pHost = dbOp.getPlayer(hostid);
 			feedback = true;
 			msg.addInfo(pHost);
 		}
 		
 		msg.addInfo(feedback);		
-		tRoomOp.disconnectDB();
+		sRoomOp.disconnectDB();
 
 		sApplyOp.disconnectDB();
 		out.write(msg.toJson());

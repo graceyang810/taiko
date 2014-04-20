@@ -41,7 +41,7 @@ public class ShakeInviteServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Message msg = new Message();
 
-		TableShakeRoomOperator tRoomOp = new TableShakeRoomOperator();
+		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
 		DBOperator dbOp = new DBOperator();
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
@@ -55,16 +55,16 @@ public class ShakeInviteServlet extends HttpServlet {
 			sApplyOp.deleteApply(myid);
 		sApplyOp.disconnectDB();
 		
-		tRoomOp.connectDB();
+		sRoomOp.connectDB();
 		
 		//检查是否创建过房间
-		if (tRoomOp.checkHost(myid))
-			tRoomOp.updateGuest(myid, guestid);
+		if (sRoomOp.checkHost(myid))
+			sRoomOp.updateGuest(myid, guestid);
 		else
-			tRoomOp.insertRoom(myid);
+			sRoomOp.insertRoom(myid);
 		
 		//检查是否获得回应
-		int resp = tRoomOp.selectFeedback(myid);
+		int resp = sRoomOp.selectFeedback(myid);
 		if(resp == 1){
 			feedback = true;
 			msg.addInfo(feedback);
@@ -91,7 +91,7 @@ public class ShakeInviteServlet extends HttpServlet {
 		}else
 			msg.addInfo(feedback);
 			
-		tRoomOp.disconnectDB();
+		sRoomOp.disconnectDB();
 		
 		out.write(msg.toJson());
 		out.flush();

@@ -1,4 +1,4 @@
-package com.taiko.process;
+package com.taiko.score;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,22 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.taiko.database.TableShakeApplyOperator;
-import com.taiko.database.TableShakeRoomOperator;
+import com.taiko.database.TableResultOperator;
+import com.taiko.model.Result;
 import com.taiko.utility.DBOperator;
 import com.taiko.utility.Message;
 
 /**
- * Servlet implementation class SelectMusicServlet
+ * Servlet implementation class ResultServlet
  */
-@WebServlet("/SelectMusicServlet")
-public class SelectMusicServlet extends HttpServlet {
+@WebServlet("/ResultServlet")
+public class ResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectMusicServlet() {
+    public ResultServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,20 +37,29 @@ public class SelectMusicServlet extends HttpServlet {
 		Message msg = new Message();
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
-		int musicid = Integer.parseInt(request.getParameter("song_id"));
+		int guestid = Integer.parseInt(request.getParameter("anotherid"));
+		int score = Integer.parseInt(request.getParameter("score"));
+		int perfect = Integer.parseInt(request.getParameter("perfect"));
+		int cool = Integer.parseInt(request.getParameter("cool"));
+		int miss = Integer.parseInt(request.getParameter("miss"));
+		int combo = Integer.parseInt(request.getParameter("combo"));
 
-		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
+		TableResultOperator resultOp = new TableResultOperator();
 		DBOperator dbOp = new DBOperator();
 		
-		sRoomOp.connectDB();
+		resultOp.connectDB();		
+		resultOp.updateResult(myid, score, perfect, cool, miss, combo);
+		resultOp.disconnectDB();
 		
-		//更新选中的歌曲id
-		sRoomOp.updateMusic(myid, musicid);
-		//返回歌曲详细信息
-		msg = dbOp.addMusicInfo(msg, musicid);	
-			
-		sRoomOp.disconnectDB();
+		try {
+			Thread.sleep(1000);//防止对方的数据还未写入数据库
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
+		Result opponent = dbOp.getResult(guestid);
+		msg.addInfo(opponent);
+				
 		out.write(msg.toJson());
 		out.flush();
 		out.close();

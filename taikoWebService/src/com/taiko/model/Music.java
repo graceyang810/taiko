@@ -45,4 +45,28 @@ public class Music {
 		this.song_level = difficulty;
 //		this.path = url;
 	}
+
+	public int getSong_id() {
+		return song_id;
+	}
+
+	public void setSong_id(int song_id) {
+		this.song_id = song_id;
+	}
+
+	public String getSong_name() {
+		return song_name;
+	}
+
+	public void setSong_name(String song_name) {
+		this.song_name = song_name;
+	}
+
+	public int getSong_level() {
+		return song_level;
+	}
+
+	public void setSong_level(int song_level) {
+		this.song_level = song_level;
+	}
 }

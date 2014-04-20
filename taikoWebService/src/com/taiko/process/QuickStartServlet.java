@@ -60,6 +60,8 @@ public class QuickStartServlet extends HttpServlet {
 					if(guest == 0)//还未有房客加入
 						msg.addInfo(feedback);
 					else{
+						feedback = true;
+						msg.addInfo(feedback);
 						msg.addInfo(dbOp.getPlayer(guest));//返回房客信息
 						int musicID = rs.getInt("musicID");
 						msg = dbOp.addMusicInfo(msg,musicID);//返回歌曲信息
@@ -77,6 +79,8 @@ public class QuickStartServlet extends HttpServlet {
 					int host = rs.getInt("host");//获取房主信息
 					wRoomOp.updateGuest(host, myid);//加入成为房客
 					
+					feedback = true;
+					msg.addInfo(feedback);
 					msg.addInfo(dbOp.getPlayer(host));//返回房主信息
 					int musicID = rs.getInt("musicID");
 					msg = dbOp.addMusicInfo(msg,musicID);//返回指定歌曲信息

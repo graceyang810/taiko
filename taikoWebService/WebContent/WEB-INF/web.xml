@@ -9,8 +9,6 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-	
-	<!--数据库连接池配置-->
 	<resource-ref>
 		<description>Connection Pool</description>
 		<res-ref-name>jdbc/DBWater</res-ref-name>
@@ -18,9 +16,6 @@
 		<res-auth>Container</res-auth>
 		<res-sharing-scope>Shareable</res-sharing-scope>
 	</resource-ref>
-	
-	<!--servlet配置-->
-	<!--账户模块-->
 	<servlet>
 		<servlet-name>userLogIn</servlet-name>
 		<servlet-class>com.taiko.account.UserLogInServlet</servlet-class>
@@ -37,7 +32,6 @@
 		<servlet-name>userRegister</servlet-name>
 		<url-pattern>/account/register</url-pattern>
 	</servlet-mapping>
-	<!--流程控制模块-->
 	<servlet>
 		<servlet-name>quickStart</servlet-name>
 		<servlet-class>com.taiko.process.QuickStartServlet</servlet-class>
@@ -78,6 +72,20 @@
 		<servlet-name>selectMusic</servlet-name>
 		<url-pattern>/process/selectmusic</url-pattern>
 	</servlet-mapping>
-	<!--积分模块-->
-	
+	<servlet>
+		<servlet-name>score</servlet-name>
+		<servlet-class>com.taiko.process.ScoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>score</servlet-name>
+		<url-pattern>/score/score</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>result</servlet-name>
+		<servlet-class>com.taiko.process.ResultServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>result</servlet-name>
+		<url-pattern>/score/result</url-pattern>
+	</servlet-mapping>
 </web-app>
