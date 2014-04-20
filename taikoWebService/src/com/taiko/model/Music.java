@@ -7,10 +7,12 @@ import java.io.IOException;
 
 public class Music {
 
-//	private int id;
-	private String path;
+	private int song_id;
+	private String song_name;
+	private int song_level;
+//	private String length;
 
-	public StringBuffer readFile() {
+	public StringBuffer readFile(String path) {
 		File file = new File(path);
 		BufferedReader reader = null;
 		StringBuffer buffer = new StringBuffer();
@@ -37,8 +39,10 @@ public class Music {
 		return buffer;
 	}
 
-	public Music(String url) {
-//		this.id = id;
-		this.path = url;
+	public Music(int id, String name, int difficulty) {
+		this.song_id = id;
+		this.song_name = name;
+		this.song_level = difficulty;
+//		this.path = url;
 	}
 }

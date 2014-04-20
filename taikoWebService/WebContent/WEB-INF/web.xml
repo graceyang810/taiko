@@ -46,5 +46,21 @@
 		<servlet-name>quickStart</servlet-name>
 		<url-pattern>/process/quickstart</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
+		<servlet-name>shake</servlet-name>
+		<servlet-class>com.taiko.process.ShakeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>shake</servlet-name>
+		<url-pattern>/process/shake</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>shakeInvite</servlet-name>
+		<servlet-class>com.taiko.process.ShakeInviteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>shakeInvite</servlet-name>
+		<url-pattern>/process/invite</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

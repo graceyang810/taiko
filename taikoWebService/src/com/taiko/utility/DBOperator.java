@@ -1,11 +1,13 @@
 package com.taiko.utility;
 
+import java.sql.ResultSet;
+
 import com.taiko.database.TableMusicOperator;
 import com.taiko.database.TableUserOperator;
 import com.taiko.model.Music;
 import com.taiko.model.Player;
 
-public class HMXHMZ {
+public class DBOperator {
 
 	public Player getPlayer(int id){
 		TableUserOperator userOp = new TableUserOperator();
@@ -18,15 +20,37 @@ public class HMXHMZ {
 		return p;
 	}
 	
+	public Music getMusic(int id){
+		TableMusicOperator musicOp = new TableMusicOperator();
+		musicOp.connectDB();
+		//id,name,level
+		Music m = new Music(id, musicOp.selectMusicName(id),
+				musicOp.selectMusicDifficulty(id));
+		musicOp.disconnectDB();
+		return m;
+	}
+	
+	public ResultSet getMusicList(int id){
+		TableMusicOperator musicOp = new TableMusicOperator();
+		musicOp.connectDB();		
+		ResultSet rs = musicOp.selectMusicList(musicOp.selectMusicDifficulty(id));
+		musicOp.disconnectDB();
+		return rs;
+	}
+	
 	public Message addMusicInfo(Message msg, int musicID){
 		TableMusicOperator musicOp = new TableMusicOperator();
 		musicOp.connectDB();
-		String musicURL = musicOp.selectMusicByID(musicID);
+		String rhythmURL = musicOp.selectMusicRhythm(musicID);
 		musicOp.disconnectDB();
-		Music music = new Music(musicURL);
+		Music music = new Music(musicID,
+				musicOp.selectMusicName(musicID),
+				musicOp.selectMusicDifficulty(musicID));
 		// 读music得json文件
-		StringBuffer buffer = music.readFile();
-		msg.addInfo(buffer);
+		StringBuffer rhythmBuffer = music.readFile(rhythmURL);
+		msg.addInfo(music);
+		msg.addInfo(musicOp.selectMusicSound(musicID));
+		msg.addInfo(rhythmBuffer);
 		return msg;
 	}
 	
