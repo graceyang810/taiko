@@ -28,14 +28,15 @@ public class ServletTestDB extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.setContentType("text");
+//		response.setContentType("text/json");
 		PrintWriter out = response.getWriter();
 		
-		TableUserOperator userOp = new TableUserOperator();
-		userOp.connectDB();
+	//	TableUserOperator userOp = new TableUserOperator();
+	//	userOp.connectDB();
 		
 	//	userOp.deleteUser(3);
-		
-		userOp.insertUser("servletDBTest", "xixixixi","male","photoURL");
+		out.write("test");
+//		userOp.insertUser("servletDBTest", "xixixixi","male","photoURL");
 //		int id = userOp.selectUserID("servletDBTest");
 //		String pswd= userOp.selectUserPassword(id);
 		
