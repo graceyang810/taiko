@@ -5,10 +5,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import com.google.gson.annotations.Expose;
+
 public class Music {
 
+	@Expose
 	private int song_id;
+	@Expose
 	private String song_name;
+	@Expose
 	private int song_level;
 //	private String length;
 

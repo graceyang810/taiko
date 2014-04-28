@@ -1,11 +1,19 @@
 package com.taiko.model;
 
+import com.google.gson.annotations.Expose;
+
 public class Result {
+	
 	private int id;
+	@Expose
 	private int score;
+	@Expose
 	private int perfect;
+	@Expose
 	private int cool;
+	@Expose
 	private int miss;
+	@Expose
 	private int combo;
 	
 	public Result(int id, int score, int perfect, int cool, int miss, int combo){

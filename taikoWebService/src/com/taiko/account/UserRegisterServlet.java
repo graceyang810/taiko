@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiko.database.TableUserOperator;
-import com.taiko.model.Player;
+import com.taiko.model.ID;
 import com.taiko.utility.Message;
 
 /**
@@ -46,7 +46,8 @@ public class UserRegisterServlet extends HttpServlet {
 				request.getParameter("code"), request.getParameter("sex"),
 				request.getParameter("avatar"));
 		
-		msg.addInfo(userOp.selectUserID(request.getParameter("name")));
+		ID id= new ID(userOp.selectUserID(request.getParameter("name")));
+		msg.addInfo(id);
 
 		out.write(msg.toJson());
 		out.flush();

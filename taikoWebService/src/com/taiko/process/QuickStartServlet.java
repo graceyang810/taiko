@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiko.database.TableWaitingRoomOperator;
+import com.taiko.model.Feedback;
 import com.taiko.utility.DBOperator;
 import com.taiko.utility.Message;
 
@@ -49,7 +50,7 @@ public class QuickStartServlet extends HttpServlet {
 		int countRoom = wRoomOp.countWaitingRoom();
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
-		boolean feedback = false;
+		Feedback feedback = new Feedback(false);
 		try {
 			if(countRoom!=0){
 				//若表中有人				
@@ -60,7 +61,7 @@ public class QuickStartServlet extends HttpServlet {
 					if(guest == 0)//还未有房客加入
 						msg.addInfo(feedback);
 					else{
-						feedback = true;
+						feedback.setFeedback(true);
 						msg.addInfo(feedback);
 						msg.addInfo(dbOp.getPlayer(guest));//返回房客信息
 						int musicID = rs.getInt("musicID");
@@ -79,7 +80,7 @@ public class QuickStartServlet extends HttpServlet {
 					int host = rs.getInt("host");//获取房主信息
 					wRoomOp.updateGuest(host, myid);//加入成为房客
 					
-					feedback = true;
+					feedback.setFeedback(true);
 					msg.addInfo(feedback);
 					msg.addInfo(dbOp.getPlayer(host));//返回房主信息
 					int musicID = rs.getInt("musicID");

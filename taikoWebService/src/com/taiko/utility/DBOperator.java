@@ -6,6 +6,7 @@ import com.taiko.database.TableMusicOperator;
 import com.taiko.database.TableResultOperator;
 import com.taiko.database.TableUserOperator;
 import com.taiko.model.Music;
+import com.taiko.model.MusicSoundURL;
 import com.taiko.model.Player;
 import com.taiko.model.Result;
 
@@ -50,7 +51,8 @@ public class DBOperator {//EntityGetter?
 		// 读music得json文件
 		StringBuffer rhythmBuffer = music.readFile(rhythmURL);
 		msg.addInfo(music);
-		msg.addInfo(musicOp.selectMusicSound(musicID));
+		MusicSoundURL soundurl = new MusicSoundURL(musicOp.selectMusicSound(musicID));
+		msg.addInfo(soundurl);
 		msg.addInfo(rhythmBuffer);
 		return msg;
 	}
