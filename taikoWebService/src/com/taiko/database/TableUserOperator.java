@@ -12,7 +12,7 @@ public class TableUserOperator {
 	public boolean insertUser(String name, String password, String gender,
 			String photo) {
 		sql = "insert into UserTable(UserName,Password,Gender,PhotoURL) values('"
-				+ name + "','" + password + "','" + gender + "'" + photo + "')";
+				+ name + "','" + password + "','" + gender + "','" + photo + "')";
 		db.insertSQL(sql);
 		return true;
 	}

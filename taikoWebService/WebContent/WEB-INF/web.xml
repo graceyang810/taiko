@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-	<display-name>TestWebApp</display-name>
+	<display-name>taikoWeb</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -9,8 +9,6 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-
-	<!--配置DB connection pool-->
 	<resource-ref>
 		<description>Connection Pool</description>
 		<res-ref-name>jdbc/DBWater</res-ref-name>
@@ -18,9 +16,16 @@
 		<res-auth>Container</res-auth>
 		<res-sharing-scope>Shareable</res-sharing-scope>
 	</resource-ref>
-
-	<!--配置servlet-->
-	<!--账户模块/account/*-->
+	
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>com.test.servlet.ServletTestDB</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test/test</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>userLogIn</servlet-name>
 		<servlet-class>com.taiko.account.UserLogInServlet</servlet-class>
@@ -37,7 +42,6 @@
 		<servlet-name>userRegister</servlet-name>
 		<url-pattern>/account/register</url-pattern>
 	</servlet-mapping>
-	<!--流程控制模块/process/*-->
 	<servlet>
 		<servlet-name>quickStart</servlet-name>
 		<servlet-class>com.taiko.process.QuickStartServlet</servlet-class>
@@ -46,5 +50,52 @@
 		<servlet-name>quickStart</servlet-name>
 		<url-pattern>/process/quickstart</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
+		<servlet-name>shake</servlet-name>
+		<servlet-class>com.taiko.process.ShakeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>shake</servlet-name>
+		<url-pattern>/process/shake</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>shakeInvite</servlet-name>
+		<servlet-class>com.taiko.process.ShakeInviteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>shakeInvite</servlet-name>
+		<url-pattern>/process/invite</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>shakeResponse</servlet-name>
+		<servlet-class>com.taiko.process.ShakeResponseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>shakeResponse</servlet-name>
+		<url-pattern>/process/response</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>selectMusic</servlet-name>
+		<servlet-class>com.taiko.process.SelectMusicServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>selectMusic</servlet-name>
+		<url-pattern>/process/selectmusic</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>score</servlet-name>
+		<servlet-class>com.taiko.process.ScoreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>score</servlet-name>
+		<url-pattern>/score/score</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>result</servlet-name>
+		<servlet-class>com.taiko.process.ResultServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>result</servlet-name>
+		<url-pattern>/score/result</url-pattern>
+	</servlet-mapping>
 </web-app>

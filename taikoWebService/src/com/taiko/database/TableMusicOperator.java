@@ -2,6 +2,8 @@ package com.taiko.database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Random;
 
 
 public class TableMusicOperator {
@@ -10,6 +12,26 @@ public class TableMusicOperator {
 	private String sql;
 	
 	//查询语句 name\difficulty\soundURL\rhythmURL
+//	public String selectMusicByID(int id){
+//		sql = "select URL from MusicTable where ID = "+ id;
+//		String url = null;
+//		ResultSet rs = db.selectSQL(sql);
+//		try{
+//		rs.next();
+//		url = rs.getString("URL");
+//		}catch (SQLException e) {  
+//            System.out.println("查询url数据库时出错：");  
+//            e.printStackTrace();  
+//        }
+//		return url;
+//	}
+	public ResultSet selectMusicList(int level) {
+		//查询难度等级小于当前等级的音乐
+		sql = "select id from MusicTable where Difficulty < "+ level;
+		ResultSet rs = db.selectSQL(sql);
+		return rs;
+	}
+	
 	public String selectMusicName(int id){
 		sql = "select MusicName from MusicTable where ID = "+ id;
 		String name = null;
@@ -24,6 +46,21 @@ public class TableMusicOperator {
 		return name;
 	}
 	
+	public int selectMusicIDRandomly(){
+		sql = "select count(*) from MusicTable";		
+		int count = 0;
+		ResultSet rs = db.selectSQL(sql);
+		try{
+			while(rs.next())
+				count = rs.getInt(1);
+		}catch (SQLException e) {  
+            System.out.println("查询count数据库时出错：");  
+            e.printStackTrace();  
+        }
+		Random random = new Random();
+		return random.nextInt(count);
+	}
+//	
 	public int selectMusicDifficulty(int id){
 		sql = "select Difficulty from MusicTable where ID = "+id;
 		int difficulty = 0;

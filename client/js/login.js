@@ -8,6 +8,7 @@ $(document).ready(function() {
 	$("#loginsubmitbtn").click(function(){
 		console.log("click");
 		$.getJSON("../json/get_player.json",{'id':checkid,'code':con_checkcode},function(data){
+	//	$.getJSON("account/login",{'id':checkid,'code':con_checkcode},function(data){
 			$("#name").html(data.name);
 			$.cookie('player_id',data.id);
 			$.cookie('player_name',data.name);
