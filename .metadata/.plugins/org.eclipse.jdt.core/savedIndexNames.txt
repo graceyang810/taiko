@@ -1,0 +1,25 @@
+INDEX VERSION 1.126+/Applications/XAMPP/xamppfiles/htdocs/newtaiko/.metadata/.plugins/org.eclipse.jdt.core
+762036670.index
+1329795745.index
+1704053498.index
+3573877598.index
+2544402144.index
+3845803046.index
+1895579237.index
+3333794191.index
+3019171732.index
+115999399.index
+129866616.index
+1835071593.index
+355617579.index
+2843615677.index
+3707163507.index
+3600065399.index
+2919128854.index
+794577826.index
+4226023569.index
+2712084311.index
+1038275904.index
+1452005681.index
+542159817.index
+1956012028.index

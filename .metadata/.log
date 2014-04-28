@@ -1,0 +1,344 @@
+!SESSION 2014-04-28 15:07:41.237 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/liwei/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.jee.product -keyring /Users/liwei/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.equinox.event 2 0 2014-04-28 15:07:42.468
+!MESSAGE [SCR] Found components with duplicated names! Details: 
+Component1 : Component[
+	name = org.eclipse.equinox.event
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.event.EventComponent
+	state = Unsatisfied
+	properties = 
+	serviceFactory = false
+	serviceInterface = [org.osgi.service.event.EventAdmin]
+	references = null
+	located in bundle = org.eclipse.equinox.event_1.2.100.v20110502 [989]
+]
+Component2: Component[
+	name = org.eclipse.equinox.event
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.event.EventComponent
+	state = Unsatisfied
+	properties = 
+	serviceFactory = false
+	serviceInterface = [org.osgi.service.event.EventAdmin]
+	references = null
+	located in bundle = org.eclipse.equinox.event_1.3.0.v20130327-1442 [291]
+]  
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-04-28 15:07:42.470
+!MESSAGE [SCR] Found components with duplicated names! Details: 
+Component1 : Component[
+	name = org.eclipse.equinox.p2.transport.ecf
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.p2.transport.ecf.ECFTransportComponent
+	state = Unsatisfied
+	properties = {p2.agent.servicename=org.eclipse.equinox.internal.p2.repository.Transport}
+	serviceFactory = false
+	serviceInterface = [org.eclipse.equinox.p2.core.spi.IAgentServiceFactory]
+	references = null
+	located in bundle = org.eclipse.equinox.p2.transport.ecf_1.0.0.v20111128-0624 [994]
+]
+Component2: Component[
+	name = org.eclipse.equinox.p2.transport.ecf
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.p2.transport.ecf.ECFTransportComponent
+	state = Unsatisfied
+	properties = {p2.agent.servicename=org.eclipse.equinox.internal.p2.repository.Transport}
+	serviceFactory = false
+	serviceInterface = [org.eclipse.equinox.p2.core.spi.IAgentServiceFactory]
+	references = null
+	located in bundle = org.eclipse.equinox.p2.transport.ecf_1.1.0.v20130516-1858 [324]
+]  
+
+!ENTRY org.eclipse.core.net 1 0 2014-04-28 15:08:19.284
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2014-04-28 15:08:19.955
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:08:19.955
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1418687,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(com.aptana.ruby.debug.ui.RubyShortcut.debug,Debug Ruby Application,
+		Debug Ruby Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@e73af3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:08:19.955
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@cf323d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(com.aptana.ruby.debug.ui.RubyShortcut.run,Run Ruby Application,
+		Run Ruby Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@eb7058,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:08:19.956
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.python.pydev.debug.setnext,Set Next Statement,
+		,
+		Category(org.python.pydev.ui.category.run,PyDev - Run,Python run category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11ca701,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18678a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:08:19.956
+!MESSAGE A conflict occurred for COMMAND+SHIFT+U:
+Binding(COMMAND+SHIFT+U,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.occurrences.in.file.quickMenu,Show Occurrences in File Quick Menu,
+		Shows the Occurrences in File quick menu,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@359a33,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+U,
+	ParameterizedCommand(Command(com.aptana.ide.syncing.ui.commands.upload,Upload...,
+		,
+		Category(com.aptana.ide.syncing.ui.commands.category,File Transfer,File Transfer Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11eaf4e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.core.resources 4 1 2014-04-28 15:10:10.115
+!MESSAGE Problems occurred while refreshing local changes
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2014-04-28 15:10:10.115
+!MESSAGE Problems occurred while refreshing local changes
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:923)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:904)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1699)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:167)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Contains: The project description file (.project) for 'RemoteSystemsTempFiles' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SUBENTRY 2 org.eclipse.core.resources 4 271 2014-04-28 15:10:10.116
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 3 org.eclipse.core.resources 4 567 2014-04-28 15:10:10.116
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.core.resources 2 2 2014-04-28 15:13:40.677
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2014-04-28 15:13:40.677
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.jobs 2 2 2014-04-28 15:24:52.691
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
+!SESSION 2014-04-28 15:34:53.057 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/liwei/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.jee.product -keyring /Users/liwei/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.equinox.event 2 0 2014-04-28 15:34:54.061
+!MESSAGE [SCR] Found components with duplicated names! Details: 
+Component1 : Component[
+	name = org.eclipse.equinox.event
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.event.EventComponent
+	state = Unsatisfied
+	properties = 
+	serviceFactory = false
+	serviceInterface = [org.osgi.service.event.EventAdmin]
+	references = null
+	located in bundle = org.eclipse.equinox.event_1.2.100.v20110502 [989]
+]
+Component2: Component[
+	name = org.eclipse.equinox.event
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.event.EventComponent
+	state = Unsatisfied
+	properties = 
+	serviceFactory = false
+	serviceInterface = [org.osgi.service.event.EventAdmin]
+	references = null
+	located in bundle = org.eclipse.equinox.event_1.3.0.v20130327-1442 [291]
+]  
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2014-04-28 15:34:54.063
+!MESSAGE [SCR] Found components with duplicated names! Details: 
+Component1 : Component[
+	name = org.eclipse.equinox.p2.transport.ecf
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.p2.transport.ecf.ECFTransportComponent
+	state = Unsatisfied
+	properties = {p2.agent.servicename=org.eclipse.equinox.internal.p2.repository.Transport}
+	serviceFactory = false
+	serviceInterface = [org.eclipse.equinox.p2.core.spi.IAgentServiceFactory]
+	references = null
+	located in bundle = org.eclipse.equinox.p2.transport.ecf_1.0.0.v20111128-0624 [994]
+]
+Component2: Component[
+	name = org.eclipse.equinox.p2.transport.ecf
+	activate = activate
+	deactivate = deactivate
+	modified = 
+	configuration-policy = optional
+	factory = null
+	autoenable = true
+	immediate = false
+	implementation = org.eclipse.equinox.internal.p2.transport.ecf.ECFTransportComponent
+	state = Unsatisfied
+	properties = {p2.agent.servicename=org.eclipse.equinox.internal.p2.repository.Transport}
+	serviceFactory = false
+	serviceInterface = [org.eclipse.equinox.p2.core.spi.IAgentServiceFactory]
+	references = null
+	located in bundle = org.eclipse.equinox.p2.transport.ecf_1.1.0.v20130516-1858 [324]
+]  
+
+!ENTRY org.eclipse.core.net 1 0 2014-04-28 15:34:59.340
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2014-04-28 15:34:59.859
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:34:59.859
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,Debug on Server,
+		Debug the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@124044e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(com.aptana.ruby.debug.ui.RubyShortcut.debug,Debug Ruby Application,
+		Debug Ruby Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@196a298,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:34:59.859
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,Run on Server,
+		Run the current selection on a server,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@8cdf50,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(com.aptana.ruby.debug.ui.RubyShortcut.run,Run Ruby Application,
+		Run Ruby Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@990de2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:34:59.859
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.python.pydev.debug.setnext,Set Next Statement,
+		,
+		Category(org.python.pydev.ui.category.run,PyDev - Run,Python run category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5e70bc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3b67a7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-04-28 15:34:59.859
+!MESSAGE A conflict occurred for COMMAND+SHIFT+U:
+Binding(COMMAND+SHIFT+U,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.occurrences.in.file.quickMenu,Show Occurrences in File Quick Menu,
+		Shows the Occurrences in File quick menu,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@12429c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+U,
+	ParameterizedCommand(Command(com.aptana.ide.syncing.ui.commands.upload,Upload...,
+		,
+		Category(com.aptana.ide.syncing.ui.commands.category,File Transfer,File Transfer Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@d311da,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
