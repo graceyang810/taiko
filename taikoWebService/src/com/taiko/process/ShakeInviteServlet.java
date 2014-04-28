@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiko.database.TableShakeApplyOperator;
 import com.taiko.database.TableShakeRoomOperator;
+import com.taiko.model.Feedback;
 import com.taiko.model.Music;
+import com.taiko.model.Response;
 import com.taiko.utility.DBOperator;
 import com.taiko.utility.Message;
 
@@ -46,7 +48,7 @@ public class ShakeInviteServlet extends HttpServlet {
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
 		int guestid = Integer.parseInt(request.getParameter("anotherid"));
-		boolean feedback = false;
+		Feedback feedback = new Feedback(false);
 		
 		//若扔在摇一摇列表中，则删除自己
 		TableShakeApplyOperator sApplyOp = new TableShakeApplyOperator();
@@ -64,9 +66,9 @@ public class ShakeInviteServlet extends HttpServlet {
 			sRoomOp.insertRoom(myid);
 		
 		//检查是否获得回应
-		int resp = sRoomOp.selectFeedback(myid);
-		if(resp == 1){
-			feedback = true;
+		Response resp = new Response(sRoomOp.selectFeedback(myid));
+		if(resp.getResp() == 1){
+			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			msg.addInfo(resp);
 			
@@ -76,7 +78,7 @@ public class ShakeInviteServlet extends HttpServlet {
 			
 			try{
 				while(rs.next())
-				{//逐个加入player信息
+				{//逐个加入music信息
 					mList.add(dbOp.getMusic(rs.getInt("id")));
 				}
 			}catch (SQLException e) {
@@ -84,8 +86,8 @@ public class ShakeInviteServlet extends HttpServlet {
 			}
 			msg.addInfo(mList);
 			
-		}else if(resp == 0){
-			feedback = true;
+		}else if(resp.getResp() == 0){
+			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			msg.addInfo(resp);
 		}else

@@ -2,9 +2,6 @@ package com.taiko.process;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiko.database.TableShakeApplyOperator;
 import com.taiko.database.TableShakeRoomOperator;
-import com.taiko.model.Music;
+import com.taiko.model.Feedback;
 import com.taiko.utility.DBOperator;
 import com.taiko.utility.Message;
 
@@ -46,7 +43,7 @@ public class ShakeResponseServlet extends HttpServlet {
 
 		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
 		DBOperator dbOp = new DBOperator();
-		boolean feedback = false;
+		Feedback feedback = new Feedback(false);
 		
 		//若仍在摇一摇列表中，则删除自己
 		TableShakeApplyOperator sApplyOp = new TableShakeApplyOperator();
@@ -63,7 +60,7 @@ public class ShakeResponseServlet extends HttpServlet {
 		//检查是否获得选歌结果
 		int musicid = sRoomOp.selectMusic(hostid);
 		if(musicid != 0){//已经有选定的歌曲
-			feedback = true;
+			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			msg = dbOp.addMusicInfo(msg, musicid);		
 		}else

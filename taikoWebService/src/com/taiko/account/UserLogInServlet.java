@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiko.database.TableUserOperator;
+import com.taiko.model.Feedback;
 import com.taiko.model.Player;
 import com.taiko.utility.Message;
 
@@ -52,7 +53,8 @@ public class UserLogInServlet extends HttpServlet {
 			msg.addInfo(p);
 
 		} else {
-			msg.addInfo("error");
+			
+			msg.addInfo(new Feedback(false));
 		}
 
 		out.write(msg.toJson());

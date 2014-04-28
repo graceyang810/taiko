@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiko.database.TableResultOperator;
-import com.taiko.utility.DBOperator;
+import com.taiko.model.Score;
 import com.taiko.utility.Message;
 
 /**
@@ -44,7 +44,7 @@ public class ScoreServlet extends HttpServlet {
 		resultOp.connectDB();		
 		resultOp.uptateValue(myid, "score", myscore);
 		
-		int score = resultOp.selectValue(guestid, "score");
+		Score score = new Score(resultOp.selectValue(guestid, "score"));
 		msg.addInfo(score);
 			
 		resultOp.disconnectDB();

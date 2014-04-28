@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiko.database.TableShakeApplyOperator;
 import com.taiko.database.TableShakeRoomOperator;
+import com.taiko.model.Feedback;
 import com.taiko.model.Player;
 import com.taiko.utility.DBOperator;
 import com.taiko.utility.Message;
@@ -48,7 +49,7 @@ public class ShakeServlet extends HttpServlet {
 		sApplyOp.connectDB();
 
 		int myid = Integer.parseInt(request.getParameter("id"));
-		boolean feedback = false;
+		Feedback feedback = new Feedback(false);
 
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		/*
@@ -87,7 +88,7 @@ public class ShakeServlet extends HttpServlet {
 		if(sRoomOp.checkGuest(myid)){
 			int hostid = sRoomOp.selectHost(myid);
 			Player pHost = dbOp.getPlayer(hostid);
-			feedback = true;
+			feedback.setFeedback(true);
 			msg.addInfo(pHost);
 		}
 		

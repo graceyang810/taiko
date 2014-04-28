@@ -1,12 +1,19 @@
 package com.taiko.model;
 
+import com.google.gson.annotations.Expose;
+
 
 public class Player{
 
+	@Expose
 	private int id;
+	@Expose
 	private String name;
+	@Expose
 	private String sex;
+	@Expose
 	private String avatar;
+	@Expose
 	private int level;
 	
 	//id,name,gender,photo,level
