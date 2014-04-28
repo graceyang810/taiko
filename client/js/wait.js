@@ -1,14 +1,18 @@
 $(document).ready(function(){
-	$("#start").click(function(event) {
-	      event.preventDefault();
-	      $("#modal").modal({
-	        escapeClose: false,
-	        clickClose: false,
-	        showClose: false
+	$("#start").click(function(event) {		
+	      // event.preventDefault();
+	      $.getJSON("../json/get_quickstart.json",{'id':$.cookie('player_id')},function(data){
+	      		if(data.feedback == true){
+	      			document.location.href = "./game.html?id=" + data.id + "&name=" + data.name + "&avator=" + data.avator + "&level=" + data.level +"&song_name=" + data.song_name;
+	      		}
+	      		if(data.feedback == false){
+	      			$("#modal").modal({
+				        escapeClose: false,
+				        clickClose: false,
+				        showClose: false
+				      });
+	      		}
 	      });
-	      // $.getJSON("../json/get_quickstart.json",function(data){
-	      // 	console.log($.cookie('player_id'));
-	      // });
 	    });
 
 		$("#start").hover(

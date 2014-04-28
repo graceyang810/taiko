@@ -1,20 +1,15 @@
 $(document).ready(function(){
-	$.getJSON("../json/get_rhthem.json",function(data){
+	$.getJSON("../json/get_rhthem.json",{"song_name":getParameterByName("song_name")},function(data){
 		var $song = $("#song"); 
-		var $vssong = $("#vssong"); 
 		var $rhythm = $("#rhythm");
 		var strrhythm = "";
 		var strHtml = ""; 
 		var vsstrHtml = ""; 
 		$song.empty(); 
 		$rhythm.empty();
-		$vssong.empty(); 
 
 		strHtml = "<label>对战曲目："+data.song_name+"</label>";	
 		$song.html(strHtml);
-
-		vsstrHtml = "<label style='color:white;top:10%;left:20%;position:absolute;z-index:6;font-size:25px;'>对战曲目："+data.song_name+"</label>";				
-		$vssong.html(vsstrHtml);
 
 		var insertText =  "<audio id='gamesong' src='"+ data.url+"'></audio>"; 
 		document.getElementById("song").innerHTML = document.getElementById("song").innerHTML+insertText;

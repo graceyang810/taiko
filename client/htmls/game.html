@@ -11,24 +11,26 @@
 	<script src="../js/leap.min.js"></script>
 	<script src="../js/leapstrap.js"></script>
 	<script src="../js/holder.js"></script>
+	<script src="../js/loadinfo.js"></script>
 	<script src="../js/loadsong.js"></script>
 	<link href="../css/process.css" rel="stylesheet">
+	<link href="../css/game.css" rel="stylesheet">
 </head>
 <body style="overflow:hidden;height: 100%;" onresize = "changesize()">
 <!-- <body> -->
 	<div id="hold">
-		<img id="mask" style="position:absolute;width:100%;height:100%;z-index:5;" src="../images/mask.png">
-		<img style="position:absolute;top:25%;left:44%;width:10%;z-index:6;" src="../images/vs.png">
+		<img id="mask" src="../images/mask.png">
+		<img id="vs" src="../images/vs.png">
 		<div id="vssong"></div>
 
-		<img style="position:absolute;top:20%;left:20%;width:12%;z-index:6;" src="../images/f1.png">
-		<p id="name1" style="z-index:6;position:absolute;color:white;font-size:20px;top:45%;left:20%;">name1</p>		
-		<label id="level1" style="position:absolute;z-index:6;color:blue;font-family:aviral;font-size:8px;top:50%;left:22%;">Lv.6</label>
+		<img id="avator1">
+		<p id="name1"></p>		
+		<label id="level1">Lv.<span id="level_1"></span></label>
 		<img style="position:absolute;z-index:6;top:50%;left:20%;" src="../images/level.gif">
 		
-		<img style="position:absolute;top:20%;right:20%;width:12%;z-index:6;" src="../images/m1.png">
-		<p id="name2" style="z-index:6;position:absolute;color:white;font-size:20px;top:45%;right:20%;">name2</p>		
-		<label id="level2" style="position:absolute;z-index:6;color:blue;font-family:aviral;font-size:8px;top:50%;right:22%;">Lv.3</label>
+		<img id="avator2">
+		<p id="name2"></p>		
+		<label id="level2">Lv.<span id="level_2"></span></label>
 		<img style="position:absolute;z-index:6;top:50%;right:20%;" src="../images/level.gif">
 		
 		<p style="z-index:6;position:absolute;top:60%;left:44%;color:white;font-size:30px;" >游戏载入中</p>
@@ -78,6 +80,7 @@
 		window.setTimeout(processer2,3000);
 		window.setTimeout(processer3,5000);
 		window.setTimeout(processer4,5800);
+		
 		window.setTimeout(function() {
 			$("#hold").fadeOut()
 		},7000);
@@ -99,12 +102,12 @@
 	<div id="info">
 		<img id="invent" style="position:absolute;z-index:4;top:12px;right:0px;width:18%;" src="../images/invent.png">
 		<p class="playername" id="playername1" style="z-index:4;">
-			<label class="level">Lv.6</label>
+			<label class="level">Lv.<span id="l1"></span></label>
 			<img class="levelimg" src="../images/level.gif">
 		name1</p>		
 		<p class="score"  id="score1"  style="z-index:4;">score: <span id="currentscore1"style = "color:#00FF29;">0</span></p>		
 		<p class="playername"  id="playername2" style="z-index:4;">
-			<label class="level">Lv.3</label>
+			<label class="level">Lv.<span id="l2"></span></label>
 			<img class="levelimg" src="../images/level.gif">
 		name2</p>			
 		<p class="score" id="score2"  style="z-index:4;">score: <span id="currentscore2"style = "color:#00FF29;">0</span></p>	
