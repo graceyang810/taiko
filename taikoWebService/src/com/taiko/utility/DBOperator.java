@@ -45,13 +45,13 @@ public class DBOperator {//EntityGetter?
 	public Message addMusicInfo(Message msg, int musicID) {
 		TableMusicOperator musicOp = new TableMusicOperator();
 		musicOp.connectDB();
+		MusicSoundURL soundurl = new MusicSoundURL(musicOp.selectMusicSound(musicID));
 		String rhythmURL = musicOp.selectMusicRhythm(musicID);
 		musicOp.disconnectDB();
 		Music music = getMusic(musicID);
 		// 读music得json文件
 		StringBuffer rhythmBuffer = music.readFile(rhythmURL);
 		msg.addInfo(music);
-		MusicSoundURL soundurl = new MusicSoundURL(musicOp.selectMusicSound(musicID));
 		msg.addInfo(soundurl);
 		msg.addInfo(rhythmBuffer);
 		return msg;

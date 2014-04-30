@@ -9,28 +9,38 @@ public class TableUserOperator {
 	private String sql;
 
 	// 插入数据库 新用户
-	public boolean insertUser(String name, String password, String gender,
+	public int insertUser(String name, String password, String gender,
 			String photo) {
 		sql = "insert into UserTable(UserName,Password,Gender,PhotoURL) values('"
 				+ name + "','" + password + "','" + gender + "','" + photo + "')";
 		db.insertSQL(sql);
-		return true;
-	}
-
-	// 查询语句 id、username\password\gender\exp\level\photo
-	public int selectUserID(String name) {
-		sql = "select ID from UserTable where UserName = '" + name + "'";
+		sql = "SELECT LAST_INSERT_ID()";
 		int id = 0;
 		ResultSet rs = db.selectSQL(sql);
 		try {
 			while (rs.next())
-				id = rs.getInt("ID");
+				id = rs.getInt(1);
 		} catch (SQLException e) {
 			System.out.println("查询id数据库时出错：");
 			e.printStackTrace();
 		}
 		return id;
 	}
+
+	// 查询语句 id、username\password\gender\exp\level\photo
+//	public int selectUserID(String name) {
+//		sql = "select ID from UserTable where UserName = '" + name + "'";
+//		int id = 0;
+//		ResultSet rs = db.selectSQL(sql);
+//		try {
+//			while (rs.next())
+//				id = rs.getInt("ID");
+//		} catch (SQLException e) {
+//			System.out.println("查询id数据库时出错：");
+//			e.printStackTrace();
+//		}
+//		return id;
+//	}
 		
 	public String selectUserName(int id) {
 		sql = "select UserName from UserTable where ID = " + id;

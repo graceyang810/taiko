@@ -51,11 +51,11 @@
 		<url-pattern>/process/quickstart</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>shake</servlet-name>
-		<servlet-class>com.taiko.process.ShakeServlet</servlet-class>
+		<servlet-name>shakeStart</servlet-name>
+		<servlet-class>com.taiko.process.ShakeStartServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>shake</servlet-name>
+		<servlet-name>shakeStart</servlet-name>
 		<url-pattern>/process/shake</url-pattern>
 	</servlet-mapping>
 	<servlet>
