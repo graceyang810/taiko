@@ -20,16 +20,28 @@ public class Music {
 	public StringBuffer readFile(String path) {
 		File file = new File(path);
 		BufferedReader reader = null;
+//		Reader reader = null;
 		StringBuffer buffer = new StringBuffer();
 		try {
 //			System.out.println("以行为单位读取文件内容，一次读一整行：");
 			reader = new BufferedReader(new FileReader(file));
+//			reader = new InputStreamReader(new FileInputStream(file));
 			String tempString = null;
 			// 一次读入一行，直到读入null为文件结束
 			while ((tempString = reader.readLine()) != null) {
 				// 显示行号
+//				tempString.replaceFirst("^\\n+", "");
 				buffer.append(tempString);
 			}
+//			int tempchar; 
+//			while ((tempchar = reader.read()) != -1){ 
+//			//对于windows下，rn这两个字符在一起时，表示一个换行。 
+//			//但如果这两个字符分开显示时，会换两次行。 
+//			//因此，屏蔽掉r，或者屏蔽n。否则，将会多出很多空行。 
+//			if (((char)tempchar) != '\r'&&((char)tempchar) != '\n'){
+//				buffer.append((char)tempchar);
+//			}
+//			} 
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();

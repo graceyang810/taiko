@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.taiko.database.TableResultOperator;
 import com.taiko.database.TableWaitingRoomOperator;
 import com.taiko.model.Feedback;
 import com.taiko.utility.DBOperator;
@@ -51,6 +52,7 @@ public class QuickStartServlet extends HttpServlet {
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
 		Feedback feedback = new Feedback(false);
+		out.write(countRoom+";");
 		try {
 			if(countRoom!=0){
 				//若表中有人				
@@ -69,12 +71,18 @@ public class QuickStartServlet extends HttpServlet {
 						
 						//已完成配对，删除等待房间
 						wRoomOp.deleteRoomByHost(myid);
+						//为两个玩家创建result记录
+						TableResultOperator resultOp = new TableResultOperator();
+						resultOp.connectDB();
+						resultOp.insertResult(myid);
+						resultOp.insertResult(guest);
+						resultOp.disconnectDB();
 					}
 				}
 				else{//myID并没有建立过room，即不在等候中
 					//随机选择其中一个房间
 					Random random = new Random();
-					int selectedRoomOrder = random.nextInt(countRoom);
+					int selectedRoomOrder = random.nextInt(countRoom)+1;
 					rs = wRoomOp.selectRoomByOrder(selectedRoomOrder);
 					
 					int host = rs.getInt("host");//获取房主信息

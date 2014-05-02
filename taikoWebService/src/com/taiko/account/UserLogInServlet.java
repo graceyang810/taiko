@@ -45,8 +45,9 @@ public class UserLogInServlet extends HttpServlet {
 
 		int id = Integer.parseInt(request.getParameter("id"));
 		String pswd = userOp.selectUserPassword(id);
-
-		if (request.getParameter("code") == pswd) {
+//		out.write("ID="+id+";password="+pswd);
+		if (request.getParameter("code").endsWith(pswd)) {
+//		if (request.getParameter("code")== pswd) {
 			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			// id,name,gender,photo,level

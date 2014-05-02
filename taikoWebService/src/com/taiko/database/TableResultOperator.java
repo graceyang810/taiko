@@ -42,6 +42,12 @@ public class TableResultOperator {
 		return true;
 	}
 
+//	public ResultSet selectResult(int id){
+//		sql = "select * from resulttable where id = " + id;
+//		ResultSet rs = db.selectSQL(sql);
+//		return rs;
+//	}
+	
 	public void connectDB() {
 		db = new DBController();
 		db.connect();
