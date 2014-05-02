@@ -52,7 +52,7 @@ public class QuickStartServlet extends HttpServlet {
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
 		Feedback feedback = new Feedback(false);
-		out.write(countRoom+";");
+//		out.write(countRoom+";");
 		try {
 			if(countRoom!=0){
 				//若表中有人				

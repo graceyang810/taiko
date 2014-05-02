@@ -84,7 +84,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>score</servlet-name>
-		<servlet-class>com.taiko.process.ScoreServlet</servlet-class>
+		<servlet-class>com.taiko.score.ScoreServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>score</servlet-name>
@@ -92,7 +92,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>result</servlet-name>
-		<servlet-class>com.taiko.process.ResultServlet</servlet-class>
+		<servlet-class>com.taiko.score.ResultServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>result</servlet-name>

@@ -6,11 +6,11 @@ import com.taiko.database.TableMusicOperator;
 import com.taiko.database.TableResultOperator;
 import com.taiko.database.TableUserOperator;
 import com.taiko.model.Music;
-import com.taiko.model.MusicSoundURL;
+import com.taiko.model.MusicInfoURL;
 import com.taiko.model.Player;
 import com.taiko.model.Result;
 
-public class DBOperator {//EntityGetter?
+public class DBOperator {// EntityGetter?
 
 	public Player getPlayer(int id) {
 		TableUserOperator userOp = new TableUserOperator();
@@ -45,15 +45,18 @@ public class DBOperator {//EntityGetter?
 	public Message addMusicInfo(Message msg, int musicID) {
 		TableMusicOperator musicOp = new TableMusicOperator();
 		musicOp.connectDB();
-		MusicSoundURL soundurl = new MusicSoundURL(musicOp.selectMusicSound(musicID));
-		String rhythmURL = musicOp.selectMusicRhythm(musicID);
+		MusicInfoURL musicurl = new MusicInfoURL(
+				musicOp.selectMusicSound(musicID),
+				musicOp.selectMusicRhythm(musicID));
+		// String rhythmURL = musicOp.selectMusicRhythm(musicID);
 		musicOp.disconnectDB();
 		Music music = getMusic(musicID);
 		// 读music得json文件
-		StringBuffer rhythmBuffer = music.readFile(rhythmURL);
+		// StringBuffer rhythmBuffer = music.readFile(rhythmURL);
 		msg.addInfo(music);
-		msg.addInfo(soundurl);
-		msg.addInfo(rhythmBuffer);
+		msg.addInfo(musicurl);
+		// msg.addInfo(rhythmURL);
+		// msg.addInfo(rhythmBuffer);
 		return msg;
 	}
 
@@ -68,7 +71,7 @@ public class DBOperator {//EntityGetter?
 	public Result getResult(int id) {
 		TableResultOperator resultOp = new TableResultOperator();
 		resultOp.connectDB();
-		//id,score,perfect,cool,miss,combo
+		// id,score,perfect,cool,miss,combo
 		Result r = new Result(id, resultOp.selectValue(id, "score"),
 				resultOp.selectValue(id, "perfect"), resultOp.selectValue(id,
 						"cool"), resultOp.selectValue(id, "miss"),

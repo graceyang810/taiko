@@ -2,12 +2,15 @@ package com.taiko.model;
 
 import com.google.gson.annotations.Expose;
 
-public class MusicSoundURL {
+public class MusicInfoURL {
 
 	@Expose
 	private String soundURL;
+	@Expose
+	private String rhythmURL;
 	
-	public MusicSoundURL(String s){
+	public MusicInfoURL(String s,String r){
 		this.soundURL = s;
+		this.rhythmURL = r;
 	}
 }

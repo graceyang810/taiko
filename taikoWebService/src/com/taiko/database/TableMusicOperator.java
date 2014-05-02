@@ -58,7 +58,7 @@ public class TableMusicOperator {
             e.printStackTrace();  
         }
 		Random random = new Random();
-		return random.nextInt(count);
+		return random.nextInt(count)+1;
 	}
 //	
 	public int selectMusicDifficulty(int id){
