@@ -18,7 +18,7 @@
 </head>
 <body style="overflow:hidden;height: 100%;" onresize = "changesize()">
 <!-- <body> -->
-	<div id="hold">
+	<div id="hold" style="display:none;">
 		<img id="mask" src="../images/mask.png">
 		<img id="vs" src="../images/vs.png">
 		<div id="vssong"></div>
@@ -101,15 +101,16 @@
 
 	<div id="info">
 		<img id="invent" style="position:absolute;z-index:4;top:12px;right:0px;width:18%;" src="../images/invent.png">
-		<p class="playername" id="playername1" style="z-index:4;">
-			<label class="level">Lv.<span id="l1"></span></label>
-			<img class="levelimg" src="../images/level.gif">
-		name1</p>		
+		<p class="playername" id="playername1" style="z-index:4;"></p>
+		<!-- <label class="l1">Lv.<span id="l1"></span></label>
+		<img class="limg1" src="../images/level.gif"> -->
+		<img id="showavator1">
 		<p class="score"  id="score1"  style="z-index:4;">score: <span id="currentscore1"style = "color:#00FF29;">0</span></p>		
 		<p class="playername"  id="playername2" style="z-index:4;">
-			<label class="level">Lv.<span id="l2"></span></label>
-			<img class="levelimg" src="../images/level.gif">
-		name2</p>			
+		<!-- 	<label class="level">Lv.<span id="l2"></span></label>
+		<img class="levelimg" src="../images/level.gif"> -->
+		</p>	
+		<img id="showavator2">		
 		<p class="score" id="score2"  style="z-index:4;">score: <span id="currentscore2"style = "color:#00FF29;">0</span></p>	
 	</div>
 
@@ -200,7 +201,7 @@
 						// console.log(n+":"+ parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth*100+"%");
 						// console.log("left_perfect");
 						$("#"+"rhythm"+n).css("visibility","hidden");
-						tempscore += 30;						
+						tempscore += 5;						
 						$("#currentscore1").html(tempscore);
 						perfect++;
 						// console.log("perfect:"+perfect);
@@ -219,7 +220,7 @@
 						// console.log(n+":"+ parseInt($("#"+"rhythm"+n).css("left"))/document.body.clientWidth*100+"%");
 						// console.log("left_cool");
 						$("#"+"rhythm"+n).css("visibility","hidden");
-						tempscore += 10;
+						tempscore += 3;
 						$("#currentscore1").html(tempscore);						
 						cool++;
 						// console.log("cool:"+cool);
@@ -282,7 +283,7 @@
 						console.log(m+":"+ parseInt($("#"+"rhythm"+m).css("left"))/document.body.clientWidth*100+"%");
 						console.log("right_perfect");
 						$("#"+"rhythm"+m).remove();
-						tempscore += 30;			
+						tempscore += 5;			
 						$("#currentscore1").html(tempscore);		
 						perfect++;
 						console.log("perfect:"+perfect);
@@ -301,7 +302,7 @@
 						console.log(m+":"+ parseInt($("#"+"rhythm"+m).css("left"))/document.body.clientWidth*100+"%");
 						console.log("right_cool");
 						$("#"+"rhythm"+m).remove();
-						tempscore += 10;
+						tempscore += 3;
 						$("#currentscore1").html(tempscore);					
 						cool++;
 						console.log("cool:"+cool);
@@ -367,6 +368,20 @@
 		var _newtop2 = parseInt($("#invent").css("width"))/442*312*14/17;
 		$("#playername2").css("top",newtop2);
 		$("#score2").css("top",_newtop2);
+
+		var imgleft = document.body.clientWidth - parseInt($("#invent").css("width"))*17/18;
+		var imgtop = parseInt($("#invent").css("top")) + parseInt($("#invent").css("width"))*13/90;
+		var imgsize = parseInt($("#invent").css("width"))/6;
+		$("#showavator1").css("left",imgleft);
+		$("#showavator1").css("top",imgtop);
+		$("#showavator1").css("width",imgsize);
+
+		var imgtop2 = parseInt($("#invent").css("top")) + parseInt($("#invent").css("width"))*41/90;
+		$("#showavator2").css("left",imgleft);
+		$("#showavator2").css("top",imgtop2);
+		$("#showavator2").css("width",imgsize);
+
+		
 	}
 
 	</script>

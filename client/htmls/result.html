@@ -9,21 +9,24 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/leap.min.js"></script>
 	<script src="../js/leapstrap.js"></script>
+	<script src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/result.js"></script>
+	<link href="../css/result.css" rel="stylesheet">
 </head>
 <body>
-	<img style="width:100%;height:100%;" src="../images/resultback.png">
-	<p style="position:absolute;top:6%;left:5%;font-size:40px;color:#000;">对战结果</p>
-	<p style="position:absolute;top:14%;left:5%;font-size:20px;color:#444;">对战曲目：<span id="songname">songname</span></p>	
+	<img id="back" src="../images/resultback.png">
+	<p id="result">对战结果</p>
+	<p id="song">对战曲目：<span id="songname"></span></p>	
 	<img style="position:absolute;top:45%;left:47%;width:6%;z-index:6;" src="../images/vs.png">
 
-	<img style="position:absolute;top:45%;left:40%;width:6%;" src="../images/f1.png">
-	<p id="name1" style="position:absolute;color:white;font-size:20px;top:57%;left:40%;">name1</p>		
-	<label id="level1" style="position:absolute;color:#ff0;font-family:aviral;font-size:8px;font-weight:bolder;top:61%;left:40%;">Lv.6</label>
+	<img id="avator1">
+	<p id="name1"></p>		
+	<label id="level1">Lv.<span id="level_1"></span></label>
 	<img style="position:absolute;top:60.6%;left:42%;" src="../images/level.gif">
 	
-	<img style="position:absolute;top:45%;right:40%;width:6%;" src="../images/m1.png">
-	<p id="name2" style="position:absolute;color:white;font-size:20px;top:57%;right:40%;">name2</p>		
-	<label id="level2" style="position:absolute;color:red;font-family:aviral;font-size:8px;top:61%;right:40%;">Lv.3</label>
+	<img id="avator2">
+	<p id="name2"></p>		
+	<label id="level2">Lv.<span id="level_2"></span></label>
 	<img style="position:absolute;top:60.6%;right:42%;" src="../images/level.gif">
 
 	<img class="updown1" style="position:absolute;top:70%;width:15%;left:35%;" src="../images/drum0.png">
@@ -69,35 +72,5 @@
 		<span class="span4" style="top:66%;" id="rating2">0</span>
 	</div>
 </body>
-	<script type="text/javascript">
-		$("#perfect").html(getParameterByName("perfect"));
-		$("#cool").html(getParameterByName("cool"));
-		$("#miss").html(getParameterByName("miss"));
-		$("#combo").html(getParameterByName("combo"));
-
-		$("#score").html(getParameterByName("perfect")*5 + getParameterByName("cool")*3);
-
-		if(parseInt($("#score").html()) >parseInt($("#score2").html())){
-			$("#rating").html(1);
-			$("#rating2").html(2);
-			$("#stamp").animate({width:'16%',top:'25%',left:'26%',opacity:'1'},"slow");
-		}
-		else{
-			$("#rating").html(2);
-			$("#rating2").html(1);
-			$("#stamp").animate({width:'16%',top:'25%',left:'56%',opacity:'1'},"slow");
-		}
-
-		function getParameterByName(name) {
-			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-			results = regex.exec(location.search);
-			return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-		}
-		
-
-
-		
-	</script>
 </html>
 

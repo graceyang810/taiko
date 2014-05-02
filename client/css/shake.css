@@ -1,0 +1,18 @@
+@font-face{
+	font-family: myfont;
+	src: url('../fonts/sxslst.ttf'); 
+}
+
+body {
+	font-family: myfont;
+	background: black;
+}
+
+p ,h1 ,h2 ,h3 ,label, span,{
+	font-family: myfont;
+}
+
+#back{	
+	width:100%;
+	height:100%;
+}

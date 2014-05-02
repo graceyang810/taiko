@@ -15,7 +15,7 @@ $(document).ready(function(){
 		document.getElementById("song").innerHTML = document.getElementById("song").innerHTML+insertText;
 		document.getElementById("gamesong").addEventListener("ended",function() {
 			miss = data.rhythm.length - perfect -cool;
-	        document.location.href = "./result.html?perfect="+perfect+"&cool="+cool+"&miss="+miss+"&combo="+combo;
+	        document.location.href = "./result.html?anotherid="+ getParameterByName("id")+"&level="+ getParameterByName("level")+"&avator="+ getParameterByName("avator")+"&name="+getParameterByName("name")+"&song_name="+ getParameterByName("song_name") +"&perfect="+perfect+"&cool="+cool+"&miss="+miss+"&combo="+combo;
 	    });
 	    
 

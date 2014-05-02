@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>太鼓达人leap测试版</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link href="../css/leapstrap.css" rel="stylesheet">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/leap.min.js"></script>
+	<script src="../js/leapstrap.js"></script>
+	<script src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/result.js"></script>
+	<link href="../css/shake.css" rel="stylesheet">
+</head>
+<body>
+	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
+	<img id="back" src="../images/back3.png">
+	<a id="goback" href="../htmls/mode.html"><img id="pic3" style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
+</body>
+<script type="text/javascript">
+	$("#goback").hover(
+		function(){
+		$("#pic3").attr("src","../images/btn_back_hover.png");
+		document.getElementById('buttonplayer').play(); 
+		},
+		function(){
+		$("#pic3").attr("src","../images/btn_back.png");
+		})
+</script>
+</html>

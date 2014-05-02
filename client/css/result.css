@@ -12,76 +12,64 @@ p ,h1 ,h2 ,h3 ,label, span,{
 	font-family: myfont;
 }
 
-#mask{
-	position:absolute;
+#back{
 	width:100%;
 	height:100%;
-	z-index:5;
 }
-#vs{
+#result{
 	position:absolute;
-	top:25%;
-	left:44%;
-	width:10%;
-	z-index:6;
+	top:6%;
+	left:5%;
+	font-size:40px;
+	color:#000;"
+}
+#song{
+	position:absolute;
+	top:14%;
+	left:5%;
+	font-size:20px;
+	color:#444;
 }
 #avator1{
 	position:absolute;
-	top:20%;
-	left:20%;
-	width:12%;
-	z-index:6;
+	top:45%;
+	left:40%;
+	width:6%;
 }
 #avator2{
 	position:absolute;
-	top:20%;
-	right:20%;
-	width:12%;
-	z-index:6;
+	top:45%;
+	right:40%;
+	width:6%;
 }
 #name1{
-	z-index:6;
 	position:absolute;
 	color:white;
 	font-size:20px;
-	top:45%;
-	left:20%;
+	top:57%;
+	left:40%;
 }
 #name2{
-	z-index:6;
 	position:absolute;
 	color:white;
 	font-size:20px;
-	top:45%;
-	right:20%;
+	top:57%;
+	right:40%;
 }
 #level1{
 	position:absolute;
-	z-index:6;
-	color:blue;
+	color:#ff0;
 	font-family:aviral;
 	font-size:8px;
-	top:50%;
-	left:22%;
+	font-weight:bolder;
+	top:61%;
+	left:40%;
 }
 #level2{
 	position:absolute;
-	z-index:6;
-	color:blue;
+	color:red;
 	font-family:aviral;
 	font-size:8px;
-	top:50%;
-	right:22%;
-}
-#showavator1{
-	position:absolute;
-	top:10%;
-	right:10%;
-	z-index:4;
-}
-#showavator2{
-	position:absolute;
-	top:10%;
-	right:10%;
-	z-index:4;
+	top:61%;
+	right:40%;
 }
