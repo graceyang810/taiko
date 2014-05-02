@@ -38,14 +38,18 @@ public class UserLogInServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		Message msg = new Message();
-
+		
+		Feedback feedback = new Feedback(false);
 		TableUserOperator userOp = new TableUserOperator();
 		userOp.connectDB();
 
 		int id = Integer.parseInt(request.getParameter("id"));
 		String pswd = userOp.selectUserPassword(id);
-
-		if (request.getParameter("code") == pswd) {
+//		out.write("ID="+id+";password="+pswd);
+		if (request.getParameter("code").endsWith(pswd)) {
+//		if (request.getParameter("code")== pswd) {
+			feedback.setFeedback(true);
+			msg.addInfo(feedback);
 			// id,name,gender,photo,level
 			Player p = new Player(id, userOp.selectUserName(id),
 					userOp.selectGender(id), userOp.selectUserPhoto(id),
@@ -54,7 +58,7 @@ public class UserLogInServlet extends HttpServlet {
 
 		} else {
 			
-			msg.addInfo(new Feedback(false));
+			msg.addInfo(feedback);
 		}
 
 		out.write(msg.toJson());

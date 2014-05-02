@@ -62,7 +62,8 @@ public class ShakeResponseServlet extends HttpServlet {
 		if(musicid != 0){//已经有选定的歌曲
 			feedback.setFeedback(true);
 			msg.addInfo(feedback);
-			msg = dbOp.addMusicInfo(msg, musicid);		
+			msg = dbOp.addMusicInfo(msg, musicid);	
+			sRoomOp.deleteRoomByHost(myid);//配对成功，从摇一摇列表中删除本房间
 		}else
 			msg.addInfo(feedback);
 			

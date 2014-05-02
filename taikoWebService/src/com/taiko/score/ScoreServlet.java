@@ -43,8 +43,8 @@ public class ScoreServlet extends HttpServlet {
 		
 		resultOp.connectDB();		
 		resultOp.uptateValue(myid, "score", myscore);
-		
-		Score score = new Score(resultOp.selectValue(guestid, "score"));
+		int guestScore =resultOp.selectValue(guestid, "score");
+		Score score = new Score(guestScore);
 		msg.addInfo(score);
 			
 		resultOp.disconnectDB();

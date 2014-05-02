@@ -24,13 +24,13 @@ import com.taiko.utility.Message;
  * Servlet implementation class ShakeServlet
  */
 @WebServlet("/ShakeServlet")
-public class ShakeServlet extends HttpServlet {
+public class ShakeStartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ShakeServlet() {
+	public ShakeStartServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -81,7 +81,7 @@ public class ShakeServlet extends HttpServlet {
 		}
 		msg.addInfo(pList);
 		
-		//检查时候被别的玩家邀请
+		//检查是否被别的玩家邀请
 		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
 		sRoomOp.connectDB();
 		

@@ -8,10 +8,11 @@ public class TableResultOperator {
 	private String sql;
 
 	public int selectValue(int id, String field) {
-		sql = "select" + field + "from resulttable where id = " + id;
+		sql = "select " + field + " from resulttable where id = " + id;
 		int value = 0;
 		ResultSet rs = db.selectSQL(sql);
 		try {
+//			while (rs.next())
 			rs.next();
 			value = rs.getInt(field);
 		} catch (SQLException e) {
@@ -42,6 +43,12 @@ public class TableResultOperator {
 		return true;
 	}
 
+//	public ResultSet selectResult(int id){
+//		sql = "select * from resulttable where id = " + id;
+//		ResultSet rs = db.selectSQL(sql);
+//		return rs;
+//	}
+	
 	public void connectDB() {
 		db = new DBController();
 		db.connect();

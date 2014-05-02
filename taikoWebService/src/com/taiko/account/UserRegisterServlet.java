@@ -34,7 +34,7 @@ public class UserRegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 		PrintWriter out = response.getWriter();
 		Message msg = new Message();
 
@@ -42,11 +42,12 @@ public class UserRegisterServlet extends HttpServlet {
 		userOp.connectDB();
 
 		// UserName,Password,Gender,PhotoURL
-		userOp.insertUser(request.getParameter("name"),
+		ID id = new ID();
+		id.setId(userOp.insertUser(request.getParameter("name"),
 				request.getParameter("code"), request.getParameter("sex"),
-				request.getParameter("avatar"));
-		
-		ID id= new ID(userOp.selectUserID(request.getParameter("name")));
+				request.getParameter("avatar")));
+
+		// ID id= new ID(userOp.selectUserID(request.getParameter("name")));
 		msg.addInfo(id);
 
 		out.write(msg.toJson());
