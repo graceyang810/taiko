@@ -18,25 +18,25 @@ p ,h1 ,h2 ,h3 ,label, span,{
 }
 #v{
 	position: absolute;
-	top:40%;
+	top:50%;
 	left:45%;
 	width: 10%;
 }
 #s{
 	position: absolute;
-	top:40%;
+	top:50%;
 	left:45%;
 	width: 10%;
 }
 #player1{
 	position: absolute;
-	top:40%;
+	top:50%;
 	left:25%;
 }
 
 #player2{
 	position: absolute;
-	top:40%;
+	top:50%;
 	right:15%;
 }
 #avator1{
