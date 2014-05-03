@@ -63,6 +63,14 @@ public class ResultServlet extends HttpServlet {
 		out.write(msg.toJson());
 		out.flush();
 		out.close();
+		try {
+			Thread.sleep(2000);//防止对方的数据还未写入数据库
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		resultOp.connectDB();		
+		resultOp.deleteApply(myid);//删除自己的记录
+		resultOp.disconnectDB();
 	}
 
 	/**

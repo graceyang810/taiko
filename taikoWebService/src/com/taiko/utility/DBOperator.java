@@ -37,6 +37,7 @@ public class DBOperator {// EntityGetter?
 		TableUserOperator userOp = new TableUserOperator();
 		userOp.connectDB();
 		int level = userOp.selectUserLevel(userID);
+//		System.out.println("level = "+level);
 		userOp.disconnectDB();
 		TableMusicOperator musicOp = new TableMusicOperator();
 		musicOp.connectDB();

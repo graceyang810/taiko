@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.taiko.database.TableMusicOperator;
 import com.taiko.database.TableShakeApplyOperator;
 import com.taiko.database.TableShakeRoomOperator;
+import com.taiko.database.TableUserOperator;
 import com.taiko.model.Feedback;
 import com.taiko.model.Music;
 import com.taiko.model.Response;
@@ -74,26 +76,42 @@ public class ShakeInviteServlet extends HttpServlet {
 			msg.addInfo(resp);
 			
 			//加可选音乐列表			
-			ResultSet rs = dbOp.getMusicList(myid);
+//			ResultSet rs = dbOp.getMusicList(myid);
+			
+			TableUserOperator userOp = new TableUserOperator();
+			userOp.connectDB();
+			int level = userOp.selectUserLevel(myid);
+//			System.out.println("level = "+level);
+			userOp.disconnectDB();
+			TableMusicOperator musicOp = new TableMusicOperator();
+			musicOp.connectDB();
+			ResultSet rs = musicOp.selectMusicList(level);
+			
+			
 			ArrayList<Music> mList = new ArrayList<Music>();
 			
+			int count = 0;
 			try{
 				while(rs.next())
 				{//逐个加入music信息
+					count++;
 					mList.add(dbOp.getMusic(rs.getInt("id")));
 				}
 			}catch (SQLException e) {
+				System.out.println("mList 出错");
 				e.printStackTrace();
 			}
 			msg.addInfo(mList);
-			
+			System.out.println("qualified music count = "+count);
+			musicOp.disconnectDB();
 		}else if(resp.getResp() == 0){
 			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			msg.addInfo(resp);
 		}else
 			msg.addInfo(feedback);
-			
+		
+		
 		sRoomOp.disconnectDB();
 		
 		out.write(msg.toJson());
