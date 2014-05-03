@@ -3,6 +3,7 @@ package com.taiko.database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class TableShakeApplyOperator {
 
@@ -28,7 +29,8 @@ public class TableShakeApplyOperator {
 		//查询当前玩家的shaketime
 		sql = "select shaketime from shakeapplytable where id = " + id;
 		Timestamp time = null;
-		ResultSet rs = db.selectSQL(sql);
+		ResultSet rs = null;
+		rs = db.selectSQL(sql);
 		try {
 			rs.next();
 			time = rs.getTimestamp("shaketime");
@@ -37,9 +39,9 @@ public class TableShakeApplyOperator {
 			e.printStackTrace();
 		}
 		//查询当前玩家前3秒与后3秒之内的玩家
-		sql = "select id from shakeapplytable where shakeTime between DATE_SUB("
-				+ time + ",INTERVAL 3 SECOND) and ATE_ADD(" + time
-				+ ",INTERVAL 3 SECOND)";
+		sql = "select id from shakeapplytable where shakeTime between DATE_SUB('"
+				+ time + "',INTERVAL 3 SECOND) and DATE_ADD('" + time
+				+ "',INTERVAL 3 SECOND)";
 		rs = db.selectSQL(sql);
 		return rs;
 	}
@@ -51,14 +53,17 @@ public class TableShakeApplyOperator {
 	}
 
 	public boolean insertApply(int id) {
-		Timestamp time = new Timestamp(System.currentTimeMillis());
-		sql = "insert into shakeapplytable(id,shaketime) values (" + id + "','" + time + "');";
+//		Timestamp time = new Timestamp(System.currentTimeMillis());
+		Date date = new Date();
+		 Timestamp time = new Timestamp(date.getTime());
+		sql = "insert into shakeapplytable(id,shaketime) values (" + id + ",'" + time + "')";
+//		 sql = "insert into shakeapplytable(id) values (" + id + ")";
 		db.insertSQL(sql);
 		return true;
 	}
 
 	public boolean updateTime(int id, Timestamp time) {
-		sql = "update shakeapplytable set shakeTime = " + time + " where id = "
+		sql = "update shakeapplytable set shakeTime = '" + time + "' where id = "
 				+ id;
 		db.updateSQL(sql);
 		return true;

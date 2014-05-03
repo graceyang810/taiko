@@ -33,11 +33,14 @@ public class DBOperator {// EntityGetter?
 		return m;
 	}
 
-	public ResultSet getMusicList(int id) {
+	public ResultSet getMusicList(int userID) {
+		TableUserOperator userOp = new TableUserOperator();
+		userOp.connectDB();
+		int level = userOp.selectUserLevel(userID);
+		userOp.disconnectDB();
 		TableMusicOperator musicOp = new TableMusicOperator();
 		musicOp.connectDB();
-		ResultSet rs = musicOp.selectMusicList(musicOp
-				.selectMusicDifficulty(id));
+		ResultSet rs = musicOp.selectMusicList(level);
 		musicOp.disconnectDB();
 		return rs;
 	}

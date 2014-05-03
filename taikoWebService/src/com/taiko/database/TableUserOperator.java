@@ -102,6 +102,8 @@ public class TableUserOperator {
 		sql = "select Level from UserTable where ID = " + id;
 		int level = 0;
 		ResultSet rs = db.selectSQL(sql);
+//		ResultSet rs = null;
+//		rs = db.selectSQL(sql);
 		try {
 			rs.next();
 			level = rs.getInt("Level");
