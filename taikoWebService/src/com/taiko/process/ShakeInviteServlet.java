@@ -62,9 +62,10 @@ public class ShakeInviteServlet extends HttpServlet {
 		//检查是否创建过房间
 		if (sRoomOp.checkHost(myid))
 			sRoomOp.updateGuest(myid, guestid);
-		else
+		else{
 			sRoomOp.insertRoom(myid);
-		
+			sRoomOp.updateGuest(myid, guestid);
+		}
 		//检查是否获得回应
 		Response resp = new Response(sRoomOp.selectFeedback(myid));
 		if(resp.getResp() == 1){

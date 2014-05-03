@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,12 +52,12 @@ public class ShakeStartServlet extends HttpServlet {
 		int myid = Integer.parseInt(request.getParameter("id"));
 		Feedback feedback = new Feedback(false);
 
-		Timestamp time = new Timestamp(System.currentTimeMillis());
-		/*
-		 * Date date = new Date();
-		 * Timestamp nousedate = new Timestamp(date.getTime());
-		 */
-
+//		Timestamp time = new Timestamp(System.currentTimeMillis());
+		
+		 Date date = new Date();
+		 Timestamp time = new Timestamp(date.getTime());
+		 
+		
 		if (sApplyOp.checkApply(myid))
 			sApplyOp.updateTime(myid, time);
 		else
@@ -85,14 +86,15 @@ public class ShakeStartServlet extends HttpServlet {
 		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
 		sRoomOp.connectDB();
 		
+//		Player pHost = new Player();
 		if(sRoomOp.checkGuest(myid)){
 			int hostid = sRoomOp.selectHost(myid);
-			Player pHost = dbOp.getPlayer(hostid);
+//			pHost = dbOp.getPlayer(hostid);
 			feedback.setFeedback(true);
-			msg.addInfo(pHost);
-		}
-		
-		msg.addInfo(feedback);		
+			msg.addInfo(feedback);
+			msg.addInfo(dbOp.getPlayer(hostid));
+		}else
+			msg.addInfo(feedback);		
 		sRoomOp.disconnectDB();
 
 		sApplyOp.disconnectDB();

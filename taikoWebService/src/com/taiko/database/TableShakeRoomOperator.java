@@ -52,7 +52,7 @@ public class TableShakeRoomOperator {
 	}
 	
 	public int selectHost(int guestID) {
-		sql = "select Host from shakeroomtable where host = " + guestID;
+		sql = "select Host from shakeroomtable where guest = " + guestID;
 		int host = 0;
 		ResultSet rs = db.selectSQL(sql);
 		try {
@@ -97,7 +97,7 @@ public class TableShakeRoomOperator {
 	}
 	
 	public boolean insertRoom(int hostID){
-		sql = "insert into shakeroomtable(host) values ("+ hostID +");";
+		sql = "insert into shakeroomtable(host) values ("+ hostID +")";
 		db.insertSQL(sql);
 		return true;
 	}
@@ -110,14 +110,14 @@ public class TableShakeRoomOperator {
 	}
 	
 	public boolean updateMusic(int host, int musicID) {
-		sql = "update WaitingRoomTable set musicID = " + musicID
+		sql = "update shakeroomtable set musicID = " + musicID
 				+ " where host = " + host;
 		db.updateSQL(sql);
 		return true;
 	}
 	
 	public boolean updateFeedback(int host, int feedback) {
-		sql = "update WaitingRoomTable set feedback = " + feedback
+		sql = "update shakeroomtable set feedback = " + feedback
 				+ " where host = " + host;
 		db.updateSQL(sql);
 		return true;

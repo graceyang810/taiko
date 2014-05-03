@@ -11,7 +11,7 @@
  Target Server Version : 50616
  File Encoding         : gb2312
 
- Date: 04/20/2014 22:17:13 PM
+ Date: 05/03/2014 09:58:19 AM
 */
 
 SET NAMES latin1;
@@ -37,7 +37,7 @@ CREATE TABLE `ResultTable` (
 DROP TABLE IF EXISTS `ShakeApplyTable`;
 CREATE TABLE `ShakeApplyTable` (
   `ID` int(11) NOT NULL,
-  `shakeTime` datetime DEFAULT NULL,
+  `shakeTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,13 +67,6 @@ CREATE TABLE `musictable` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
---  Records of `musictable`
--- ----------------------------
-BEGIN;
-INSERT INTO `musictable` VALUES ('1', 'RhythmInfo/rhythm_1.json', '伤心的人别听慢歌', '2', '../songs/1.mp3', '141'), ('2', 'RhythmInfo/rhythm_2.json', '伤心的人别听慢歌2', '4', '../songs/1.mp3', '141');
-COMMIT;
-
--- ----------------------------
 --  Table structure for `usertable`
 -- ----------------------------
 DROP TABLE IF EXISTS `usertable`;
@@ -86,14 +79,7 @@ CREATE TABLE `usertable` (
   `PhotoURL` char(50) DEFAULT NULL,
   `Gender` varchar(6) DEFAULT NULL,
   PRIMARY KEY (`ID`,`UserName`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-
--- ----------------------------
---  Records of `usertable`
--- ----------------------------
-BEGIN;
-INSERT INTO `usertable` VALUES ('9', 'TableOpTest', 'hahaha', '0', '1', null, null), ('10', 'servletDBTest', 'xixixixi', '0', '1', null, null);
-COMMIT;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `waitingRoomTable`

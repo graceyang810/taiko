@@ -27,7 +27,7 @@ public class TableMusicOperator {
 //	}
 	public ResultSet selectMusicList(int level) {
 		//查询难度等级小于当前等级的音乐
-		sql = "select id from MusicTable where Difficulty < "+ level;
+		sql = "select * from MusicTable where Difficulty between 0 and "+ level;
 		ResultSet rs = db.selectSQL(sql);
 		return rs;
 	}
