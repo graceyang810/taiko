@@ -42,7 +42,13 @@ public class TableResultOperator {
 		db.insertSQL(sql);
 		return true;
 	}
-
+	
+	public boolean deleteApply(int id) {
+		sql = "delete from resulttable where id = " + id;
+		db.deleteSQL(sql);
+		return true;
+	}
+	
 //	public ResultSet selectResult(int id){
 //		sql = "select * from resulttable where id = " + id;
 //		ResultSet rs = db.selectSQL(sql);

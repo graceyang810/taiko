@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.taiko.database.TableResultOperator;
 import com.taiko.database.TableShakeApplyOperator;
 import com.taiko.database.TableShakeRoomOperator;
 import com.taiko.model.Feedback;
@@ -63,7 +64,13 @@ public class ShakeResponseServlet extends HttpServlet {
 			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			msg = dbOp.addMusicInfo(msg, musicid);	
-			sRoomOp.deleteRoomByHost(myid);//配对成功，从摇一摇列表中删除本房间
+			sRoomOp.deleteRoomByHost(hostid);//配对成功，从摇一摇列表中删除本房间
+			//为两个玩家创建result记录
+			TableResultOperator resultOp = new TableResultOperator();
+			resultOp.connectDB();
+			resultOp.insertResult(myid);
+			resultOp.insertResult(hostid);
+			resultOp.disconnectDB();
 		}else
 			msg.addInfo(feedback);
 			
