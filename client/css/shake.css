@@ -16,3 +16,45 @@ p ,h1 ,h2 ,h3 ,label, span,{
 	width:100%;
 	height:100%;
 }
+#v{
+	position: absolute;
+	top:40%;
+	left:45%;
+	width: 10%;
+}
+#s{
+	position: absolute;
+	top:40%;
+	left:45%;
+	width: 10%;
+}
+#player1{
+	position: absolute;
+	top:40%;
+	left:25%;
+}
+
+#player2{
+	position: absolute;
+	top:40%;
+	right:15%;
+}
+#avator1{
+	position: float;
+	width:50%;
+}
+#name1{
+	position: float;
+	margin-top:5px;
+}
+#level1{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:blue;
+	font-size: 10pt;
+	margin-top: -16px;
+	margin-left:20px;
+}
+#avator2{
+	position: float;
+	width:50%;
+}

@@ -9,12 +9,29 @@
 	<script src="../js/leap.min.js"></script>
 	<script src="../js/leapstrap.js"></script>
 	<script src="../js/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../js/result.js"></script>
+	<script type="text/javascript" src="../js/shake.js"></script>
 	<link href="../css/shake.css" rel="stylesheet">
 </head>
 <body>
 	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
 	<img id="back" src="../images/back3.png">
+	<p style="position:absolute;top:15%;width:100%;text-align:center;font-size:40pt;color:blue;">摇一摇找好友</p>
+	<img id="v" src="../images/v.png">
+	<img id="s" src="../images/s.png">
+
+	<div id="player1">
+		<img id="avator1">
+		<p id="name1"></p>		
+		<label id="level1">Lv.<span id="level_1"></span></label>	
+		<img style="position:float;margin-top:-22px;display:block;" src="../images/level.gif">
+	</div>	
+	
+	<div id="player2">
+		<img id="avator2"  src="../images/unknow.png">
+		<p id="name2">???</p>		
+		<label id="level1">Lv.<span id="level_1"></span>??</label>	
+		<img style="position:float;margin-top:-22px;display:block;" src="../images/level.gif">
+	</div>	
 	<a id="goback" href="../htmls/mode.html"><img id="pic3" style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
 </body>
 <script type="text/javascript">
