@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>太鼓达人leap测试版</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" /> -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link href="../css/leapstrap.css" rel="stylesheet">
+	<link href="../css/jquery.modal.css" rel="stylesheet">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/leap.min.js"></script>
+	<script src="../js/leapstrap.js"></script>
+	<script src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/choosesong.js"></script>
+	<script type="text/javascript" src="../js/jquery.modal.js"></script>
+	<link href="../css/choosesong.css" rel="stylesheet">
+</head>
+<body>
+	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
+	<p style="position:absolute;top:15%;width:100%;left:10%;font-size:40pt;color:yellow;">选择歌曲</p>
+	<a id="letsgo"><img style="position:absolute;right:10%;bottom:10%;width:25%;" src="../images/letsgo.png"></a>	
+	<a id="goback" href="../htmls/mode.html"><img id="pic3" style="position:absolute;top:2%;right:2%;" src="../images/btn_back.png"></a>
+	<img class="updown1" id="drum0" src="../images/drum0.png">
+	<img class="updown2" id="drum1" src="../images/drum1.png">
+	<div id="songlist">
+		<ol id="list" class="circle-list">			
+		</ol>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#goback").hover(
+		function(){
+		$("#pic3").attr("src","../images/btn_back_hover.png");
+		document.getElementById('buttonplayer').play(); 
+		},
+		function(){
+		$("#pic3").attr("src","../images/btn_back.png");
+		});
+</script>
+</html>

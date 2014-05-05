@@ -22,10 +22,10 @@ $(document).ready(function(){
 			$("#stamp").animate({width:'16%',top:'25%',left:'56%',opacity:'1'},"slow");
 		}
 	});	
-	$("#avator1").attr("src",$.cookie('player_avator'));
+	$("#avatar1").attr("src",$.cookie('player_avatar'));
 	$("#name1").html($.cookie('player_name'));
 	$("#level_1").html($.cookie('player_level'));
-	$("#avator2").attr("src",getParameterByName("avator"));
+	$("#avatar2").attr("src",getParameterByName("avatar"));
 	$("#name2").html(getParameterByName("name"));
 	$("#level_2").html(getParameterByName("level"));
 	$("#songname").html(getParameterByName("song_name"));

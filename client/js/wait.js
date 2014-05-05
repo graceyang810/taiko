@@ -1,19 +1,25 @@
 $(document).ready(function(){
 	$("#start").click(function(event) {		
 	      // event.preventDefault();
+		quickstart();
+	    });
+
+	function quickstart(){
+
 	      $.getJSON("../json/get_quickstart.json",{'id':$.cookie('player_id')},function(data){
-	      		if(data.feedback == true){
-	      			document.location.href = "./game.html?id=" + data.id + "&name=" + data.name + "&avator=" + data.avator + "&level=" + data.level +"&song_name=" + data.song_name;
+	      		if(data[0].feedback == true){
+	      			document.location.href = "./game.html?id=" + data[1].id + "&name=" + data[1].name + "&avatar=" + data[1].avatar + "&level=" + data[1].level +"&song_name=" + data[2].song_name +"&song_rhythem=" + data[3].rhythmURL;
 	      		}
-	      		if(data.feedback == false){
+	      		if(data[0].feedback == false){
 	      			$("#modal").modal({
 				        escapeClose: false,
 				        clickClose: false,
 				        showClose: false
 				      });
+	      			quickstart();
 	      		}
 	      });
-	    });
+	}
 
 		$("#start").hover(
 			function(){

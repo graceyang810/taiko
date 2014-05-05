@@ -9,12 +9,12 @@ $(document).ready(function(){
 				$("#sex").html("男");
 			}
 			$("#level").html($.cookie('player_level'));
-			$("#avator").attr("src",$.cookie('player_avator'));
+			$("#avatar").attr("src",$.cookie('player_avatar'));
 			$("#exitbtn").click(function(){
 				$.cookie('player_id',"");
 				$.cookie('player_name',"");
 				$.cookie('player_sex',"");
-				$.cookie('player_avator',"");
+				$.cookie('player_avatar',"");
 				$.cookie('player_level',"");		
 			});
 			if($.cookie('the_sound')){

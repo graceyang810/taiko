@@ -5,35 +5,82 @@
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<link href="../css/leapstrap.css" rel="stylesheet">
+	<link href="../css/jquery.modal.css" rel="stylesheet">
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/leap.min.js"></script>
 	<script src="../js/leapstrap.js"></script>
 	<script src="../js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../js/shake.js"></script>
+	<script type="text/javascript" src="../js/jquery.modal.js"></script>
 	<link href="../css/shake.css" rel="stylesheet">
 </head>
 <body>
 	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
 	<img id="back" src="../images/back3.png">
 	<p style="position:absolute;top:15%;width:100%;text-align:center;font-size:40pt;color:blue;">摇一摇找好友</p>
-	<p style="position:absolute;top:26%;width:100%;text-align:center;font-size:10pt;color:#dcdddd;">PC用户请按空格键</p>
+	<p style="position:absolute;top:26%;width:100%;text-align:center;font-size:10pt;color:#dcdddd;">PC用户请按<span style="color:blue">空格</span>键</p>
 	<img id="v" src="../images/v.png">
 	<img id="s" src="../images/s.png">
 
 	<div id="player1">
-		<img id="avator1">
+		<img id="avatar1">
 		<p id="name1"></p>		
 		<label id="level1">Lv.<span id="level_1"></span></label>	
 		<img style="position:float;margin-top:-22px;display:block;" src="../images/level.gif">
 	</div>	
 	
 	<div id="player2">
-		<img id="avator2"  src="../images/unknow.png">
+		<img id="avatar2"  src="../images/unknow.png">
 		<p id="name2">???</p>		
-		<label id="level1">Lv.<span id="level_1"></span>??</label>	
+		<label id="level1"><span id="level_2">Lv.??</span></label>	
 		<img style="position:float;margin-top:-22px;display:block;" src="../images/level.gif">
 	</div>	
-	<a id="goback" href="../htmls/mode.html"><img id="pic3" style="position:absolute;top:2%;right:2%;z-index:2;" src="../images/btn_back.png"></a>
+
+	<div id="playerlist">		
+	</div>
+
+
+	<a id="send" href="#modal1"><img id="pic2" style="position:absolute;bottom:5%;right:2%;visibility:hidden;" src="../images/btn_send.png"></a>
+	<a id="goback" href="../htmls/mode.html"><img id="pic3" style="position:absolute;top:2%;right:2%;" src="../images/btn_back.png"></a>
+
+
+	<!-- modal -->
+	<div id="modal1" class="modal" style="height:100px;">
+		<br />
+	  	<p style="font-size:15pt; text-align:center;">邀请已发送,等待玩家<span id=""></span>回复。。。</p>
+	</div>
+
+	<div id="modal2" class="modal" style="height:330px;">
+		<br />
+	  	<p style="font-size:15pt; text-align:left;">收到来自<span id="anothername" style="color:blue;"></span>的邀请，以下为TA的信息：</p>
+	  	<img id="anotheravtor">
+	  	<p id="name_another"></p>
+	  	<img id="anothersex">
+		<label id="anotherlevel">Lv.<span id="level_another"></span></label>	
+		<img style="position:absolute;margin-top:51px;margin-left:180px;display:block;" src="../images/level.gif">
+		<a id="accept" href="#modal3"><img id="pic4" style="position:absolute;bottom:5%;left:10%;z-index:2;width:30%;" src="../images/btn_accept.png"></a>
+		<a id="refuse" href="#" rel="modal:close"><img id="pic5" style="position:absolute;bottom:5%;right:10%;z-index:2;width:30%;" src="../images/btn_cancle.png"></a>
+		
+	</div>
+
+	<div id="modal3" class="modal" style="height:100px;">
+		<br />
+	  	<p style="font-size:15pt; text-align:center;">等待对方选歌。。。</p>
+	</div>
+
+
+	<div id="modal4" class="modal" style="height:100px;width:450px;padding:13px;20px;">
+		<br />
+		<p style="font-size:15pt; text-align:center;">对方拒绝和你玩游戏，请重新选择玩家。。。</p>
+	</div>
+
+	<div id="modal5" class="modal" style="height:100px;width:450px;padding:13px;20px;">
+		<br />
+		<p style="font-size:15pt; text-align:center;">对方同意和你玩游戏，马上开始选歌。。。</p>
+	</div>
+	<!-- modal End -->
+
+
 </body>
 <script type="text/javascript">
 	$("#goback").hover(
@@ -43,6 +90,32 @@
 		},
 		function(){
 		$("#pic3").attr("src","../images/btn_back.png");
+		})
+
+	$("#send").hover(
+		function(){
+		$("#pic2").attr("src","../images/btn_send_hover.png");
+		document.getElementById('buttonplayer').play(); 
+		},
+		function(){
+		$("#pic2").attr("src","../images/btn_send.png");
+		})
+
+	$("#accept").hover(
+		function(){
+		$("#pic4").attr("src","../images/btn_accept_hover.png");
+		document.getElementById('buttonplayer').play(); 
+		},
+		function(){
+		$("#pic4").attr("src","../images/btn_accept.png");
+		})
+	$("#refuse").hover(
+		function(){
+		$("#pic5").attr("src","../images/btn_cancle_hover.png");
+		document.getElementById('buttonplayer').play(); 
+		},
+		function(){
+		$("#pic5").attr("src","../images/btn_cancle.png");
 		})
 </script>
 </html>

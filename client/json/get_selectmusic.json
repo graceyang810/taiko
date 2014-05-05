@@ -1,0 +1,11 @@
+[
+    {
+        "song_id": 0, 
+        "song_name": "伤心的人别听慢歌", 
+        "song_level": 2
+    }, 
+    {
+        "soundURL": "../songs/0.mp3", 
+        "rhythmURL": "../RhythmInfo/rhythm_0.json"
+    }
+]

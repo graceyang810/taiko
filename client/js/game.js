@@ -1,126 +1,4 @@
-<html>
-<head>
-	<title>太鼓达人leap测试版</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<link href="../css/style.css" rel="stylesheet">
-	<link href="../css/leapstrap.css" rel="stylesheet">
-	<script src="../js/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.cookie.js" ></script>
-	<script src="../js/leap.min.js"></script>
-	<script src="../js/leapstrap.js"></script>
-	<script src="../js/holder.js"></script>
-	<script src="../js/loadinfo.js"></script>
-	
-	<script src="../js/loadsong.js"></script>	
-	<link href="../css/process.css" rel="stylesheet">
-	<link href="../css/game.css" rel="stylesheet">
-</head>
-<body style="overflow:hidden;height: 100%;" onresize = "changesize()">
-<!-- <body> -->
-	<div id="hold">
-		<img id="mask" src="../images/mask.png">
-		<img id="vs" src="../images/vs.png">
-		<div id="vssong"></div>
-
-		<img id="avatar1">
-		<p id="name1"></p>		
-		<label id="level1">Lv.<span id="level_1"></span></label>
-		<img style="position:absolute;z-index:6;top:50%;left:20%;" src="../images/level.gif">
-		
-		<img id="avatar2">
-		<p id="name2"></p>		
-		<label id="level2">Lv.<span id="level_2"></span></label>
-		<img style="position:absolute;z-index:6;top:50%;right:20%;" src="../images/level.gif">
-		
-		<p style="z-index:6;position:absolute;top:60%;left:44%;color:white;font-size:30px;" >游戏载入中</p>
-		<p class="ani_dot" style="position: absolute;top:60%;left:44%;margin-left:160px;color:white;font-size:30px;z-index:6;">...</p> 
-		<section id="demo" class="container" style="position: absolute;top:80%;left:22%; z-index:6;text-align:center;">
-		        <input type="radio" class="radio" name="progress" value="five" id="five" checked="">
-		        <label for="five" class="label"  style="display:none;">
-		            5%
-		        </label>
-		        <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" >
-		        <label for="twentyfive" class="label" style="display:none;">
-		            25%
-		        </label>
-		        <input type="radio" class="radio" name="progress" value="fifty" id="fifty">
-		        <label for="fifty" class="label" style="display:none;">
-		            50%
-		        </label>
-		        <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
-		        <label for="seventyfive" class="label" style="display:none;">
-		            75%
-		        </label>
-		        <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
-		        <label for="onehundred" class="label" style="display:none;">
-		            100%
-		        </label>
-	        <div class="progress">
-	            <div class="progress-bar">
-	            </div>
-	        </div>
-	    </section>
-    </div>
-    <script type="text/javascript">
-    	function processer1(){
-		$('#twentyfive').click();
-		}
-    	function processer2(){
-		$('#fifty').click();
-		}
-    	function processer3(){
-		$('#seventyfive').click();
-		}
-    	function processer4(){
-		$('#onehundred').click();
-		}
-
-		window.setTimeout(processer1,1000);
-		window.setTimeout(processer2,3000);
-		window.setTimeout(processer3,5000);
-		window.setTimeout(processer4,5800);
-		
-		window.setTimeout(function() {
-			$("#hold").fadeOut()
-		},7000);
-		
-    </script>
-
-    <!-- 请叫我分割线君 -->
-
-
-    <img id="ready" style="z-index:4;position:absolute;top:50%;left:50%;margin-left:-14%;margin-top:-5%;" src="../images/go.png">
-	<img style="width:100%;height:100%;" src="../images/bg_Theme99-hd.png">
-	<img style="position:absolute;z-index:2;top:46px;margin-left:-24px;width:83%;" id="banner" src="../images/banner.png">
-	<img class="move" style="position:absolute;z-index:1;top:10px;" src="../images/ren.png">
-	<img style="z-index:3;position:absolute;top:50%;left:50%;margin-left:-20%;margin-top:-8%;" src="../images/bongo.png">
-
-	<input type="image" id="_drum0" style="position:absolute;bottom:-80px;left:50%;margin-left:-40%;width:30%; outline-width:0;" src="../images/drum0.png"/>
-	<input type="image" id="_drum1" style="position:absolute;bottom:-80px;left:50%;margin-left:-5%;width:32%; outline-width:0;" src="../images/drum1.png"/>
-
-	<div id="info">
-		<img id="invent" style="position:absolute;z-index:4;top:12px;right:0px;width:18%;" src="../images/invent.png">
-		<p class="playername" id="playername1" style="z-index:4;"></p>
-		<!-- <label class="l1">Lv.<span id="l1"></span></label>
-		<img class="limg1" src="../images/level.gif"> -->
-		<img id="showavatar1">
-		<p class="score"  id="score1"  style="z-index:4;">score: <span id="currentscore1"style = "color:#00FF29;">0</span></p>		
-		<p class="playername"  id="playername2" style="z-index:4;">
-		<!-- 	<label class="level">Lv.<span id="l2"></span></label>
-		<img class="levelimg" src="../images/level.gif"> -->
-		</p>	
-		<img id="showavatar2">		
-		<p class="score" id="score2"  style="z-index:4;">score: <span id="currentscore2"style = "color:#00FF29;">0</span></p>	
-	</div>
-
-	<div id="song"></div>
-	<div id="rhythm"></div>
-	<div id="dislevel"></div>
-</body>
-<script type="text/javascript">
-	// $(document).ready(function(){
+$(document).ready(function(){
 	$(document).on('touchmove', function(e) {
 	    e.preventDefault();
 	});
@@ -383,7 +261,7 @@
 		
 	}
 
-// })
+})
 
 
 
@@ -394,5 +272,3 @@ function getParameterByName(name) {
 	results = regex.exec(location.search);
 	return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
-</script>
-</html>

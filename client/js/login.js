@@ -12,7 +12,7 @@ $(document).ready(function() {
 			$.cookie('player_id',data.id);
 			$.cookie('player_name',data.name);
 			$.cookie('player_sex',data.sex);
-			$.cookie('player_avator',data.avator);
+			$.cookie('player_avatar',data.avatar);
 			$.cookie('player_level',data.level);			
 		});
 	});

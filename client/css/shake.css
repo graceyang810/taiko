@@ -6,6 +6,7 @@
 body {
 	font-family: myfont;
 	background: black;
+	overflow: hidden;
 }
 
 p ,h1 ,h2 ,h3 ,label, span,{
@@ -18,28 +19,28 @@ p ,h1 ,h2 ,h3 ,label, span,{
 }
 #v{
 	position: absolute;
-	top:50%;
+	top:45%;
 	left:45%;
 	width: 10%;
 }
 #s{
 	position: absolute;
-	top:50%;
+	top:45%;
 	left:45%;
 	width: 10%;
 }
 #player1{
 	position: absolute;
-	top:50%;
+	top:45%;
 	left:25%;
 }
 
 #player2{
 	position: absolute;
-	top:50%;
+	top:45%;
 	right:15%;
 }
-#avator1{
+#avatar1{
 	position: float;
 	width:50%;
 }
@@ -54,7 +55,60 @@ p ,h1 ,h2 ,h3 ,label, span,{
 	margin-top: -16px;
 	margin-left:20px;
 }
-#avator2{
+#avatar2{
 	position: float;
 	width:50%;
+}
+#anotheravtor{
+	position:absolute;
+	width:30%;
+	margin-left:10%;
+}
+#name_another{
+	position:absolute;
+	margin-left:180px;
+	margin-top:30px;
+}
+#anothersex{
+	position:absolute;
+	margin-left:240px;
+	margin-top:32px;
+	width: 4%;
+}
+#anotherlevel{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:10pt;
+	color:blue;
+	position:absolute;
+	margin-left:200px;
+	margin-top:50px;
+}
+#playerlist{
+	position:absolute;
+	top:30%;
+	left:30%;
+	width:40%;
+	height:350px;
+	overflow: auto;
+}
+.playeravatar{
+	position:relative;
+	width: 50%;
+	margin-left: 5%;
+	margin-top: 10%;
+}
+.playername{
+	position:relative;
+	margin-left: 60%;
+	margin-top: -40%;
+}
+.playerlevel{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:blue;
+	font-size:10pt;
+	position:relative;
+	margin-left: 60%;
+	margin-top: -6%;
+	padding-bottom:20%;
+
 }

@@ -1,0 +1,129 @@
+@font-face{
+	font-family: myfont;
+	src: url('../fonts/sxslst.ttf'); 
+}
+
+body {
+	font-family: myfont;
+	background: black;
+	overflow: hidden;
+	background: url(../images/back22.png)  no-repeat;
+	background-size: 100%;
+}
+
+p ,h1 ,h2 ,h3 ,label, span,{
+	font-family: myfont;
+}
+h2{
+	color:black;
+	text-shadow:1px 0 1px #8B4513, 0 1px 1px #8B4513,  0 -1px 1px #8B4513, -1px 0 1px #8B4513;
+}
+p{
+	color:blue;
+}
+@-webkit-keyframes shake1 {
+    0% { margin-top: 0px; }
+    25% { margin-top: 20px; }
+    50% { margin-top: 0px; }
+    75% { margin-top: -20px; }
+    100% { margin-top: 0px; }
+}
+
+.updown1{
+	 -webkit-animation: shake1 3s infinite linear;
+}
+@-webkit-keyframes shake2 {
+    0% { margin-top: 0px; }
+    25% { margin-top: -20px; }
+    50% { margin-top: 0px; }
+    75% { margin-top: 20px; }
+    100% { margin-top: 0px; }
+}
+.updown2{
+	 -webkit-animation: shake2 3s infinite linear;
+}
+
+#drum0{
+	position: absolute;
+	top:80%;
+	right:32%;
+	width:6%;
+}
+#drum1{
+	position: absolute;
+	top:80%;
+	width:6%;
+	right:7%;
+}
+#songlist{
+	position:absolute;
+	left:15%;
+	top:25%;
+	width:720px;
+	height:360px;
+	overflow: auto;
+}
+ol {
+	counter-reset:li;
+	list-style:none;
+	*list-style:decimal;
+	font:15px 'trebuchet MS','lucida sans';
+	padding:0;
+	margin-bottom:4em;
+	margin-left: 40px;
+	margin-top:20px;
+	text-shadow:0 1px 0 rgba(255,255,255,.5);
+}
+ol ol {
+	margin:0 0 0 2em;
+}
+.circle-list li {
+	padding:2.5em;
+	border-bottom:1px dashed #ccc;
+}
+.circle-list h2 {
+	position:relative;
+	margin:0;
+}
+.circle-list p {
+	margin:0;
+}
+.circle-list h2:before {
+	content:counter(li);
+	counter-increment:li;
+	position:absolute;
+	z-index:-1;
+	left:-1.3em;
+	top:-.8em;
+	background:#f5f5f5;
+	height:1.5em;
+	width:1.5em;
+	border:.1em solid rgba(0,0,0,.05);
+	text-align:center;
+	font:italic
+            bold 1em/1.5em Georgia,Serif;
+	color:#ccc;
+	-moz-border-radius:1.5em;
+	-webkit-border-radius:1.5em;
+	border-radius:1.5em;
+	-webkit-transition:all .2s ease-out;
+	-moz-transition:all .2s ease-out;
+	-ms-transition:all
+            .2s ease-out;
+	-o-transition:all .2s ease-out;
+	transition:all .2s ease-out;
+}
+.circle-list li:hover h2:before {
+	background-color:#ffd797;
+	border-color:rgba(0,0,0,.08);
+	border-width:.2em;
+	color:#444;
+	-webkit-transform:scale(1.5);
+	-moz-transform:scale(1.5);
+	-ms-transform:scale(1.5);
+	-o-transform:scale(1.5);
+	transform:scale(1.5);
+}
+.changed:before {
+	background-color: #fff000;
+}

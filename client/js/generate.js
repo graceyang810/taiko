@@ -20,9 +20,9 @@ $(document).ready(function(){
  				$("#name_slide" + n).html(strname); 
  			}
  			for(m = 1; m <= 10; m++){
- 				$("#"+"avator_slider"+m).empty();
- 				stravator = "<img style='margin-top:45px;margin-left:40%;color:white;font-size:60px;width:20%;' src='../images/m"+m+".png'>";
-				$("#avator_slider" + m).html(stravator);
+ 				$("#"+"avatar_slider"+m).empty();
+ 				stravatar = "<img style='margin-top:45px;margin-left:40%;color:white;font-size:60px;width:20%;' src='../images/m"+m+".png'>";
+				$("#avatar_slider" + m).html(stravatar);
  			}
 		}
 		if($(".sex:checked").val() == "female"){
@@ -34,9 +34,9 @@ $(document).ready(function(){
  				$("#name_slide" + n).html(strname); 
  			}
  			for(m = 1; m <= 10; m++){
- 				$("#"+"avator_slider"+m).empty();
- 				stravator = "<img style='margin-top:45px;margin-left:40%;color:white;font-size:60px;width:20%;' src='../images/f"+m+".png'>";
-				$("#avator_slider" + m).html(stravator);
+ 				$("#"+"avatar_slider"+m).empty();
+ 				stravatar = "<img style='margin-top:45px;margin-left:40%;color:white;font-size:60px;width:20%;' src='../images/f"+m+".png'>";
+				$("#avatar_slider" + m).html(stravatar);
  			}
 			
 		}
@@ -44,20 +44,20 @@ $(document).ready(function(){
 
 	$( "#submit" ).click(function(){
 		if(code == con_code){
-		$.getJSON("../json/get_newplayer.json",{'name':$(".active > p").html(),'sex':$(".sex:checked").val(),'avator':$(".active > img").attr("src"),'code':con_code},function(data){
+		$.getJSON("../json/get_newplayer.json",{'name':$(".active > p").html(),'sex':$(".sex:checked").val(),'avatar':$(".active > img").attr("src"),'code':con_code},function(data){
 			console.log("OK");
 			$.cookie('player_id',data.id);
 			$("#id").html(data.id);
 			$.cookie('player_name',$(".active > p").html());
 			$.cookie('player_sex',$(".sex:checked").val());
-			$.cookie('player_avator',$(".active > img").attr("src"));
+			$.cookie('player_avatar',$(".active > img").attr("src"));
 			$.cookie('player_level',"1");	
 		});
 		$('#submit').hide();
 		$('#submitOK').show();
 
 		$("#name").html($(".active > p").html());
-		$("#avator").attr("src",$(".active > img").attr("src"));	
+		$("#avatar").attr("src",$(".active > img").attr("src"));	
 		}
 		else{
 			alert("两次密码输入不一致，请重新设置！");

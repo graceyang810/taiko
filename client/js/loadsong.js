@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$.getJSON("../json/get_rhthem.json",{"song_name":getParameterByName("song_name")},function(data){
+	$.getJSON(getParameterByName("song_rhythem"),{"song_name":getParameterByName("song_name")},function(data){
 		var $song = $("#song"); 
 		var $rhythm = $("#rhythm");
 		var strrhythm = "";
@@ -15,7 +15,7 @@ $(document).ready(function(){
 		document.getElementById("song").innerHTML = document.getElementById("song").innerHTML+insertText;
 		document.getElementById("gamesong").addEventListener("ended",function() {
 			miss = data.rhythm.length - perfect -cool;
-	        document.location.href = "./result.html?anotherid="+ getParameterByName("id")+"&level="+ getParameterByName("level")+"&avator="+ getParameterByName("avator")+"&name="+getParameterByName("name")+"&song_name="+ getParameterByName("song_name") +"&perfect="+perfect+"&cool="+cool+"&miss="+miss+"&combo="+combo;
+	        document.location.href = "./result.html?anotherid="+ getParameterByName("id")+"&level="+ getParameterByName("level")+"&avatar="+ getParameterByName("avatar")+"&name="+getParameterByName("name")+"&song_name="+ getParameterByName("song_name") +"&perfect="+perfect+"&cool="+cool+"&miss="+miss+"&combo="+combo;
 	    });
 	    
 
@@ -36,3 +36,10 @@ $(document).ready(function(){
 		}
 	}); 	
 })
+
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
