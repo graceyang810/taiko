@@ -32,6 +32,12 @@
 	<!-- modal End -->
 	
 	<script>
+		if($.cookie('the_sound')){
+			document.getElementById('buttonplayer').volume = $.cookie('the_sound')/100;
+		}else{
+			document.getElementById('buttonplayer').volume = 0.9
+		}	
+	
         LeapManager.init({
             enableMetaGestures: true,
             enableDefaultMetaGestureActions: true,

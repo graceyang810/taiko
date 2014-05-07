@@ -18,6 +18,7 @@
 	<link href="../css/game.css" rel="stylesheet">
 </head>
 <body style="overflow:hidden;height: 100%;" onresize = "changesize()">
+	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
 <!-- <body> -->
 	<div id="hold">
 		<img id="mask" src="../images/mask.png">
@@ -121,6 +122,14 @@
 </body>
 <script type="text/javascript">
 	// $(document).ready(function(){
+	$("#ready").hover(
+			function(){
+    		$("#ready").attr("src","../images/go_hover.png");
+    		document.getElementById('buttonplayer').play(); 
+			},
+			function(){
+			$("#ready").attr("src","../images/go.png");
+			})
 	$(document).on('touchmove', function(e) {
 	    e.preventDefault();
 	});
@@ -175,9 +184,11 @@
 	$(document).keydown(function(event){ 		
 		if(event.keyCode == 70){
 			op_left();
+			getscore();
 		}                    
 		if(event.keyCode == 74){
 			op_right();
+			getscore();
 		}
 	})  
 
@@ -344,6 +355,12 @@
 				}
 			}
 			});      
+	}
+
+	function getscore(){
+		$.getJSON("../json/get_score.json",{"id":$.cookie('player_id'),"anotherid":getParameterByName("anotherid"),"score":$("#currentscore1").html()},function(data){
+			$("#currentscore2").html(data[0].score);
+		});
 	}
 
 

@@ -1,10 +1,11 @@
 $(document).ready(function(){
 	$.getJSON("../json/get_result.json",{"id":$.cookie('player_id'),"anotherid":getParameterByName("anotherid"),"perfect":getParameterByName("perfect"),"cool":getParameterByName("cool"),"miss":getParameterByName("miss"),"combo":getParameterByName("combo"),"score":(getParameterByName("perfect")*5 + getParameterByName("cool")*3)},function(data){
-		$("#perfect2").html(data.perfect);
-		$("#cool2").html(data.cool);
-		$("#miss2").html(data.miss);
-		$("#combo2").html(data.combo);
-		$("#score2").html(data.score);
+		$("#perfect2").html(data[0].perfect);
+		$("#cool2").html(data[0].cool);
+		$("#miss2").html(data[0].miss);
+		$("#combo2").html(data[0].combo);
+		$("#score2").html(data[0].score);
+
 		$("#perfect").html(getParameterByName("perfect"));
 		$("#cool").html(getParameterByName("cool"));
 		$("#miss").html(getParameterByName("miss"));

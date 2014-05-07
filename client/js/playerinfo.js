@@ -11,11 +11,11 @@ $(document).ready(function(){
 			$("#level").html($.cookie('player_level'));
 			$("#avatar").attr("src",$.cookie('player_avatar'));
 			$("#exitbtn").click(function(){
-				$.cookie('player_id',"");
-				$.cookie('player_name',"");
-				$.cookie('player_sex',"");
-				$.cookie('player_avatar',"");
-				$.cookie('player_level',"");		
+				$.cookie('player_id', '', { expires: -1 });
+				$.cookie('player_name', '', { expires: -1 });
+				$.cookie('player_sex', '', { expires: -1 });
+				$.cookie('player_avatar', '', { expires: -1 });
+				$.cookie('player_level', '', { expires: -1 });	
 			});
 			if($.cookie('the_sound')){
 					document.getElementById('buttonplayer').volume = $.cookie('the_sound')/100;

@@ -1,8 +1,9 @@
-{
-	"id":2222,
-	"perfect":5,
-	"cool":8,
-	"miss":3,
-	"combo":9,
-	"score":49
-}
+[
+    {
+        "score": 49, 
+        "perfect": 5, 
+        "cool": 8, 
+        "miss": 3, 
+        "combo": 9
+    }
+]

@@ -35,5 +35,10 @@
 		function(){
 		$("#pic3").attr("src","../images/btn_back.png");
 		});
+	if($.cookie('the_sound')){
+		document.getElementById('buttonplayer').volume = $.cookie('the_sound')/100;
+	}else{
+		document.getElementById('buttonplayer').volume = 0.9
+	}	
 </script>
 </html>

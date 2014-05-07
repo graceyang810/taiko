@@ -44,26 +44,32 @@ $(document).ready(function(){
 
 	$( "#submit" ).click(function(){
 		if(code == con_code){
-		$.getJSON("../json/get_newplayer.json",{'name':$(".active > p").html(),'sex':$(".sex:checked").val(),'avatar':$(".active > img").attr("src"),'code':con_code},function(data){
-			console.log("OK");
-			$.cookie('player_id',data.id);
-			$("#id").html(data.id);
-			$.cookie('player_name',$(".active > p").html());
-			$.cookie('player_sex',$(".sex:checked").val());
-			$.cookie('player_avatar',$(".active > img").attr("src"));
-			$.cookie('player_level',"1");	
-		});
-		$('#submit').hide();
-		$('#submitOK').show();
+			register();
 
-		$("#name").html($(".active > p").html());
-		$("#avatar").attr("src",$(".active > img").attr("src"));	
+			$('#submit').hide();
+			$('#submitOK').show();
+
+			$("#name").html($(".active > p").html());
+			$("#avatar").attr("src",$(".active > img").attr("src"));	
 		}
 		else{
 			alert("两次密码输入不一致，请重新设置！");
 		}
 	});
 })
+
+
+	function register(){
+		$.getJSON("http://59.77.6.18:4081/taikoWebService/account/register",{'name':$(".active > p").html(),'sex':$(".sex:checked").val(),'avatar':$(".active > img").attr("src"),'code':con_code},function(data){
+			console.log("OK");
+				$.cookie('player_id',data[0].id);
+				$("#id").html(data[0].id);
+				$.cookie('player_name',$(".active > p").html());
+				$.cookie('player_sex',$(".sex:checked").val());
+				$.cookie('player_avatar',$(".active > img").attr("src"));
+				$.cookie('player_level',"1");				
+		});
+	}
 
 	function getRandom(n){
 		return Math.floor(Math.random()*n+1);

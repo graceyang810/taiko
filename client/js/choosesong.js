@@ -14,8 +14,15 @@ $(document).ready(function(){
 		$(this).addClass("selected");
 	})
 	$("#letsgo").on("click",function(){
+		
 		$.getJSON("../json/get_selectmusic.json",{'id':$.cookie('player_id'),'song_id':$(".selected").attr("id")},function(data){
 			document.location.href = "./game.html?id=" + getParameterByName("id") + "&name=" + getParameterByName("name") + "&avatar=" + getParameterByName("avatar") + "&level=" + getParameterByName("level") +"&song_name=" + $(".selected").html() +"&song_rhythem=" + data[1].rhythmURL;
+
+			for(var m = 0; m < getParameterByName("songnum"); m++){
+				$.cookie('songlist'+m+'_name', '', { expires: -1 });
+				$.cookie('songlist'+m+'_id', '', { expires: -1 });	
+				$.cookie('songlist'+m+'_level', '', { expires: -1 });
+			}
 		});
 	})
 

@@ -7,15 +7,29 @@ $(document).ready(function() {
 
 	$("#loginsubmitbtn").click(function(){
 		console.log("click");
-		$.getJSON("../json/get_player.json",{'id':checkid,'code':con_checkcode},function(data){
-			$("#name").html(data.name);
-			$.cookie('player_id',data.id);
-			$.cookie('player_name',data.name);
-			$.cookie('player_sex',data.sex);
-			$.cookie('player_avatar',data.avatar);
-			$.cookie('player_level',data.level);			
-		});
+		login();
 	});
+
+	function login(){
+		$.getJSON("../json/get_login.json",{'id':checkid,'code':con_checkcode},function(data){
+			if(data[0].feedback == true){
+				$("#name").html(data[1].name);
+				$.cookie('player_id',data[1].id);
+				$.cookie('player_name',data[1].name);
+				$.cookie('player_sex',data[1].sex);
+				$.cookie('player_avatar',data[1].avatar);
+				$.cookie('player_level',data[1].level);
+			}		
+			if(data[0].feedback == false){
+				$("#modal1").modal({	      				
+			        escapeClose: true,
+			        clickClose: true,
+			        showClose: true
+			      });
+				setTimeout("$( '#modal1 a.close-modal').trigger( 'click')", 3000);
+			}	
+		});
+	}
 		
 	if($.cookie('the_sound')){
 				document.getElementById('buttonplayer').volume = $.cookie('the_sound')/100;
