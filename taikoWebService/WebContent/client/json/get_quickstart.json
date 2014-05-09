@@ -1,0 +1,21 @@
+[
+    {
+        "feedback": true
+    }, 
+    {
+        "id": 9, 
+        "name": "雪梨", 
+        "sex": "female", 
+        "avatar":"../images/f2.png",
+        "level": 8
+    }, 
+    {
+        "song_id": 1, 
+        "song_name": "Rock N Roll", 
+        "song_level": 1
+    }, 
+    {
+        "soundURL": "../songs/1.mp3", 
+        "rhythmURL": "../RhythmInfo/rhythm_1.json"
+    }
+]

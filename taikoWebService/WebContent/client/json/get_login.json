@@ -1,0 +1,12 @@
+[
+    {
+        "feedback": true
+    }, 
+    {
+        "id": 12, 
+        "name": "王大锤", 
+        "sex": "male", 
+        "avatar": "../images/m3.png", 
+        "level": 1
+    }
+]

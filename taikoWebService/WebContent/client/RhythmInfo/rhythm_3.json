@@ -1,0 +1,89 @@
+    {
+      "song_name": "挪威的森林",
+      "url":"../songs/3.mp3",
+      "length":141,
+      "song_level":1,
+      "rhythm": [
+        {
+          "color": "huang",
+          "time": "1300",
+          "order": 1
+        },
+        {
+          "color": "hong",
+          "time": "2170",
+          "order": 2
+        },
+        {
+          "color": "hong",
+          "time": "3110",
+          "order": 3
+        },
+        {
+          "color": "huang",
+          "time": "3990",
+          "order": 4
+        },
+        {
+          "color": "huang",
+          "time": "4430",
+          "order": 5
+        },
+        {
+          "color": "hong",
+          "time": "4860",
+          "order": 6
+        },
+        {
+          "color": "hong",
+          "time": "5750",
+          "order": 7
+        },
+        {
+          "color": "hong",
+          "time": "6630",
+          "order": 8
+        },
+        {
+          "color": "huang",
+          "time": "7500",
+          "order": 9
+        },
+        {
+          "color": "hong",
+          "time": "7930",
+          "order": 10
+        },
+        {
+          "color": "hong",
+          "time": "8440",
+          "order": 11
+        },
+        {
+          "color": "hong",
+          "time": "9340",
+          "order": 12
+        },
+        {
+          "color": "huang",
+          "time": "10190",
+          "order": 13
+        },
+        {
+          "color": "hong",
+          "time": "10640",
+          "order": 14
+        },
+        {
+          "color": "hong",
+          "time": "12040",
+          "order": 15
+        },
+        {
+          "color": "hong",
+          "time": "12940",
+          "order": 16
+        }
+      ]
+    }
+  

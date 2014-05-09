@@ -1,0 +1,70 @@
+[
+    [
+        {
+            "id": 9, 
+	        "name": "雪梨", 
+	        "sex": "female", 
+	        "avatar":"../images/f2.png",
+	        "level": 8
+        },        
+        {
+        	"id": 11, 
+	        "name": "小锤锤", 
+	        "sex": "female", 
+	        "avatar":"../images/f4.png",
+	        "level": 1
+        },      
+        {
+            "id": 89, 
+	        "name": "小婷婷", 
+	        "sex": "female", 
+	        "avatar":"../images/f8.png",
+	        "level": 19
+        },        
+        {
+        	"id": 15, 
+	        "name": "刘路人", 
+	        "sex": "female", 
+	        "avatar":"../images/f6.png",
+	        "level": 21
+        },      
+        {
+            "id": 17, 
+	        "name": "王路人", 
+	        "sex": "male", 
+	        "avatar":"../images/m5.png",
+	        "level": 15
+        },      
+        {
+            "id": 81, 
+	        "name": "小聪聪", 
+	        "sex": "male", 
+	        "avatar":"../images/m7.png",
+	        "level": 19
+        },        
+        {
+        	"id": 13, 
+	        "name": "小文文", 
+	        "sex": "male", 
+	        "avatar":"../images/m8.png",
+	        "level": 21
+        },      
+        {
+            "id": 19, 
+	        "name": "小薇薇", 
+	        "sex": "female", 
+	        "avatar":"../images/f3.png",
+	        "level": 15
+        }
+    ], 
+    {
+        "feedback": false
+    }, 
+    {
+        "id": 11, 
+        "name": "小锤锤", 
+        "sex": "male", 
+        "avatar":"../images/m2.png",
+        "level": 1
+    }
+]
