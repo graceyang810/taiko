@@ -129,7 +129,7 @@ $(document).ready(function(){
 				$("#playerlist").animate({opacity:'1'});
 			});
 
-			$.getJSON("../json/get_shakestart.json",{'id':$.cookie('player_id')},function(data){
+			$.getJSON("http://59.77.6.18:4081/taikoWebService/process/shakestart",{'id':$.cookie('player_id')},function(data){
 	      		if(data[1].feedback == true){
 	      			$("#modal2").modal({	      				
 				        escapeClose: false,
