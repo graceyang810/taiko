@@ -15,7 +15,7 @@ $(document).ready(function(){
 	})
 	$("#letsgo").on("click",function(){
 		
-		$.getJSON("http://59.77.6.18:4081/taikoWebService/process/selectmusic",{'id':$.cookie('player_id'),'song_id':$(".selected").attr("id")},function(data){
+		$.getJSON("../json/get_selectmusic.json",{'id':$.cookie('player_id'),'song_id':$(".selected").attr("id")},function(data){
 			document.location.href = "./game.html?id=" + getParameterByName("id") + "&name=" + getParameterByName("name") + "&avatar=" + getParameterByName("avatar") + "&level=" + getParameterByName("level") +"&song_name=" + $(".selected").html() +"&song_rhythem=" + data[1].rhythmURL;
 
 			for(var m = 0; m < getParameterByName("songnum"); m++){

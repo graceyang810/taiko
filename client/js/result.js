@@ -17,7 +17,7 @@ $(document).ready(function(){
 		return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
 	function getresult(){
-	$.getJSON("http://59.77.6.18:4081/taikoWebService/score/result",{"id":$.cookie('player_id'),"anotherid":getParameterByName("anotherid"),"perfect":getParameterByName("perfect"),"cool":getParameterByName("cool"),"miss":getParameterByName("miss"),"combo":getParameterByName("combo"),"score":(getParameterByName("perfect")*5 + getParameterByName("cool")*3)},function(data){
+	$.getJSON("../json/get_result.json",{"id":$.cookie('player_id'),"anotherid":getParameterByName("anotherid"),"perfect":getParameterByName("perfect"),"cool":getParameterByName("cool"),"miss":getParameterByName("miss"),"combo":getParameterByName("combo"),"score":(getParameterByName("perfect")*5 + getParameterByName("cool")*3)},function(data){
 		if(data[0].feedback == true){
 			$( '#modal1 a.close-modal').trigger( 'click');
 			$("#perfect2").html(data[1].perfect);

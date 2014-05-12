@@ -11,7 +11,7 @@ $(document).ready(function() {
 	});
 
 	function login(){
-		$.getJSON("http://59.77.6.18:4081/taikoWebService/account/login",{'id':checkid,'code':con_checkcode},function(data){
+		$.getJSON("../json/get_login.json",{'id':checkid,'code':con_checkcode},function(data){
 			if(data[0].feedback == true){
 				$("#name").html(data[1].name);
 				$.cookie('player_id',data[1].id);

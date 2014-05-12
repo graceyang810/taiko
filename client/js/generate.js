@@ -86,7 +86,7 @@ $(document)
 				})
 
 function register() {
-	$.getJSON("http://59.77.6.18:4081/taikoWebService/account/register", {
+	$.getJSON("../json/get_register.json", {
 		'name' : $(".active > p").html(),
 		'sex' : $(".sex:checked").val(),
 		'avatar' : $(".active > img").attr("src"),

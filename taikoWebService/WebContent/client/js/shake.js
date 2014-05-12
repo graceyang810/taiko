@@ -2,50 +2,40 @@ $(document).ready(function(){
 	$("#avatar1").attr("src",$.cookie('player_avatar'));
 	$("#name1").html($.cookie('player_name'));
 	$("#level_1").html($.cookie('player_level'));
-	$(document).keydown(function(event){ 		
+	$(document).keydown(function(event){ 
 		if(event.keyCode == 32){
-			$("#playerlist").empty();
-			$("#playerlist").css({opacity:'0'});
-			$("#v").animate({left:'45%'});
-			$("#v").animate({left:'25%'});
-			$("#player1").animate({left:'25%'});
-			$("#player1").animate({left:'10%'});
-
-			$("#s").animate({left:'45%'});
-			$("#s").animate({left:'65%'});
-			$("#player2").animate({right:'15%'});
-			$("#player2").animate({right:'0%'}, function() {
-				$("#playerlist").animate({opacity:'1'});
-			});
-
-			$.getJSON("http://59.77.6.18:4081/taikoWebService/process/shakestart",{'id':$.cookie('player_id')},function(data){
-	      		if(data[1].feedback == true){
-	      			$("#modal2").modal({	      				
-				        escapeClose: false,
-				        clickClose: false,
-				        showClose: false
-				      });
-	      			$("#anothername").html(data[2].name);
-	      			$("#name_another").html(data[2].name);
-	      			$("#level_another").html(data[2].level);
-	      			$("#anotheravtor").attr("src",data[2].avatar);
-	      			$("#anotheravtor").attr("playerid",data[2].id);
-	      			if(data[2].sex == "male"){
-	      				$("#anothersex").attr("src","../images/showmale.png");
-	      			}
-	      			if(data[2].sex == "female"){
-	      				$("#anothersex").attr("src","../images/showfemale.png");
-	      			}
-	      		}
-	      		if(data.feedback == false){
-	      		}		      		
-      			for(var n =0;  n < data[0].length;n++){
-      				var strplayer = "<div id='play_"+n+"' style='width:50%;float:left;'><img class='playeravatar' playerid="+data[0][n].id+" level=showlevel_"+n+" name=showname_"+n+" id='showplayer"+ n +"' src="+ data[0][n].avatar +"><p class='playername' id='showname_"+ n +"' >"+ data[0][n].name+"</p><p class='playerlevel' id='showlevel_"+ n +"' >Lv."+ data[0][n].level+"</p></div>";
-					document.getElementById("playerlist").innerHTML = document.getElementById("playerlist").innerHTML+strplayer; 
-      			}
-	      });
-		}                    
+			shake();	
+		}			                    
 	});
+	var SHAKE_THRESHOLD = 800;
+    var last_update = 0;
+    var x = y = z = last_x = last_y = last_z = 0;
+
+    if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+    } else {
+        alert('本设备不支持devicemotion事件');
+    }
+
+    function deviceMotionHandler(eventData) {
+        var acceleration = eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+        if ((curTime - last_update) > 400) {
+            var diffTime = curTime - last_update;
+            last_update = curTime;
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+            if (speed > SHAKE_THRESHOLD) {
+            	shake();
+            }
+            last_x = x;
+            last_y = y;
+            last_z = z;
+        }
+    }
 
 	$("#accept").click(function(){
 		$("#modal3").modal({	      				
@@ -122,6 +112,49 @@ $(document).ready(function(){
 				sendinvite();
 			}
 		});			
+	}
+
+	function shake(){
+			$("#playerlist").empty();
+			$("#playerlist").css({opacity:'0'});
+			$("#v").animate({left:'45%'});
+			$("#v").animate({left:'25%'});
+			$("#player1").animate({left:'25%'});
+			$("#player1").animate({left:'10%'});
+
+			$("#s").animate({left:'45%'});
+			$("#s").animate({left:'65%'});
+			$("#player2").animate({right:'15%'});
+			$("#player2").animate({right:'0%'}, function() {
+				$("#playerlist").animate({opacity:'1'});
+			});
+
+			$.getJSON("../json/get_shakestart.json",{'id':$.cookie('player_id')},function(data){
+	      		if(data[1].feedback == true){
+	      			$("#modal2").modal({	      				
+				        escapeClose: false,
+				        clickClose: false,
+				        showClose: false
+				      });
+	      			$("#anothername").html(data[2].name);
+	      			$("#name_another").html(data[2].name);
+	      			$("#level_another").html(data[2].level);
+	      			$("#anotheravtor").attr("src",data[2].avatar);
+	      			$("#anotheravtor").attr("playerid",data[2].id);
+	      			if(data[2].sex == "male"){
+	      				$("#anothersex").attr("src","../images/showmale.png");
+	      			}
+	      			if(data[2].sex == "female"){
+	      				$("#anothersex").attr("src","../images/showfemale.png");
+	      			}
+	      		}
+	      		if(data.feedback == false){
+	      		}		      		
+      			for(var n =0;  n < data[0].length;n++){
+      				var strplayer = "<div id='play_"+n+"' style='width:50%;float:left;'><img class='playeravatar' playerid="+data[0][n].id+" level=showlevel_"+n+" name=showname_"+n+" id='showplayer"+ n +"' src="+ data[0][n].avatar +"><p class='playername' id='showname_"+ n +"' >"+ data[0][n].name+"</p><p class='playerlevel' id='showlevel_"+ n +"' >Lv."+ data[0][n].level+"</p></div>";
+					document.getElementById("playerlist").innerHTML = document.getElementById("playerlist").innerHTML+strplayer; 
+      			}
+	      });
 	}
 
 

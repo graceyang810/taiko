@@ -395,7 +395,7 @@
 	}
 
 	function getscore(){
-		$.getJSON("http://59.77.6.18:4081/taikoWebService/score/score",{"id":$.cookie('player_id'),"anotherid":getParameterByName("id"),"score":$("#currentscore1").html()},function(data){
+		$.getJSON("../json/get_score.json",{"id":$.cookie('player_id'),"anotherid":getParameterByName("id"),"score":$("#currentscore1").html()},function(data){
 			$("#currentscore2").html(data[0].score);
 			console.log(data[0].score);
 		});

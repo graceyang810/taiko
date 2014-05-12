@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	function quickstart(){
 
-	      $.getJSON("http://59.77.6.18:4081/taikoWebService/process/quickstart",{'id':$.cookie('player_id')},function(data){
+	      $.getJSON("../json/get_quickstart.json",{'id':$.cookie('player_id')},function(data){
 	      		if(data[0].feedback == true){
 	      			document.location.href = "./game.html?id=" + data[1].id + "&name=" + data[1].name + "&avatar=" + data[1].avatar + "&level=" + data[1].level +"&song_name=" + data[2].song_name +"&song_rhythem=" + data[3].rhythmURL;
 	      		}
