@@ -37,7 +37,7 @@ public class SelectMusicServlet extends HttpServlet {
 		Message msg = new Message();
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
-		int musicid = Integer.parseInt(request.getParameter("song_id"));
+		int musicid = Integer.parseInt(request.getParameter("song_id"))+1;
 
 		TableShakeRoomOperator sRoomOp = new TableShakeRoomOperator();
 		DBOperator dbOp = new DBOperator();

@@ -1,5 +1,6 @@
 package com.taiko.database;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
@@ -39,8 +40,12 @@ public class TableMusicOperator {
 		try{
 		rs.next();
 		name = rs.getString("MusicName");
+		name = new String(name.getBytes("ISO-8859-1"),"GB2312");
 		}catch (SQLException e) {  
             System.out.println("查询name数据库时出错：");  
+            e.printStackTrace();  
+        }catch (UnsupportedEncodingException e) {  
+            System.out.println("转码出错");  
             e.printStackTrace();  
         }
 		return name;

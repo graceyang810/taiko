@@ -36,14 +36,14 @@ public class ScoreServlet extends HttpServlet {
 		Message msg = new Message();
 		
 		int myid = Integer.parseInt(request.getParameter("id"));
-		int guestid = Integer.parseInt(request.getParameter("anotherid"));
+		int oppoID = Integer.parseInt(request.getParameter("anotherid"));
 		int myscore = Integer.parseInt(request.getParameter("score"));
 
 		TableResultOperator resultOp = new TableResultOperator();
 		
 		resultOp.connectDB();		
 		resultOp.uptateValue(myid, "score", myscore);
-		int guestScore =resultOp.selectValue(guestid, "score");
+		int guestScore =resultOp.selectValue(oppoID, "score");
 		Score score = new Score(guestScore);
 		msg.addInfo(score);
 			

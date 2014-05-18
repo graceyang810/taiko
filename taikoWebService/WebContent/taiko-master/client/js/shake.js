@@ -11,22 +11,25 @@ $(document).ready(function(){
     var last_update = 0;
     var x = y = z = last_x = last_y = last_z = 0;
 
+
     if (window.DeviceMotionEvent) {
         window.addEventListener('devicemotion', deviceMotionHandler, false);
     } else {
         alert('本设备不支持devicemotion事件');
     }
 
+
     function deviceMotionHandler(eventData) {
         var acceleration = eventData.accelerationIncludingGravity;
         var curTime = new Date().getTime();
-        if ((curTime - last_update) > 400) {
+        if ((curTime - last_update) > 100) {
             var diffTime = curTime - last_update;
             last_update = curTime;
             x = acceleration.x;
             y = acceleration.y;
             z = acceleration.z;
             var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
 
             if (speed > SHAKE_THRESHOLD) {
             	shake();
@@ -37,6 +40,7 @@ $(document).ready(function(){
         }
     }
 
+
 	$("#accept").click(function(){
 		$("#modal3").modal({	      				
 	        escapeClose: false,
@@ -45,6 +49,7 @@ $(document).ready(function(){
 	      });
 		waitchoosesong();
 	});	 
+
 
 	function waitchoosesong(){		
 		$.getJSON("http://59.77.6.18:4081/taikoWebService/process/response",{'id':$.cookie('player_id'),'anotherid':$("#anotheravtor").attr("playerid"),'feedback':1},function(data){
@@ -58,11 +63,13 @@ $(document).ready(function(){
 		});
 	}
 
+
 	$("#refuse").click(function(){	
 		$.getJSON("http://59.77.6.18:4081/taikoWebService/process/response",{'id':$.cookie('player_id'),'anotherid':$("#anotheravtor").attr("playerid"),'feedback':0},function(data){
 			console.log("拒绝");
 		});		
 	})
+
 
 	$("#send").click(function(){
 		$("#modal1").modal({	      				
@@ -72,6 +79,7 @@ $(document).ready(function(){
 	      });
 		sendinvite();	
 	});
+
 
 	function sendinvite(){
 		$.getJSON("http://59.77.6.18:4081/taikoWebService/process/invite",{'id':$.cookie('player_id'),'anotherid':$("#avatar2").attr("playerid")},function(data){
@@ -97,6 +105,7 @@ $(document).ready(function(){
 						document.location.href='./choosesong.html?id='+$('#avatar2').attr('playerid')+'&name='+$('#name2').html()+'&avatar='+$('#avatar2').attr('src')+'&level='+sendlevel +'&songnum='+ data[2].length;
 					},3000);
 
+
 				}
 				if(data[1].resp == 0){
 					$("#modal4").modal({	      				
@@ -114,6 +123,7 @@ $(document).ready(function(){
 		});			
 	}
 
+
 	function shake(){
 			$("#playerlist").empty();
 			$("#playerlist").css({opacity:'0'});
@@ -122,6 +132,7 @@ $(document).ready(function(){
 			$("#player1").animate({left:'25%'});
 			$("#player1").animate({left:'10%'});
 
+
 			$("#s").animate({left:'45%'});
 			$("#s").animate({left:'65%'});
 			$("#player2").animate({right:'15%'});
@@ -129,7 +140,9 @@ $(document).ready(function(){
 				$("#playerlist").animate({opacity:'1'});
 			});
 
+
 			$.getJSON("http://59.77.6.18:4081/taikoWebService/process/shakestart",{'id':$.cookie('player_id')},function(data){
+				$("#playerlist").empty();
 	      		if(data[1].feedback == true){
 	      			$("#modal2").modal({	      				
 				        escapeClose: false,
@@ -151,11 +164,14 @@ $(document).ready(function(){
 	      		if(data.feedback == false){
 	      		}		      		
       			for(var n =0;  n < data[0].length;n++){
-      				var strplayer = "<div id='play_"+n+"' style='width:50%;float:left;'><img class='playeravatar' playerid="+data[0][n].id+" level=showlevel_"+n+" name=showname_"+n+" id='showplayer"+ n +"' src="+ data[0][n].avatar +"><p class='playername' id='showname_"+ n +"' >"+ data[0][n].name+"</p><p class='playerlevel' id='showlevel_"+ n +"' >Lv."+ data[0][n].level+"</p></div>";
-					document.getElementById("playerlist").innerHTML = document.getElementById("playerlist").innerHTML+strplayer; 
+  					var strplayer = "<div id='play_"+n+"' style='width:50%;float:left;'><img class='playeravatar' playerid="+data[0][n].id+" level=showlevel_"+n+" name=showname_"+n+" id='showplayer"+ n +"' src="+ data[0][n].avatar +"><p class='playername' id='showname_"+ n +"' >"+ data[0][n].name+"</p><p class='playerlevel' id='showlevel_"+ n +"' >Lv."+ data[0][n].level+"</p></div>";
+  					document.getElementById("playerlist").innerHTML = document.getElementById("playerlist").innerHTML+strplayer; 
+  				
       			}
 	      });
 	}
+	$.shake = shake;
+
 
 
 	$("#playerlist").on("click", ".playeravatar", function(){

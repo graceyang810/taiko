@@ -22,10 +22,10 @@ public class TableResultOperator {
 	}
 
 	public boolean updateResult(int id, int score, int perfect, int cool,
-			int miss, int combo) {
+			int miss, int combo, int status) {
 		sql = "update resulttable set score = " + score + ", perfect = "
 				+ perfect + ", cool = " + cool + ", miss = " + miss
-				+ ", combo =" + combo + " where id = " + id;
+				+ ", combo =" + combo+ ", status =" + status + " where id = " + id;
 		db.updateSQL(sql);
 		return true;
 	}
@@ -38,17 +38,36 @@ public class TableResultOperator {
 	}
 
 	public boolean insertResult(int id) {
-		sql = "insert into resulttable(id) values (" + id + ");";
+		sql = "insert into resulttable(id) values (" + id + ")";
 		db.insertSQL(sql);
 		return true;
 	}
 	
-	public boolean deleteApply(int id) {
+	public boolean deleteResult(int id) {
 		sql = "delete from resulttable where id = " + id;
 		db.deleteSQL(sql);
 		return true;
 	}
 	
+	public int selectStatus(int id) {
+		sql = "select Status from resulttable where id = " + id;
+		int status = 0;
+		ResultSet rs = db.selectSQL(sql);
+		try {
+			rs.next();
+			status = rs.getInt("feedback");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
+	public boolean updateStatus(int id, int Status) {
+		sql = "update resulttable set Status = " + Status
+				+ " where id = " + id;
+		db.updateSQL(sql);
+		return true;
+	}
 //	public ResultSet selectResult(int id){
 //		sql = "select * from resulttable where id = " + id;
 //		ResultSet rs = db.selectSQL(sql);

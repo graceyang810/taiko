@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	for(var n = 0; n < getParameterByName("songnum"); n++){
-		var strsong = "<li class='songs' id='song_"+n+"' ><h2 class='songname' id="+ $.cookie('songlist'+n+'_id') +" >"+ $.cookie('songlist'+n+'_name')+"</h2><p class='songlevel' style='margin-top:20px;'>难度: Lv.<span id='songlevel_"+n+"'>" + $.cookie('songlist'+n+'_level') + "</span></p></li>";
+		var strsong = "<li class='songs' id='song_"+n+"' ><h2 class='songname leap-click leap-interactive' id="+ $.cookie('songlist'+n+'_id') +" >"+ $.cookie('songlist'+n+'_name')+"</h2><p class='songlevel' style='margin-top:20px;'>难度: Lv.<span id='songlevel_"+n+"'>" + $.cookie('songlist'+n+'_level') + "</span></p></li>";
 		document.getElementById("list").innerHTML = document.getElementById("list").innerHTML+strsong;
 	}
 	$(".songname").on("click",function(){

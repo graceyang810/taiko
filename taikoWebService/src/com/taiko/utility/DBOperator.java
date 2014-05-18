@@ -27,7 +27,7 @@ public class DBOperator {// EntityGetter?
 		TableMusicOperator musicOp = new TableMusicOperator();
 		musicOp.connectDB();
 		// id,name,level
-		Music m = new Music(id, musicOp.selectMusicName(id),
+		Music m = new Music(id-1, musicOp.selectMusicName(id),
 				musicOp.selectMusicDifficulty(id));
 		musicOp.disconnectDB();
 		return m;

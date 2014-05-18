@@ -56,11 +56,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>shakeStart</servlet-name>
-<<<<<<< HEAD
-		<url-pattern>/process/shake</url-pattern>
-=======
 		<url-pattern>/process/shakestart</url-pattern>
->>>>>>> e41710c5b5e6681206647a557936fc2f69364131
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>shakeInvite</servlet-name>

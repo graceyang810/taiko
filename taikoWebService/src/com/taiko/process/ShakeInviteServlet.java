@@ -104,10 +104,12 @@ public class ShakeInviteServlet extends HttpServlet {
 			msg.addInfo(mList);
 			System.out.println("qualified music count = "+count);
 			musicOp.disconnectDB();
+//			sRoomOp.deleteRoomByHost(myid); //guest获取歌曲信息后删除
 		}else if(resp.getResp() == 0){
 			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			msg.addInfo(resp);
+			sRoomOp.deleteRoomByHost(myid);
 		}else
 			msg.addInfo(feedback);
 		

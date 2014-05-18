@@ -1,5 +1,6 @@
 package com.taiko.database;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -11,8 +12,21 @@ public class TableUserOperator {
 	// 插入数据库 新用户
 	public int insertUser(String name, String password, String gender,
 			String photo) {
+		try {
+			name = new String(name.getBytes("ISO-8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("转码出错");
+			e.printStackTrace();
+		}
 		sql = "insert into UserTable(UserName,Password,Gender,PhotoURL) values('"
-				+ name + "','" + password + "','" + gender + "','" + photo + "')";
+				+ name
+				+ "','"
+				+ password
+				+ "','"
+				+ gender
+				+ "','"
+				+ photo
+				+ "')";
 		db.insertSQL(sql);
 		sql = "SELECT LAST_INSERT_ID()";
 		int id = 0;
@@ -28,20 +42,20 @@ public class TableUserOperator {
 	}
 
 	// 查询语句 id、username\password\gender\exp\level\photo
-//	public int selectUserID(String name) {
-//		sql = "select ID from UserTable where UserName = '" + name + "'";
-//		int id = 0;
-//		ResultSet rs = db.selectSQL(sql);
-//		try {
-//			while (rs.next())
-//				id = rs.getInt("ID");
-//		} catch (SQLException e) {
-//			System.out.println("查询id数据库时出错：");
-//			e.printStackTrace();
-//		}
-//		return id;
-//	}
-		
+	// public int selectUserID(String name) {
+	// sql = "select ID from UserTable where UserName = '" + name + "'";
+	// int id = 0;
+	// ResultSet rs = db.selectSQL(sql);
+	// try {
+	// while (rs.next())
+	// id = rs.getInt("ID");
+	// } catch (SQLException e) {
+	// System.out.println("查询id数据库时出错：");
+	// e.printStackTrace();
+	// }
+	// return id;
+	// }
+
 	public String selectUserName(int id) {
 		sql = "select UserName from UserTable where ID = " + id;
 		String username = null;
@@ -49,8 +63,12 @@ public class TableUserOperator {
 		try {
 			while (rs.next())
 				username = rs.getString("UserName");
+			username = new String(username.getBytes("ISO-8859-1"), "UTF-8");
 		} catch (SQLException e) {
 			System.out.println("查询username数据库时出错：");
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("转码出错");
 			e.printStackTrace();
 		}
 		return username;
@@ -102,8 +120,8 @@ public class TableUserOperator {
 		sql = "select Level from UserTable where ID = " + id;
 		int level = 0;
 		ResultSet rs = db.selectSQL(sql);
-//		ResultSet rs = null;
-//		rs = db.selectSQL(sql);
+		// ResultSet rs = null;
+		// rs = db.selectSQL(sql);
 		try {
 			rs.next();
 			level = rs.getInt("Level");

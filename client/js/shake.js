@@ -151,8 +151,9 @@ $(document).ready(function(){
 	      		if(data.feedback == false){
 	      		}		      		
       			for(var n =0;  n < data[0].length;n++){
-      				var strplayer = "<div id='play_"+n+"' style='width:50%;float:left;'><img class='playeravatar' playerid="+data[0][n].id+" level=showlevel_"+n+" name=showname_"+n+" id='showplayer"+ n +"' src="+ data[0][n].avatar +"><p class='playername' id='showname_"+ n +"' >"+ data[0][n].name+"</p><p class='playerlevel' id='showlevel_"+ n +"' >Lv."+ data[0][n].level+"</p></div>";
+	  				var strplayer = "<div id='play_"+n+"' style='width:50%;float:left;'><img class='playeravatar' playerid="+data[0][n].id+" level=showlevel_"+n+" name=showname_"+n+" id='showplayer"+ n +"' src="+ data[0][n].avatar +"><p class='playername' id='showname_"+ n +"' >"+ data[0][n].name+"</p><p class='playerlevel' id='showlevel_"+ n +"' >Lv."+ data[0][n].level+"</p></div>";
 					document.getElementById("playerlist").innerHTML = document.getElementById("playerlist").innerHTML+strplayer; 
+				
       			}
 	      });
 	}

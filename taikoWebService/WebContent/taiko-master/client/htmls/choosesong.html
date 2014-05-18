@@ -1,3 +1,4 @@
+<!-- leap finished -->
 <html>
 <head>
 	<title>太鼓达人leap测试版</title>
@@ -17,8 +18,8 @@
 <body>
 	<audio id="buttonplayer" src="../audios/button.ogg"></audio>
 	<p style="position:absolute;top:15%;width:100%;left:10%;font-size:40pt;color:yellow;">选择歌曲</p>
-	<a id="letsgo"><img style="position:absolute;right:10%;bottom:10%;width:25%;" src="../images/letsgo.png"></a>	
-	<a id="goback" href="../htmls/mode.html"><img id="pic3" style="position:absolute;top:2%;right:2%;" src="../images/btn_back.png"></a>
+	<a id="letsgo"><img class="leap-click leap-interactive" style="position:absolute;right:10%;bottom:10%;width:25%;" src="../images/letsgo.png"></a>	
+	<a id="goback" href="../htmls/mode.html"><img class="leap-click leap-interactive" id="pic3" style="position:absolute;top:2%;right:2%;" src="../images/btn_back.png"></a>
 	<img class="updown1" id="drum0" src="../images/drum0.png">
 	<img class="updown2" id="drum1" src="../images/drum1.png">
 	<div id="songlist">
@@ -41,4 +42,11 @@
 		document.getElementById('buttonplayer').volume = 0.9
 	}	
 </script>
+
+	<script>
+        LeapManager.init({
+            enableMetaGestures: true,
+            maxCursors: 1,
+        });
+    </script>
 </html>

@@ -137,9 +137,11 @@
 		if ($(event.target).attr("id") == "_drum0") {
 			// alert("left");
 			op_left();
+			getscore();
 		} else if ($(event.target).attr("id") == "_drum1") {
 			// alert("right");
 			op_right();
+			getscore();
 		}
 	    // if (e.target.nodeName !== 'INPUT') {
 	    //     e.preventDefault();
@@ -181,7 +183,6 @@
 	var miss = 0;
 	var cool = 0;
 	var perfect = 0;
-
 	$(document).keydown(function(event){ 		
 		if(event.keyCode == 70){
 			op_left();
@@ -196,38 +197,7 @@
 			$( '#ready').trigger( 'click');
 		}
 	})  
-
-	var SHAKE_THRESHOLD = 800;
-    var last_update = 0;
-    var x = y = z = last_x = last_y = last_z = 0;
-
-    if (window.DeviceMotionEvent) {
-        window.addEventListener('devicemotion', deviceMotionHandler, false);
-    } else {
-        alert('本设备不支持devicemotion事件');
-    }
-
-    function deviceMotionHandler(eventData) {
-        var acceleration = eventData.accelerationIncludingGravity;
-        var curTime = new Date().getTime();
-
-        if ((curTime - last_update) > 100) {
-            var diffTime = curTime - last_update;
-            last_update = curTime;
-            x = acceleration.x;
-            y = acceleration.y;
-            z = acceleration.z;
-            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-
-            if (speed > SHAKE_THRESHOLD) {
-            	$( '#ready').trigger( 'click');
-            }
-            last_x = x;
-            last_y = y;
-            last_z = z;
-        }
-    }
-
+	
 
 	function op_left(){
 
@@ -395,7 +365,7 @@
 	}
 
 	function getscore(){
-		$.getJSON("../json/get_score.json",{"id":$.cookie('player_id'),"anotherid":getParameterByName("id"),"score":$("#currentscore1").html()},function(data){
+		$.getJSON("http://59.77.6.18:4081/taikoWebService/score/score",{"id":$.cookie('player_id'),"anotherid":getParameterByName("id"),"score":$("#currentscore1").html()},function(data){
 			$("#currentscore2").html(data[0].score);
 			console.log(data[0].score);
 		});

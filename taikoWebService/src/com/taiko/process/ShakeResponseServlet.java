@@ -60,7 +60,7 @@ public class ShakeResponseServlet extends HttpServlet {
 		
 		//检查是否获得选歌结果
 		int musicid = sRoomOp.selectMusic(hostid);
-		if(musicid != 0){//已经有选定的歌曲
+		if(musicid != -1){//已经有选定的歌曲
 			feedback.setFeedback(true);
 			msg.addInfo(feedback);
 			msg = dbOp.addMusicInfo(msg, musicid);	

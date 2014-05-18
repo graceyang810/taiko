@@ -49,7 +49,8 @@ public class UserRegisterServlet extends HttpServlet {
 
 		// ID id= new ID(userOp.selectUserID(request.getParameter("name")));
 		msg.addInfo(id);
-
+		
+//		out.write(request.getParameter("name"));
 		out.write(msg.toJson());
 		out.flush();
 		out.close();
